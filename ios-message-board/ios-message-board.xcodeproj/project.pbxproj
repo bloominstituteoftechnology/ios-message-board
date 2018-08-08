@@ -11,6 +11,7 @@
 		13E766B4211B787C00256D2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E766B2211B787C00256D2C /* Main.storyboard */; };
 		13E766B6211B787D00256D2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E766B5211B787D00256D2C /* Assets.xcassets */; };
 		13E766B9211B787D00256D2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E766B7211B787D00256D2C /* LaunchScreen.storyboard */; };
+		13E766C1211B8CDC00256D2C /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E766C0211B8CDC00256D2C /* MessageThreadsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		13E766B5211B787D00256D2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13E766B8211B787D00256D2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13E766BA211B787D00256D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E766C0211B8CDC00256D2C /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +56,20 @@
 			children = (
 				13E766AE211B787C00256D2C /* AppDelegate.swift */,
 				13E766B2211B787C00256D2C /* Main.storyboard */,
+				13E766C2211B8CE700256D2C /* View Controllers */,
 				13E766B5211B787D00256D2C /* Assets.xcassets */,
 				13E766B7211B787D00256D2C /* LaunchScreen.storyboard */,
 				13E766BA211B787D00256D2C /* Info.plist */,
 			);
 			path = "ios-message-board";
+			sourceTree = "<group>";
+		};
+		13E766C2211B8CE700256D2C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13E766C0211B8CDC00256D2C /* MessageThreadsTableViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13E766AF211B787C00256D2C /* AppDelegate.swift in Sources */,
+				13E766C1211B8CDC00256D2C /* MessageThreadsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
