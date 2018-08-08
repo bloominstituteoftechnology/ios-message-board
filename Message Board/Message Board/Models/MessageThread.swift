@@ -25,13 +25,13 @@ class MessageThread: Equatable, Codable {
         }
     }
     
-    init(title: String, identifier: UUID().uuidString, messages: [MessageThread.Message] = []) {
+    init(title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
         self.title = title
         self.identifier = identifier
         self.messages = messages
     }
     
-    func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
+    static func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
         return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.messages == rhs.messages
     }
 }
