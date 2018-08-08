@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +22,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cGx-n0-bmX">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a new thread" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cGx-n0-bmX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -115,12 +116,66 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Thread" id="pDs-6z-e7A">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MMw-r6-vcH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MMw-r6-vcH">
+                            <connections>
+                                <segue destination="EYp-nv-dlm" kind="show" identifier="CreateThreadReplySegue" id="n6S-U8-D6j"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obn-Jy-pDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2098" y="122"/>
+            <point key="canvasLocation" x="1945" y="122"/>
+        </scene>
+        <!--Message-->
+        <scene sceneID="KF2-Dq-hDB">
+            <objects>
+                <viewController id="EYp-nv-dlm" customClass="MessageDetailViewController" customModule="ios_message_board" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GGr-kY-ANF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WF6-VO-WUg">
+                                <rect key="frame" x="15" y="131" width="345" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3ln-0a-76h">
+                                <rect key="frame" x="15" y="169" width="345" height="339"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3ln-0a-76h" firstAttribute="centerX" secondItem="GGr-kY-ANF" secondAttribute="centerX" id="3Om-Bu-VEB"/>
+                            <constraint firstItem="WF6-VO-WUg" firstAttribute="top" secondItem="30c-Mq-UR6" secondAttribute="top" constant="15" id="55E-8l-Au8"/>
+                            <constraint firstItem="3ln-0a-76h" firstAttribute="top" secondItem="WF6-VO-WUg" secondAttribute="bottom" constant="8" id="7Vy-O9-R6c"/>
+                            <constraint firstItem="30c-Mq-UR6" firstAttribute="trailing" secondItem="WF6-VO-WUg" secondAttribute="trailing" constant="15" id="Isy-pW-eOb"/>
+                            <constraint firstItem="3ln-0a-76h" firstAttribute="leading" secondItem="30c-Mq-UR6" secondAttribute="leading" constant="15" id="Z3y-Gf-ROl"/>
+                            <constraint firstItem="30c-Mq-UR6" firstAttribute="bottom" secondItem="3ln-0a-76h" secondAttribute="bottom" constant="159" id="bP5-s4-fK8"/>
+                            <constraint firstItem="30c-Mq-UR6" firstAttribute="trailing" secondItem="3ln-0a-76h" secondAttribute="trailing" constant="15" id="tcT-tg-5Os"/>
+                            <constraint firstItem="WF6-VO-WUg" firstAttribute="leading" secondItem="30c-Mq-UR6" secondAttribute="leading" constant="15" id="wJf-6c-kUN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="30c-Mq-UR6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Message" id="x92-5s-khN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5Xy-1e-E7y">
+                            <connections>
+                                <action selector="addMessage:" destination="EYp-nv-dlm" id="7YH-b3-yUG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="WF6-VO-WUg" id="MA6-jR-e8t"/>
+                        <outlet property="textView" destination="3ln-0a-76h" id="7NL-HR-NCo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acl-yF-y5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2805.5999999999999" y="121.88905547226388"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tz6-Ug-k66">
