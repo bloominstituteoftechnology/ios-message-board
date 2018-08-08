@@ -330,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6G6Q9E6ZA;
-				INFOPLIST_FILE = MessageBoard/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MessageBoard/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6G6Q9E6ZA;
-				INFOPLIST_FILE = MessageBoard/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MessageBoard/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
