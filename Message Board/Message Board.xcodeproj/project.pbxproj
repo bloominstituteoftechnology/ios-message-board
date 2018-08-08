@@ -15,6 +15,7 @@
 		8FC3C524211B8EA900DA4EE4 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC3C523211B8EA900DA4EE4 /* MessageThreadDetailTableViewController.swift */; };
 		8FC3C526211B901D00DA4EE4 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC3C525211B901D00DA4EE4 /* MessageDetailViewController.swift */; };
 		8FC3C528211B918B00DA4EE4 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC3C527211B918B00DA4EE4 /* MessageThread.swift */; };
+		8FC3C52A211B960100DA4EE4 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC3C529211B960100DA4EE4 /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8FC3C523211B8EA900DA4EE4 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		8FC3C525211B901D00DA4EE4 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		8FC3C527211B918B00DA4EE4 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		8FC3C529211B960100DA4EE4 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				8FC3C523211B8EA900DA4EE4 /* MessageThreadDetailTableViewController.swift */,
 				8FC3C525211B901D00DA4EE4 /* MessageDetailViewController.swift */,
 				8FC3C527211B918B00DA4EE4 /* MessageThread.swift */,
+				8FC3C529211B960100DA4EE4 /* MessageThreadController.swift */,
 			);
 			path = "Message Board";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				8FC3C526211B901D00DA4EE4 /* MessageDetailViewController.swift in Sources */,
 				8FC3C528211B918B00DA4EE4 /* MessageThread.swift in Sources */,
 				8FC3C522211B8D4D00DA4EE4 /* MessageThreadsTableViewController.swift in Sources */,
+				8FC3C52A211B960100DA4EE4 /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

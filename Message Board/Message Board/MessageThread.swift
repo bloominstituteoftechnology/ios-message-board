@@ -13,10 +13,10 @@ class MessageThread: Codable, Equatable {
     let identifier: String
     var messages: [MessageThread.Message]
     
-    init(title: String, identifier: String, messages: [MessageThread.Message]) {
+    init(title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
         self.title = title
-        self.identifier = UUID().uuidString
-        self.messages = []
+        self.identifier = identifier
+        self.messages = messages
     }
     
     struct Message: Equatable, Codable {
