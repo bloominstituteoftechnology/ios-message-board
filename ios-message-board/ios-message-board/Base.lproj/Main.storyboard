@@ -84,7 +84,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="qLa-V6-V1p" detailTextLabel="vs8-25-hT4" style="IBUITableViewCellStyleSubtitle" id="v1T-2u-Q8G">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" textLabel="qLa-V6-V1p" detailTextLabel="vs8-25-hT4" style="IBUITableViewCellStyleSubtitle" id="v1T-2u-Q8G">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v1T-2u-Q8G" id="6V1-WA-8Pw">
@@ -107,9 +107,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="vzc-4l-cJE" kind="show" identifier="ShowMessageDetail" id="Y5X-7g-ZDk"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -118,7 +115,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="PeH-oE-yui">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ntg-JQ-Uaf"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ntg-JQ-Uaf">
+                            <connections>
+                                <segue destination="vzc-4l-cJE" kind="show" identifier="ShowMessageDetail" id="dDm-GS-TPZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayh-aD-oTy" userLabel="First Responder" sceneMemberID="firstResponder"/>

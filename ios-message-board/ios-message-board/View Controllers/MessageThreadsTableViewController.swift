@@ -27,6 +27,7 @@ class MessageThreadsTableViewController: UITableViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.threadTextField.text = ""
             }
         }
     }
