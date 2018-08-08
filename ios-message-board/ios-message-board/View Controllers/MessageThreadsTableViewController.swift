@@ -17,18 +17,30 @@ class MessageThreadsTableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func create(_ sender: Any) {
+        guard let title = threadTextField?.text else { return }
+        
+        messageThreadController.createMessageThread(withTitle: title) { (error) in
+            if let error = error {
+                NSLog("Error saving new message thread: \(error)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return messageThreadController.messageThreads.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageThreadCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = messageThreadController.messageThreads[indexPath.row].title
 
         return cell
     }
@@ -36,7 +48,16 @@ class MessageThreadsTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowThreadDetail" {
+            guard let detailVC = segue.destination as? MessageThreadDetailTableViewController,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
+            let messageThread = messageThreadController.messageThreads[indexPath.row]
+            detailVC.messageThread = messageThread
+            detailVC.messageThreadController = messageThreadController
+        }
     }
+    
+    var messageThreadController: MessageThreadController = MessageThreadController()
     
     @IBOutlet weak var threadTextField: UITextField!
     
