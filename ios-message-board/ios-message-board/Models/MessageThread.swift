@@ -9,13 +9,18 @@
 import Foundation
 
 class MessageThread: Codable, Equatable {
+    init(title: String, identifier: String = UUID().uuidString) {
+        self.title = title
+        self.identifier = identifier
+    }
+    
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
         return lhs.identifier == rhs.identifier &&
         lhs.title == lhs.identifier
     }
     
     let title: String
-    let identifier: String = UUID().uuidString
+    let identifier: String
     
     var messages: [MessageThread.Message] = []
     

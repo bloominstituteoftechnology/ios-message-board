@@ -10,6 +10,7 @@
 		1397F00A211B8FA900D3C584 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397F009211B8FA900D3C584 /* MessageThreadDetailTableViewController.swift */; };
 		1397F00C211B91B600D3C584 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397F00B211B91B600D3C584 /* MessageDetailViewController.swift */; };
 		1397F00E211B93E000D3C584 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397F00D211B93E000D3C584 /* MessageThread.swift */; };
+		1397F011211B969900D3C584 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397F010211B969900D3C584 /* MessageThreadController.swift */; };
 		13E766AF211B787C00256D2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E766AE211B787C00256D2C /* AppDelegate.swift */; };
 		13E766B4211B787C00256D2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E766B2211B787C00256D2C /* Main.storyboard */; };
 		13E766B6211B787D00256D2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E766B5211B787D00256D2C /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		1397F009211B8FA900D3C584 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		1397F00B211B91B600D3C584 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		1397F00D211B93E000D3C584 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		1397F010211B969900D3C584 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 		13E766AB211B787C00256D2C /* ios-message-board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-message-board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E766AE211B787C00256D2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13E766B3211B787C00256D2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1397F012211B96A700D3C584 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1397F010211B969900D3C584 /* MessageThreadController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
 		13E766A2211B787C00256D2C = {
 			isa = PBXGroup;
 			children = (
@@ -69,12 +79,13 @@
 			isa = PBXGroup;
 			children = (
 				13E766AE211B787C00256D2C /* AppDelegate.swift */,
+				1397F00F211B93E400D3C584 /* Models */,
+				1397F012211B96A700D3C584 /* Model Controllers */,
 				13E766C2211B8CE700256D2C /* View Controllers */,
 				13E766B2211B787C00256D2C /* Main.storyboard */,
 				13E766B7211B787D00256D2C /* LaunchScreen.storyboard */,
 				13E766BA211B787D00256D2C /* Info.plist */,
 				13E766B5211B787D00256D2C /* Assets.xcassets */,
-				1397F00F211B93E400D3C584 /* Models */,
 			);
 			path = "ios-message-board";
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 				1397F00A211B8FA900D3C584 /* MessageThreadDetailTableViewController.swift in Sources */,
 				1397F00E211B93E000D3C584 /* MessageThread.swift in Sources */,
 				13E766C1211B8CDC00256D2C /* MessageThreadsTableViewController.swift in Sources */,
+				1397F011211B969900D3C584 /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
