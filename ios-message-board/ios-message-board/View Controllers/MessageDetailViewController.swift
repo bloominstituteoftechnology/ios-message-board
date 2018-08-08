@@ -15,10 +15,26 @@ class MessageDetailViewController: UIViewController {
     }
 
     @IBAction func addMessage(_ sender: Any) {
+        guard let textField = textField.text,
+            let textView = textView.text,
+            let messageThread = messageThread else { return }
         
+        messageThreadController?.createMessage(messageThread: messageThread, text: textView, sender: textField, completion: { (error) in
+            
+            if let error = error {
+                NSLog("There was an error creating a message for this thread: \(messageThread): \(error)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     // MARK: - Properties
     @IBOutlet var textField: UITextField!
     @IBOutlet var textView: UITextView!
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 }
