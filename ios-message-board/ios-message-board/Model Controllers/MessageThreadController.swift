@@ -17,6 +17,36 @@ class MessageThreadController {
         case delete = "DELETE"
     }
     
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error fetching data: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let messageThreadDictionaries = try jsonDecoder.decode([String : MessageThread].self, from: data)
+                self.messageThreads = messageThreadDictionaries.map { $0.value }
+                completion(nil)
+            } catch {
+                NSLog("Error decoding data: \(data)")
+                completion(NSError())
+                return
+            }
+        }.resume()
+    }
+    
     func createMessageThread(withTitle title: String, completion: @escaping (Error?) -> Void) {
         let messageThread = MessageThread(title: title)
         let url = MessageThreadController.baseURL
