@@ -48,7 +48,10 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-            completion(nil)
+            DispatchQueue.main.async {
+                self.messageThreads.append(messageThread)
+                completion(nil)
+            }   
         }.resume()
     }
     
@@ -76,6 +79,37 @@ class MessageThreadController {
                 return
             }
             messageThread.messages.append(message)
+            completion(nil)
+        }.resume()
+    }
+    
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error saving message to server: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let messageThreadDictionaries = try JSONDecoder().decode([String: MessageThread].self, from: data)
+                let messageThreads = messageThreadDictionaries.map({ $0.value })
+                self.messageThreads = messageThreads
+            } catch {
+                NSLog("Error decoding received data: \(error)")
+                completion(error)
+                return
+            }
             completion(nil)
         }.resume()
     }

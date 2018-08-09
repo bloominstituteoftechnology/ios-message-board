@@ -26,6 +26,21 @@ class MessageThreadsTableViewController: UITableViewController {
                 NSLog("Error creating message thread: \(error)")
                 return
             }
+        
+            self.tableView.reloadData()
+        }
+    }
+    
+    // MARK: - View Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        messageThreadController.fetchMessageThreads { (error) in
+            if let error = error {
+                NSLog("Error fetching message threads: \(error)")
+                return
+            }
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
