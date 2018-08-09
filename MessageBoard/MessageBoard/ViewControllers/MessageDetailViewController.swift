@@ -8,35 +8,31 @@
 
 import UIKit
 
-class MessageDetailViewController: UIViewController {
-
+class MessageDetailViewController: UIViewController
+{
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var textView: UITextView!
     
-    @IBAction func send(_ sender: Any) {
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
+    
+    @IBAction func send(_ sender: Any)
+    {
+        guard let messageThread = messageThread,
+            let name = nameTextField.text,
+            let messageText = textView.text else {return}
+        
+        messageThreadController?.createMessage(messageThread: messageThread, text: messageText, sender: name, completion: { (error) in
+            if let error = error
+            {
+                NSLog("problem creating new messageThread \(error)")
+                return
+            }
+            
+        })
+        self.navigationController?.popViewController(animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

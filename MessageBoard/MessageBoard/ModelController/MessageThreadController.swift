@@ -36,7 +36,11 @@ class MessageThreadController
                 completion(error)
                 return
             }
-            completion(nil)
+            DispatchQueue.main.async {
+                self.messageThreads.append(messageThread)
+                completion(nil)
+            }
+            
         }
         .resume()
     }
@@ -64,16 +68,46 @@ class MessageThreadController
                 completion(error)
                 return
             }
-            else
-            {
-                messageThread.messages.append(aMessageThread)
-            }
+            messageThread.messages.append(aMessageThread)
             completion(nil)
         }
         .resume()
     }
     
-    
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void)
+    {
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error
+            {
+                NSLog("error \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let messageThreadDictionaries = try jsonDecoder.decode([String: MessageThread].self, from: data)
+                let messageThreads = messageThreadDictionaries.map({ $0.value })
+                self.messageThreads = messageThreads
+                //completion(nil)
+            } catch {
+                NSLog("error \(error)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
+    }
     
     
     

@@ -99,7 +99,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="343" id="SXQ-hn-Mmt"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -111,7 +110,6 @@
                             <constraint firstItem="QiL-U4-J3z" firstAttribute="trailing" secondItem="tQy-W1-d0f" secondAttribute="trailing" constant="16" id="ROc-Wn-AbO"/>
                             <constraint firstItem="tQy-W1-d0f" firstAttribute="top" secondItem="QiL-U4-J3z" secondAttribute="top" constant="22" id="c7M-F6-AVc"/>
                             <constraint firstItem="pTl-fg-c8m" firstAttribute="top" secondItem="tQy-W1-d0f" secondAttribute="bottom" constant="8" id="cG2-Pj-lwy"/>
-                            <constraint firstItem="QiL-U4-J3z" firstAttribute="bottom" secondItem="pTl-fg-c8m" secondAttribute="bottom" constant="200" id="gmd-Xz-5lc"/>
                             <constraint firstItem="QiL-U4-J3z" firstAttribute="trailing" secondItem="pTl-fg-c8m" secondAttribute="trailing" constant="16" id="nrI-YY-C3K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QiL-U4-J3z"/>
