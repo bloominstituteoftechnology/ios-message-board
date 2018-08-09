@@ -7,13 +7,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--λ Message Board-->
         <scene sceneID="lVD-u0-Fue">
             <objects>
-                <tableViewController id="4yZ-DG-A5D" sceneMemberID="viewController">
+                <tableViewController id="4yZ-DG-A5D" customClass="TopicListTVC" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IVo-5a-PeX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,6 +28,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="createNewThread:" destination="4yZ-DG-A5D" eventType="primaryActionTriggered" id="ayr-ZK-ANz"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,15 +69,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="λ Message Board" id="0Et-az-ins"/>
+                    <connections>
+                        <outlet property="newThreadField" destination="XUu-GA-4um" id="oWs-Tg-fJq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wt-mn-riq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="263" y="135"/>
+            <point key="canvasLocation" x="345" y="134"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Title-->
         <scene sceneID="Wym-EA-s94">
             <objects>
-                <tableViewController id="ICl-zi-LCf" sceneMemberID="viewController">
+                <tableViewController id="ICl-zi-LCf" customClass="MessageListTVC" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jkd-dd-FFM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,10 +109,59 @@
                             <outlet property="delegate" destination="ICl-zi-LCf" id="XHX-x6-cT8"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="JJy-bo-mRf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2dF-yV-Wl9">
+                            <connections>
+                                <segue destination="xc3-57-1FY" kind="show" id="FCQ-Rj-c8Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XT7-T7-Wce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047" y="138"/>
+        </scene>
+        <!--Send Message-->
+        <scene sceneID="OSQ-Pa-sEH">
+            <objects>
+                <viewController id="xc3-57-1FY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iNH-kF-kDs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="03B-Oc-3ai">
+                                <rect key="frame" x="15" y="79" width="345" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Your message here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ox-Ca-Jz1">
+                                <rect key="frame" x="15" y="124" width="345" height="528"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="O9W-XB-y8A" firstAttribute="trailing" secondItem="03B-Oc-3ai" secondAttribute="trailing" constant="15" id="5Ps-Dn-l3h"/>
+                            <constraint firstItem="O9W-XB-y8A" firstAttribute="bottom" secondItem="6Ox-Ca-Jz1" secondAttribute="bottom" constant="15" id="Lgq-Dl-Kgt"/>
+                            <constraint firstItem="6Ox-Ca-Jz1" firstAttribute="top" secondItem="03B-Oc-3ai" secondAttribute="bottom" constant="15" id="SAw-th-pXS"/>
+                            <constraint firstItem="O9W-XB-y8A" firstAttribute="trailing" secondItem="6Ox-Ca-Jz1" secondAttribute="trailing" constant="15" id="b7U-VM-KI2"/>
+                            <constraint firstItem="03B-Oc-3ai" firstAttribute="top" secondItem="O9W-XB-y8A" secondAttribute="top" constant="15" id="ciV-T8-zzW"/>
+                            <constraint firstItem="6Ox-Ca-Jz1" firstAttribute="leading" secondItem="O9W-XB-y8A" secondAttribute="leading" constant="15" id="eCW-D2-Bvd"/>
+                            <constraint firstItem="03B-Oc-3ai" firstAttribute="leading" secondItem="O9W-XB-y8A" secondAttribute="leading" constant="15" id="iFm-GZ-NaY"/>
+                            <constraint firstItem="6Ox-Ca-Jz1" firstAttribute="top" secondItem="03B-Oc-3ai" secondAttribute="bottom" constant="15" id="mAL-qQ-7mo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O9W-XB-y8A"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Send Message" id="TA4-HG-shE">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="f1Z-yq-PRj"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evN-5y-cIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740" y="141.67916041979012"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hhc-Vw-FdN">
