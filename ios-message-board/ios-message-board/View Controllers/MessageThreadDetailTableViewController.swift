@@ -12,7 +12,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = messageThread?.title ?? "Thread"
+        title = messageThread?.title
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,10 +20,11 @@ class MessageThreadDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let messageThread = messageThread else { return 1 }
-        let messagesCount = messageThread.messages.count
-        
-        return messagesCount
+        if let messageThread = messageThread {
+            return messageThread.messages.count
+        } else {
+            return 0
+        }
     }
 
     

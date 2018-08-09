@@ -23,15 +23,13 @@ class MessageThread: Codable, Equatable {
         self.messages = messages
     }
     
-    
     init(title: String, identifier: String = UUID().uuidString) {
         self.title = title
         self.identifier = identifier
     }
     
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.identifier == rhs.identifier &&
-        lhs.title == rhs.title
+        return lhs.identifier == rhs.identifier && lhs.title == rhs.title
     }
     
     let title: String
