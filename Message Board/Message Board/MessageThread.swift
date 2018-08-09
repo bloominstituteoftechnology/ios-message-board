@@ -30,7 +30,7 @@ class MessageThread: Codable, Equatable {
             timestamp = Date()
         }
     }
-    func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
+    static func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
         return lhs.identifier == rhs.identifier &&
             rhs.messages == lhs.messages &&
             rhs.title == lhs.title
