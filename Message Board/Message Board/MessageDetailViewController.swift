@@ -12,18 +12,32 @@ class MessageDetailViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
+    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
     @IBAction func send(_ sender: Any) {
+        guard let name = nameTextField.text,
+           let text = messageTextView.text,
+            let messageThread = messageThread else { return }
+        
+        messageThreadController?.createMessage(in: messageThread, withText: text, andSender: name, completion: { (error) in
+            if let error = error {
+                NSLog("Error creating a new message: \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     /*

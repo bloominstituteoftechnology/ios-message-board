@@ -43,7 +43,7 @@ class MessageThreadController {
         }.resume()
     }
     
-    func createMessage(in messageThread: MessageThread, with text: String, and sender: String, completion: @escaping (Error?) -> Void) {
+    func createMessage(in messageThread: MessageThread, withText text: String, andSender sender: String, completion: @escaping (Error?) -> Void) {
         let newMessage = MessageThread.Message(text: text, sender: sender)
         let url = MessageThreadController.baseURL
             .appendingPathComponent(messageThread.identifier)
