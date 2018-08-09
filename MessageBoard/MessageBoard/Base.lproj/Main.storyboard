@@ -124,7 +124,7 @@
         <!--Send Message-->
         <scene sceneID="OSQ-Pa-sEH">
             <objects>
-                <viewController id="xc3-57-1FY" sceneMemberID="viewController">
+                <viewController id="xc3-57-1FY" customClass="MessageDetailVC" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNH-kF-kDs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,29 +135,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Your message here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ox-Ca-Jz1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HW7-Dc-ELh">
                                 <rect key="frame" x="15" y="124" width="345" height="528"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="HW7-Dc-ELh" firstAttribute="top" secondItem="03B-Oc-3ai" secondAttribute="bottom" constant="15" id="3Qx-LO-QDA"/>
+                            <constraint firstItem="O9W-XB-y8A" firstAttribute="bottom" secondItem="HW7-Dc-ELh" secondAttribute="bottom" constant="15" id="4IT-CG-rOD"/>
                             <constraint firstItem="O9W-XB-y8A" firstAttribute="trailing" secondItem="03B-Oc-3ai" secondAttribute="trailing" constant="15" id="5Ps-Dn-l3h"/>
-                            <constraint firstItem="O9W-XB-y8A" firstAttribute="bottom" secondItem="6Ox-Ca-Jz1" secondAttribute="bottom" constant="15" id="Lgq-Dl-Kgt"/>
-                            <constraint firstItem="6Ox-Ca-Jz1" firstAttribute="top" secondItem="03B-Oc-3ai" secondAttribute="bottom" constant="15" id="SAw-th-pXS"/>
-                            <constraint firstItem="O9W-XB-y8A" firstAttribute="trailing" secondItem="6Ox-Ca-Jz1" secondAttribute="trailing" constant="15" id="b7U-VM-KI2"/>
+                            <constraint firstItem="HW7-Dc-ELh" firstAttribute="leading" secondItem="O9W-XB-y8A" secondAttribute="leading" constant="15" id="M4S-Sc-euL"/>
                             <constraint firstItem="03B-Oc-3ai" firstAttribute="top" secondItem="O9W-XB-y8A" secondAttribute="top" constant="15" id="ciV-T8-zzW"/>
-                            <constraint firstItem="6Ox-Ca-Jz1" firstAttribute="leading" secondItem="O9W-XB-y8A" secondAttribute="leading" constant="15" id="eCW-D2-Bvd"/>
                             <constraint firstItem="03B-Oc-3ai" firstAttribute="leading" secondItem="O9W-XB-y8A" secondAttribute="leading" constant="15" id="iFm-GZ-NaY"/>
-                            <constraint firstItem="6Ox-Ca-Jz1" firstAttribute="top" secondItem="03B-Oc-3ai" secondAttribute="bottom" constant="15" id="mAL-qQ-7mo"/>
+                            <constraint firstItem="O9W-XB-y8A" firstAttribute="trailing" secondItem="HW7-Dc-ELh" secondAttribute="trailing" constant="15" id="iyS-Qt-LLg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O9W-XB-y8A"/>
                     </view>
                     <navigationItem key="navigationItem" title="Send Message" id="TA4-HG-shE">
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="f1Z-yq-PRj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="f1Z-yq-PRj">
+                            <connections>
+                                <action selector="sendMessage:" destination="xc3-57-1FY" id="ZOU-xv-Lbs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="messageField" destination="HW7-Dc-ELh" id="YUq-4a-O01"/>
+                        <outlet property="nameField" destination="03B-Oc-3ai" id="idE-eP-QmN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evN-5y-cIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

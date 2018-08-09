@@ -99,5 +99,32 @@ class MessageListTVC:UITableViewController
 		cell.textLabel!.text = topic.messages[indexPath.row].text
 		return cell
 	}
+}
+
+class MessageDetailVC:UIViewController
+{
+	var message:Message!
+	var topic:MessageTopic!
+	@IBOutlet weak var nameField: UITextField!
+	@IBOutlet weak var messageField: UITextView!
+	@IBAction func sendMessage(_ sender: Any) {
+		if message != nil {
+			navigationController?.popViewController(animated: true)
+			return
+		}
+
+		guard let name = nameField.text, name != "",
+			let msg = messageField.text, msg != "" else {
+				return
+		}
+
+		App.controller.pushMessage(Message(msg, name), topic: topic) {
+			error in
+			if let error = error {
+				print(error)
+			}
+		}
+		
+	}
 
 }

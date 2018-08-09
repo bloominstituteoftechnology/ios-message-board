@@ -80,6 +80,12 @@ class MessageController
 		return req
 	}
 
+	func pushMessage(_ msg:Message, topic:MessageTopic, _ completion: @escaping CompletionHandler)
+	{
+		topic.messages.append(msg)
+		pushTopic(topic, completion)
+	}
+
 	func pushTopic(_ topic:MessageTopic, _ completion: @escaping CompletionHandler)
 	{
 		var data:Data?
