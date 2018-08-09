@@ -31,6 +31,16 @@ class MessageThreadsTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func refreshMessageThreads(_ sender: Any) {
+        messageThreadController.fetchMessageThreads { (error) in
+            if let error = error {
+                NSLog("Error fetching new message threads: \(error)")
+            }
+            
+            self.tableView.reloadData()
+        }
+    }
+    
     // MARK: - View Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
