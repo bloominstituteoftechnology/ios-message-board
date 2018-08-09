@@ -19,6 +19,29 @@ class MessageThread: Codable, Equatable {
         self.messages = messages
     }
     
+    static func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
+        return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.messages == rhs.messages
+    }
+    
+    required init(from decoder: Decoder) throws {
+        
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        
+        let title = try container.decode(String.self, forKey: .title)
+        let identifier = try container.decode(String.self, forKey: .identifier)
+        let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+        
+        
+        let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
+        
+        
+        self.title = title
+        self.identifier = identifier
+        self.messages = messages
+    }
+    
     struct Message: Equatable, Codable {
         let text: String
         let sender: String
@@ -29,10 +52,5 @@ class MessageThread: Codable, Equatable {
             self.sender = sender
             timestamp = Date()
         }
-    }
-    static func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.identifier == rhs.identifier &&
-            rhs.messages == lhs.messages &&
-            rhs.title == lhs.title
     }
 }

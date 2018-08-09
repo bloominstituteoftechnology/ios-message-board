@@ -11,8 +11,17 @@ import UIKit
 class MessageThreadsTableViewController: UITableViewController {
     @IBOutlet weak var messageTextField: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        messageThreadController.fetchMessageThreads { (error) in
+            if let error = error {
+                NSLog("Error fetching data from server: \(error)")
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 
 
