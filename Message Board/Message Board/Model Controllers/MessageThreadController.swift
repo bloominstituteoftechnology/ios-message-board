@@ -27,8 +27,10 @@ class MessageThreadController {
     
     func createMessageThread(withTitle title: String, completion: @escaping (Error?) -> Void) {
         
+        // Initialize a new MessageThread object
         let messageThread = MessageThread(title: title)
         
+        // Use appendingPathComponent to put the thread at a unique location in the API. Firebase API requires "json" at the end of the path
         let url = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier).appendingPathExtension("json")
         
         var request = URLRequest(url: url)
@@ -38,19 +40,21 @@ class MessageThreadController {
             request.httpBody = try JSONEncoder().encode(messageThread)
         } catch {
             NSLog("Unable to encode \(messageThread): \(error)")
-            completion(error)
+            completion(error) // Safe
             return
         }
         
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error saving message thread to server: \(error)")
-                completion(error)
+                DispatchQueue.main.async {
+                    completion(error) // Should be on main
+                }
                 return
             }
             DispatchQueue.main.async {
-                self.messageThreads.append(messageThread)
-                completion(nil)
+                self.messageThreads.append(messageThread) // Should be on main (it is)
+                completion(nil) // Should be on main (it is)
             }   
         }.resume()
     }
@@ -68,18 +72,22 @@ class MessageThreadController {
             request.httpBody = try JSONEncoder().encode(message)
         } catch {
             NSLog("Unable to encode \(message): \(error)")
-            completion(error)
+            completion(error) // safe
             return
         }
         
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error saving message to server: \(error)")
-                completion(error)
+                DispatchQueue.main.async {
+                    completion(error) // Should be on main
+                }
                 return
             }
-            messageThread.messages.append(message)
-            completion(nil)
+            DispatchQueue.main.async {
+                messageThread.messages.append(message) // Should be on main
+                completion(nil) // Should be on main
+            }
         }.resume()
     }
     
@@ -92,25 +100,37 @@ class MessageThreadController {
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error saving message to server: \(error)")
-                completion(error)
+                DispatchQueue.main.async {
+                    completion(error) // Should be on main
+                }
                 return
             }
             
             guard let data = data else {
-                completion(NSError())
+                DispatchQueue.main.async {
+                    completion(error) // Should be on main
+                }
                 return
             }
             
             do {
                 let messageThreadDictionaries = try JSONDecoder().decode([String: MessageThread].self, from: data)
                 let messageThreads = messageThreadDictionaries.map({ $0.value })
-                self.messageThreads = messageThreads
+                
+                DispatchQueue.main.async {
+                    self.messageThreads = messageThreads // Should be on main (it is)
+                }
+                
             } catch {
                 NSLog("Error decoding received data: \(error)")
-                completion(error)
+                DispatchQueue.main.async {
+                    completion(error) // Should be on main
+                }
                 return
             }
-            completion(nil)
+            DispatchQueue.main.async {
+                completion(error) // Should be on main
+            }
         }.resume()
     }
 }

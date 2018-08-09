@@ -41,10 +41,8 @@ class MessageThreadsTableViewController: UITableViewController {
                 NSLog("Error fetching message threads: \(error)")
                 return
             }
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+
+            self.tableView.reloadData()
         }
     }
     

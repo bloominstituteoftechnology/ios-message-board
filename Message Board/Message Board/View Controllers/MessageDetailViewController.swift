@@ -29,9 +29,9 @@ class MessageDetailViewController: UIViewController {
                 return
             }
             
-            DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
-            }
+//            DispatchQueue.main.async { // no longer necessary, since we made sure createMessage's completion handler is thread safe
+            self.navigationController?.popViewController(animated: true)
+//            }
         })
     }
 }
