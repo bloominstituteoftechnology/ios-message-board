@@ -15,6 +15,7 @@
 		947E42752124E6270041C739 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E42742124E6270041C739 /* MessageThreadDetailTableViewController.swift */; };
 		947E42772124E78A0041C739 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E42762124E78A0041C739 /* MessageDetailViewController.swift */; };
 		947E427A2124E8900041C739 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E42792124E8900041C739 /* MessageThread.swift */; };
+		947E427D2124E94C0041C739 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E427C2124E94C0041C739 /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		947E42742124E6270041C739 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		947E42762124E78A0041C739 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		947E42792124E8900041C739 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		947E427C2124E94C0041C739 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		947E425E2124DFC50041C739 /* Message Board */ = {
 			isa = PBXGroup;
 			children = (
+				947E427B2124E9230041C739 /* Model Controller */,
 				947E42782124E8770041C739 /* Model */,
 				947E42712124E3550041C739 /* View Controller */,
 				947E425F2124DFC50041C739 /* AppDelegate.swift */,
@@ -87,6 +90,14 @@
 				947E42792124E8900041C739 /* MessageThread.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		947E427B2124E9230041C739 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				947E427C2124E94C0041C739 /* MessageThreadController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 				947E42752124E6270041C739 /* MessageThreadDetailTableViewController.swift in Sources */,
 				947E427A2124E8900041C739 /* MessageThread.swift in Sources */,
 				947E42732124E3900041C739 /* MesssageThreadsTableViewController.swift in Sources */,
+				947E427D2124E94C0041C739 /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
