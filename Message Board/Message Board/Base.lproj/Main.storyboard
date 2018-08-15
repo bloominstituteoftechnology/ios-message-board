@@ -59,7 +59,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="JfG-wq-scX" kind="show" identifier="ShowDetailSegue" id="pdR-ta-2mF"/>
+                                    <segue destination="JfG-wq-scX" kind="show" identifier="ShowDetail" id="pdR-ta-2mF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
