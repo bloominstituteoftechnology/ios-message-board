@@ -44,28 +44,15 @@ class MesssageThreadsTableViewController: UITableViewController {
 
   
 
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let text = textField.text else { return }
-        messageThreadController.createMessageThread(title: text) { (error) in
-            if let error = error {
-                NSLog("Error creating new messageThread: \(error)")
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        
-    }
+ 
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
-            let destVC = segue.destination as! MessageDetailTableViewController
-            destVC.messageThreadController = messageThreadController
+            guard let detailVC = segue.destination as? MessageDetailViewController else {return}
+            detailVC.messageThreadController = messageThreadController
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            destVC.messageThread = messageThreadController.messageThreads[indexPath.row]
+            detailVC.messageThread = messageThreadController.messageThreads[indexPath.row]
         }
     }
     
@@ -75,6 +62,15 @@ class MesssageThreadsTableViewController: UITableViewController {
     
     
     @IBAction func textFieldAction(_ sender: Any) {
+        guard let text = textField.text else { return }
+        messageThreadController.createMessageThread(title: text) { (error) in
+            if let error = error {
+                NSLog("Error creating new messageThread: \(error)")
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     @IBOutlet weak var textField: UITextField!
     
