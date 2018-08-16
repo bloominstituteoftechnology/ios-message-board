@@ -18,6 +18,8 @@ class MessageThreadsTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+        
+        messageThreadTextField.text = ""
     }
     
     // MARK: - Table view data source
