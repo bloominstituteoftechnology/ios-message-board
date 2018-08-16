@@ -15,6 +15,7 @@
 		FF6F83802124D878003C142C /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F837F2124D878003C142C /* MessageThreadDetailTableViewController.swift */; };
 		FF6F83822124D9E0003C142C /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F83812124D9E0003C142C /* MessageDetailViewController.swift */; };
 		FF6F83842124DB33003C142C /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F83832124DB33003C142C /* MessageThread.swift */; };
+		FF6F83862124E25A003C142C /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F83852124E25A003C142C /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FF6F837F2124D878003C142C /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		FF6F83812124D9E0003C142C /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		FF6F83832124DB33003C142C /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		FF6F83852124E25A003C142C /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		FF6F837B2124D462003C142C /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FF6F83852124E25A003C142C /* MessageThreadController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				FF6F83802124D878003C142C /* MessageThreadDetailTableViewController.swift in Sources */,
 				FF6F83842124DB33003C142C /* MessageThread.swift in Sources */,
 				FF6F837E2124D627003C142C /* MessageThreadsTableViewController.swift in Sources */,
+				FF6F83862124E25A003C142C /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
