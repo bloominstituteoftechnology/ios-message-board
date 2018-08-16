@@ -91,5 +91,8 @@ class MessageThreadDetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 
 }
