@@ -10,6 +10,16 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        messageThreadController.fetchMessageThreads { (success) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     @IBAction func messageThreadWasReturned(_ sender: Any) {
         guard let title = messageThreadTextField.text else { return }
         
