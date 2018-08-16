@@ -13,9 +13,7 @@ class MessageThreadController {
     
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
         let messageThread: MessageThread = MessageThread(title: title)
-        let url = MessageThreadController.baseURL
-            .appendingPathComponent(messageThread.identifier)
-            .appendingPathExtension("json")
+        let url = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier).appendingPathExtension("json")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -42,10 +40,7 @@ class MessageThreadController {
     func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping(Error?) -> Void) {
         let message = MessageThread.Message(text: text, sender: sender)
         guard let index = messageThreads.index(of: messageThread) else { return }
-        let url = MessageThreadController.baseURL
-            .appendingPathComponent(messageThread.identifier)
-            .appendingPathComponent("messages")
-            .appendingPathExtension("json")
+        let url = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier).appendingPathComponent("messages").appendingPathExtension("json")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -70,8 +65,7 @@ class MessageThreadController {
     }
     
     func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
-        let url = MessageThreadController.baseURL
-            .appendingPathExtension("json")
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
         
         URLSession.shared.dataTask(with: url) { (data , _, error) in
             if let error = error {
