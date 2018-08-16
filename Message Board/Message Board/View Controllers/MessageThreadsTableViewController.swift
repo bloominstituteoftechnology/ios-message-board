@@ -9,11 +9,6 @@
 import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     @IBAction func messageThreadWasReturned(_ sender: Any) {
         guard let title = messageThreadTextField.text else { return }
@@ -32,7 +27,7 @@ class MessageThreadsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageThreadCell", for: indexPath)
 
         let message = messageThreadController.messageThreads[indexPath.row]
         cell.textLabel?.text = message.title
