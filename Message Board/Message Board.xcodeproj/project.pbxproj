@@ -12,6 +12,8 @@
 		A1B7F8762149B78600142B80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B7F8752149B78600142B80 /* Assets.xcassets */; };
 		A1B7F8792149B78600142B80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B7F8772149B78600142B80 /* LaunchScreen.storyboard */; };
 		A1B7F8812149BB8D00142B80 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7F8802149BB8D00142B80 /* MessageThreadsTableViewController.swift */; };
+		A1B7F8832149BFF300142B80 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7F8822149BFF300142B80 /* MessageThreadDetailTableViewController.swift */; };
+		A1B7F8852149C25900142B80 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7F8842149C25900142B80 /* MessageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A1B7F8782149B78600142B80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1B7F87A2149B78600142B80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B7F8802149BB8D00142B80 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
+		A1B7F8822149BFF300142B80 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		A1B7F8842149C25900142B80 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				A1B7F86E2149B78500142B80 /* AppDelegate.swift */,
 				A1B7F8722149B78500142B80 /* Main.storyboard */,
+				A1B7F8822149BFF300142B80 /* MessageThreadDetailTableViewController.swift */,
+				A1B7F8842149C25900142B80 /* MessageDetailViewController.swift */,
 				A1B7F8802149BB8D00142B80 /* MessageThreadsTableViewController.swift */,
 				A1B7F8752149B78600142B80 /* Assets.xcassets */,
 				A1B7F8772149B78600142B80 /* LaunchScreen.storyboard */,
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B7F86F2149B78500142B80 /* AppDelegate.swift in Sources */,
+				A1B7F8852149C25900142B80 /* MessageDetailViewController.swift in Sources */,
+				A1B7F8832149BFF300142B80 /* MessageThreadDetailTableViewController.swift in Sources */,
 				A1B7F8812149BB8D00142B80 /* MessageThreadsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
