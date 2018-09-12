@@ -22,9 +22,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63c-AJ-Tqu">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63c-AJ-Tqu">
                                     <rect key="frame" x="8" y="8" width="359" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -33,7 +32,13 @@
                                     </connections>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="63c-AJ-Tqu" firstAttribute="leading" secondItem="0d9-8Y-gZM" secondAttribute="leading" constant="8" id="3Ij-lG-ToI"/>
+                                <constraint firstAttribute="bottom" secondItem="63c-AJ-Tqu" secondAttribute="bottom" constant="6" id="hST-2J-KEU"/>
+                                <constraint firstItem="63c-AJ-Tqu" firstAttribute="top" secondItem="0d9-8Y-gZM" secondAttribute="top" constant="8" id="wKb-7z-FPg"/>
+                                <constraint firstAttribute="trailing" secondItem="63c-AJ-Tqu" secondAttribute="trailing" constant="8" id="yYh-0q-8zC"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" textLabel="DE1-5u-2kh" style="IBUITableViewCellStyleDefault" id="cTt-EX-X2b">
