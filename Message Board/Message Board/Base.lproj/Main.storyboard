@@ -41,7 +41,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" textLabel="DE1-5u-2kh" style="IBUITableViewCellStyleDefault" id="cTt-EX-X2b">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageThreadCell" textLabel="DE1-5u-2kh" style="IBUITableViewCellStyleDefault" id="cTt-EX-X2b">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cTt-EX-X2b" id="Uag-RO-7QC">
@@ -58,7 +58,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="oFh-Sh-aXq" kind="show" id="1bw-m3-FPp"/>
+                                    <segue destination="oFh-Sh-aXq" kind="show" identifier="ShowMessages" id="1bw-m3-FPp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
