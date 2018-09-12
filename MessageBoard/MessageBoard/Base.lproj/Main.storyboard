@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="MLi-pb-tjO" detailTextLabel="TFM-zR-ZIw" style="IBUITableViewCellStyleSubtitle" id="BSD-MC-A6T">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" textLabel="MLi-pb-tjO" detailTextLabel="TFM-zR-ZIw" style="IBUITableViewCellStyleSubtitle" id="BSD-MC-A6T">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BSD-MC-A6T" id="Vrg-aY-jmX">
@@ -113,7 +113,7 @@
                     <navigationItem key="navigationItem" title="Thread" id="GBJ-e9-FX1">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hva-wm-1YX">
                             <connections>
-                                <segue destination="SAd-wU-5Ql" kind="show" id="tYl-Fu-RDB"/>
+                                <segue destination="SAd-wU-5Ql" kind="show" identifier="MessageSegue" id="tYl-Fu-RDB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -16,6 +16,8 @@
 		D843190D2149BD49003407F2 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D843190C2149BD49003407F2 /* MessageThreadDetailTableViewController.swift */; };
 		D843190F2149BE1B003407F2 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D843190E2149BE1B003407F2 /* MessageDetailViewController.swift */; };
 		D84319112149BEE9003407F2 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84319102149BEE9003407F2 /* MessageThread.swift */; };
+		D84319132149C0C3003407F2 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84319122149C0C3003407F2 /* MessageThreadController.swift */; };
+		D84319152149C4C9003407F2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84319142149C4C9003407F2 /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		D843190C2149BD49003407F2 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		D843190E2149BE1B003407F2 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		D84319102149BEE9003407F2 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		D84319122149C0C3003407F2 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
+		D84319142149C4C9003407F2 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				D84318F82149BB32003407F2 /* AppDelegate.swift */,
+				D84319142149C4C9003407F2 /* HTTPMethod.swift */,
 				D84318FA2149BB32003407F2 /* ViewController.swift */,
 				D84318FC2149BB32003407F2 /* Main.storyboard */,
 				D84319102149BEE9003407F2 /* MessageThread.swift */,
+				D84319122149C0C3003407F2 /* MessageThreadController.swift */,
 				D843190A2149BBE8003407F2 /* MessageThreadsTableViewController.swift */,
 				D843190C2149BD49003407F2 /* MessageThreadDetailTableViewController.swift */,
 				D843190E2149BE1B003407F2 /* MessageDetailViewController.swift */,
@@ -151,7 +157,9 @@
 				D843190B2149BBE8003407F2 /* MessageThreadsTableViewController.swift in Sources */,
 				D843190F2149BE1B003407F2 /* MessageDetailViewController.swift in Sources */,
 				D843190D2149BD49003407F2 /* MessageThreadDetailTableViewController.swift in Sources */,
+				D84319152149C4C9003407F2 /* HTTPMethod.swift in Sources */,
 				D84318F92149BB32003407F2 /* AppDelegate.swift in Sources */,
+				D84319132149C0C3003407F2 /* MessageThreadController.swift in Sources */,
 				D84319112149BEE9003407F2 /* MessageThread.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
