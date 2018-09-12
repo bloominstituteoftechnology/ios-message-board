@@ -166,7 +166,7 @@
                     <navigationItem key="navigationItem" title="Title" id="CJq-1L-R4k">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="tlL-cA-27M">
                             <connections>
-                                <action selector="semdMessage:" destination="RWH-9E-chU" id="mzW-gM-Gqn"/>
+                                <action selector="sendMessage:" destination="RWH-9E-chU" id="mzW-gM-Gqn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

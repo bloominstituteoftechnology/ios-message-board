@@ -11,16 +11,28 @@ import UIKit
 class MessageDetailViewController: UIViewController {
 
     // MARK: - Properties
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "Add Message"
     }
     
-    @IBAction func semdMessage(_ sender: Any) {
+    @IBAction func sendMessage(_ sender: Any) {
+        guard let text = messageTextView.text, !text.isEmpty,
+            let sender = nameTextField.text, !sender.isEmpty,
+        let messageThread = messageThread else { return }
         
+        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { (_) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
 
     /*
