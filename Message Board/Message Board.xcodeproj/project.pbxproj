@@ -14,6 +14,9 @@
 		349D0C892149B2BE005275F9 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D0C882149B2BE005275F9 /* MessageThreadsTableViewController.swift */; };
 		349D0C8B2149B4A6005275F9 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D0C8A2149B4A6005275F9 /* MessageThreadDetailTableViewController.swift */; };
 		349D0C8E2149B5CD005275F9 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D0C8D2149B5CD005275F9 /* MessageDetailViewController.swift */; };
+		349D0C902149B70E005275F9 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D0C8F2149B70E005275F9 /* MessageThread.swift */; };
+		349D0C932149BABD005275F9 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D0C922149BABD005275F9 /* MessageThreadController.swift */; };
+		349D0C952149BC76005275F9 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D0C942149BC76005275F9 /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		349D0C882149B2BE005275F9 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		349D0C8A2149B4A6005275F9 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		349D0C8D2149B5CD005275F9 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		349D0C8F2149B70E005275F9 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		349D0C922149BABD005275F9 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
+		349D0C942149BC76005275F9 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				349D0C762149B054005275F9 /* AppDelegate.swift */,
+				349D0C912149BAA5005275F9 /* Model */,
 				349D0C8C2149B4AB005275F9 /* View */,
 				349D0C7D2149B055005275F9 /* Assets.xcassets */,
 				349D0C7F2149B055005275F9 /* LaunchScreen.storyboard */,
@@ -76,6 +83,16 @@
 				349D0C8A2149B4A6005275F9 /* MessageThreadDetailTableViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		349D0C912149BAA5005275F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				349D0C8F2149B70E005275F9 /* MessageThread.swift */,
+				349D0C922149BABD005275F9 /* MessageThreadController.swift */,
+				349D0C942149BC76005275F9 /* HTTPMethod.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +168,11 @@
 			files = (
 				349D0C772149B054005275F9 /* AppDelegate.swift in Sources */,
 				349D0C8E2149B5CD005275F9 /* MessageDetailViewController.swift in Sources */,
+				349D0C952149BC76005275F9 /* HTTPMethod.swift in Sources */,
 				349D0C8B2149B4A6005275F9 /* MessageThreadDetailTableViewController.swift in Sources */,
+				349D0C902149B70E005275F9 /* MessageThread.swift in Sources */,
 				349D0C892149B2BE005275F9 /* MessageThreadsTableViewController.swift in Sources */,
+				349D0C932149BABD005275F9 /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
