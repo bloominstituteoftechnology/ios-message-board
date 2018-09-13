@@ -23,10 +23,12 @@ class MessageDetailViewController: UIViewController {
     
     @IBAction func sendMessage(_ sender: Any) {
         guard let sender = messageTitle.text,
-            let text = messageBody.text,
-            let messageThread = messageThread
+            let text = messageBody.text
             else { return }
         
+        guard let messageThread = messageThread else {
+            print("This didn't work")
+            return}
         messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { (_) in
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)

@@ -10,6 +10,37 @@ import Foundation
 
 class MessageThreadController {
     
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        var requestURL = MessageThreadController.baseURL
+        requestURL.appendPathExtension("json")
+        
+        URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+            //Typical Error checking logic
+            if let error = error {
+                NSLog("Error POSTing new messageThread: \(error)")
+                completion(error)
+                return
+            }
+            guard let data = data else {
+                NSLog("No data returned from data task: \(error!)")
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let messageDictionaries = try JSONDecoder().decode([String: MessageThread].self, from: data)
+                let messageThreads = messageDictionaries.map({(uuId, messageThread) -> MessageThread in messageThread})
+                self.messageThreads = messageThreads
+                completion(nil)
+            } catch {
+                NSLog("Error getting data: \(error)")
+                completion(error)
+            }
+        }.resume()
+        
+        
+    }
+    
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
         
         //Create the new messageThread Object
@@ -19,7 +50,7 @@ class MessageThreadController {
         var requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
         requestURL.appendPathExtension("json")
         var request = URLRequest(url: requestURL)
-        request.httpMethod = HTTPMethod.post.rawValue
+        request.httpMethod = HTTPMethod.put.rawValue
         
         //Encode JSON
         do {
@@ -82,7 +113,8 @@ class MessageThreadController {
                 return
             }
             //Important part: Append the new message to the messageThread if successful
-            messageThread.messages.append(message)
+            guard let index = self.messageThreads.index(of: messageThread) else { return }
+            self.messageThreads[index].messages.append(message)
             print("Post Successful")
             completion(nil)
         }.resume()
