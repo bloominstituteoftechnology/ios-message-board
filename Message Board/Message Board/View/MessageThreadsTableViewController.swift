@@ -21,6 +21,7 @@ class MessageThreadsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         fetchMessageThreads()
+
     }
     
     override func viewDidLoad() {
@@ -53,7 +54,7 @@ class MessageThreadsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageThreadCell", for: indexPath)
-        let messageThread = messageThreadController.messageThreads[indexPath.row]
+        let messageThread = messageThreadController.sortedMessageThreads[indexPath.row]
         
         cell.textLabel?.text = messageThread.title
         cell.detailTextLabel?.text = "\(messageThread.messages.count)"
@@ -66,7 +67,7 @@ class MessageThreadsTableViewController: UITableViewController {
         if segue.identifier == "ShowMessageThreadSegue" {
             let destinationVC = segue.destination as! MessageThreadDetailTableViewController
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let messageThread = messageThreadController.messageThreads[indexPath.row]
+            let messageThread = messageThreadController.sortedMessageThreads[indexPath.row]
             
             destinationVC.messageThreadController = messageThreadController
             destinationVC.messageThread = messageThread

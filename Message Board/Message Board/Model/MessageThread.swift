@@ -16,6 +16,10 @@ class MessageThread: Codable, Equatable {
     
     var messages: [Message]
     
+    var sortedMessages: [Message] {
+        return messages.sorted() { $0.timestamp < $1.timestamp }
+    }
+    
     // MARK: - Equatable
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
         return lhs.identifier == rhs.identifier
@@ -53,10 +57,23 @@ extension MessageThread {
         let sender: String
         let timestamp: Date
         
+        
+        
+        var formattedTimestamp: String {
+            
+            let dateFormatter = DateFormatter()
+            
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .medium
+            
+            return dateFormatter.string(from: timestamp)
+        }
+        
         init(text: String, sender: String) {
             self.text = text
             self.sender = sender
             self.timestamp = Date()
+           
         }
     }
 }

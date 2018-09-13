@@ -13,6 +13,10 @@ class MessageThreadController {
     // MARK: - Properties
     private(set) var messageThreads: [MessageThread] = []
     
+    var sortedMessageThreads: [MessageThread] {
+        return messageThreads.sorted() { $0.title < $1.title }
+    }
+    
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
     
     // MARK: - API Methods
@@ -108,5 +112,7 @@ class MessageThreadController {
             }
         }.resume()
     }
+    
+    // MARK: - Utility Methods
     
 }

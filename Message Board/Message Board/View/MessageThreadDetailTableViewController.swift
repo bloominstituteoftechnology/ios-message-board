@@ -34,10 +34,10 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
-        let message = messageThread?.messages[indexPath.row]
+        guard let message = messageThread?.sortedMessages[indexPath.row] else { return UITableViewCell()}
         
-        cell.textLabel?.text = message?.text
-        cell.detailTextLabel?.text = message?.sender
+        cell.textLabel?.text = message.text
+        cell.detailTextLabel?.text = "\(message.formattedTimestamp) - \(message.sender)"
 
         return cell
     }
