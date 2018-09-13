@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D84318F92149BB32003407F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84318F82149BB32003407F2 /* AppDelegate.swift */; };
-		D84318FB2149BB32003407F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84318FA2149BB32003407F2 /* ViewController.swift */; };
 		D84318FE2149BB32003407F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D84318FC2149BB32003407F2 /* Main.storyboard */; };
 		D84319002149BB34003407F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D84318FF2149BB34003407F2 /* Assets.xcassets */; };
 		D84319032149BB34003407F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D84319012149BB34003407F2 /* LaunchScreen.storyboard */; };
@@ -23,7 +22,6 @@
 /* Begin PBXFileReference section */
 		D84318F52149BB32003407F2 /* MessageBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D84318F82149BB32003407F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D84318FA2149BB32003407F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D84318FD2149BB32003407F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D84318FF2149BB34003407F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D84319022149BB34003407F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +45,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D804BF452149E0280086EEC2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D843190A2149BBE8003407F2 /* MessageThreadsTableViewController.swift */,
+				D843190C2149BD49003407F2 /* MessageThreadDetailTableViewController.swift */,
+				D843190E2149BE1B003407F2 /* MessageDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D804BF462149E0330086EEC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D84319102149BEE9003407F2 /* MessageThread.swift */,
+				D84319122149C0C3003407F2 /* MessageThreadController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D804BF472149E0400086EEC2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D84319142149C4C9003407F2 /* HTTPMethod.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D84318EC2149BB32003407F2 = {
 			isa = PBXGroup;
 			children = (
@@ -67,14 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				D84318F82149BB32003407F2 /* AppDelegate.swift */,
-				D84319142149C4C9003407F2 /* HTTPMethod.swift */,
-				D84318FA2149BB32003407F2 /* ViewController.swift */,
+				D804BF472149E0400086EEC2 /* Helpers */,
 				D84318FC2149BB32003407F2 /* Main.storyboard */,
-				D84319102149BEE9003407F2 /* MessageThread.swift */,
-				D84319122149C0C3003407F2 /* MessageThreadController.swift */,
-				D843190A2149BBE8003407F2 /* MessageThreadsTableViewController.swift */,
-				D843190C2149BD49003407F2 /* MessageThreadDetailTableViewController.swift */,
-				D843190E2149BE1B003407F2 /* MessageDetailViewController.swift */,
+				D804BF462149E0330086EEC2 /* Model */,
+				D804BF452149E0280086EEC2 /* View Controllers */,
 				D84318FF2149BB34003407F2 /* Assets.xcassets */,
 				D84319012149BB34003407F2 /* LaunchScreen.storyboard */,
 				D84319042149BB34003407F2 /* Info.plist */,
@@ -153,7 +174,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D84318FB2149BB32003407F2 /* ViewController.swift in Sources */,
 				D843190B2149BBE8003407F2 /* MessageThreadsTableViewController.swift in Sources */,
 				D843190F2149BE1B003407F2 /* MessageDetailViewController.swift in Sources */,
 				D843190D2149BD49003407F2 /* MessageThreadDetailTableViewController.swift in Sources */,

@@ -24,8 +24,17 @@ class MessageThreadsTableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        messageThreadController.fetchMessageThreads { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     // MARK: - Table view data source

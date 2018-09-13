@@ -38,9 +38,9 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = messageThread?.messages[indexPath.row].text
-        let sender = messageThread?.messages[indexPath.row].sender
-        let time = messageThread?.messages[indexPath.row].timestamp
-        cell.detailTextLabel?.text = "\(sender) - \(time)"
+//        let sender = messageThread?.messages[indexPath.row].sender
+//        let time = messageThread?.messages[indexPath.row].timestamp
+        cell.detailTextLabel?.text = messageThread?.messages[indexPath.row].sender
 
         return cell
     }
