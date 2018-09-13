@@ -16,6 +16,7 @@ class MessageThreadsTableViewController: UITableViewController {
     
     @IBOutlet weak var messageThreadTextField: UITextField!
     
+    // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -25,13 +26,14 @@ class MessageThreadsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set up refresh control
         messageThreadRefreshControl.addTarget(self, action: #selector(fetchMessageThreads), for: .valueChanged)
         
+        //Add refresh control to the tableview
         tableView.refreshControl = messageThreadRefreshControl
-        
-        
     }
 
+    // MARK: - UI Methods
     @IBAction func addNewMessageThread(_ sender: Any) {
         guard let title = messageThreadTextField.text, !title.isEmpty else { return }
         
@@ -44,7 +46,7 @@ class MessageThreadsTableViewController: UITableViewController {
     }
     
     
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageThreadController.messageThreads.count
     }
@@ -71,9 +73,9 @@ class MessageThreadsTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Private Utility Functions
+    // MARK: - Private Utility Methods
     @objc private func fetchMessageThreads() {
-        messageThreadController.fetchMessageThreads { () in
+        messageThreadController.fetchMessageThreads { (_) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.messageThreadRefreshControl.endRefreshing()

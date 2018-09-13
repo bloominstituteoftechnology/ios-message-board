@@ -14,6 +14,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
     var messageThread: MessageThread?
     var messageThreadController: MessageThreadController?
 
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,12 +27,11 @@ class MessageThreadDetailTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageThread?.messages.count ?? 0
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
         let message = messageThread?.messages[indexPath.row]

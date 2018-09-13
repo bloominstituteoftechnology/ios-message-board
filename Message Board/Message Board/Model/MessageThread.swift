@@ -28,6 +28,7 @@ class MessageThread: Codable, Equatable {
         self.messages = []
     }
     
+    //Custom init from decoder, so that we can turn a dictionary of type [String:Message] into an array of messages.
     required init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -46,6 +47,7 @@ class MessageThread: Codable, Equatable {
 }
 
 extension MessageThread {
+    // Nested struct to hold the properties of a message.
     struct Message: Codable, Equatable {
         let text: String
         let sender: String
