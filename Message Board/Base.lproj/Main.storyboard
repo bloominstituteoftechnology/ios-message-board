@@ -58,7 +58,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="IdM-lo-2aF" kind="show" identifier="ShowNextScene" id="tOB-B9-I86"/>
+                                    <segue destination="IdM-lo-2aF" kind="show" identifier="ShowMessageThreadDetails" id="tOB-B9-I86"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="cc5-Bg-i0a" detailTextLabel="9Fs-Vi-pN7" style="IBUITableViewCellStyleSubtitle" id="AAv-IL-eb3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" textLabel="cc5-Bg-i0a" detailTextLabel="9Fs-Vi-pN7" style="IBUITableViewCellStyleSubtitle" id="AAv-IL-eb3">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AAv-IL-eb3" id="YsC-LE-jlj">
@@ -108,6 +108,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="WoT-83-E5l" kind="show" identifier="ShowMessageDetails" id="9Bx-na-qQD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -118,7 +121,7 @@
                     <navigationItem key="navigationItem" title="Title" id="dVk-a7-Krb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0cZ-ep-HTJ">
                             <connections>
-                                <segue destination="WoT-83-E5l" kind="show" identifier="ShowNewMessageScene" id="QJg-yH-NMp"/>
+                                <segue destination="WoT-83-E5l" kind="show" identifier="ShowNewMessage" id="QJg-yH-NMp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -195,5 +198,8 @@
             <point key="canvasLocation" x="175" y="62"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QJg-yH-NMp"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

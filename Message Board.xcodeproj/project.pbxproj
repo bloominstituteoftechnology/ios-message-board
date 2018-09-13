@@ -16,6 +16,7 @@
 		962ED766214A117500EE8FFD /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962ED765214A117500EE8FFD /* MessageDetailViewController.swift */; };
 		962ED768214A120400EE8FFD /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962ED767214A120400EE8FFD /* MessageThread.swift */; };
 		962ED76C214A1FD700EE8FFD /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962ED76B214A1FD700EE8FFD /* MessageThreadController.swift */; };
+		962ED76E214A285300EE8FFD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962ED76D214A285300EE8FFD /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		962ED765214A117500EE8FFD /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		962ED767214A120400EE8FFD /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
 		962ED76B214A1FD700EE8FFD /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
+		962ED76D214A285300EE8FFD /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				962ED755214A0AA800EE8FFD /* Assets.xcassets */,
 				962ED757214A0AA800EE8FFD /* LaunchScreen.storyboard */,
 				962ED75A214A0AA800EE8FFD /* Info.plist */,
+				962ED76D214A285300EE8FFD /* Helpers.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				962ED762214A0B9300EE8FFD /* MessageThreadsTableViewController.swift in Sources */,
+				962ED76E214A285300EE8FFD /* Helpers.swift in Sources */,
 				962ED766214A117500EE8FFD /* MessageDetailViewController.swift in Sources */,
 				962ED764214A0C8E00EE8FFD /* MessageThreadDetailTableViewController.swift in Sources */,
 				962ED768214A120400EE8FFD /* MessageThread.swift in Sources */,
