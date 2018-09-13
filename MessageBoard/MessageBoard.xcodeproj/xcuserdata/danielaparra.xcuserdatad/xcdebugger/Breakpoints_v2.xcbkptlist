@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessageBoard/MessageThreadsTableViewController.swift"
+            timestampString = "558494685.0198931"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "createNewThread(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessageBoard/MessageThreadController.swift"
+            timestampString = "558494685.020007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "createMessageThread(title:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessageBoard/MessageThreadController.swift"
+            timestampString = "558494685.020479"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "createMessageThread(title:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessageBoard/MessageThreadController.swift"
+            timestampString = "558494685.02083"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "MessageThreadController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MessageBoard.MessageThreadController.messageThreads.getter : Swift.Array&lt;MessageBoard.MessageThread&gt;"
+                  moduleName = "MessageBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielaparra/Documents/Git%20Repo/ios-message-board/MessageBoard/MessageBoard/MessageThreadController.swift"
+                  timestampString = "558494685.1774811"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MessageBoard.MessageThreadController.messageThreads.setter : Swift.Array&lt;MessageBoard.MessageThread&gt;"
+                  moduleName = "MessageBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielaparra/Documents/Git%20Repo/ios-message-board/MessageBoard/MessageBoard/MessageThreadController.swift"
+                  timestampString = "558494685.1805429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "98">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MessageBoard.MessageThreadController.init() -&gt; MessageBoard.MessageThreadController"
+                  moduleName = "MessageBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielaparra/Documents/Git%20Repo/ios-message-board/MessageBoard/MessageBoard/MessageThreadController.swift"
+                  timestampString = "558494685.183682"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessageBoard/MessageThreadsTableViewController.swift"
+            timestampString = "558494685.02117"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessageBoard/MessageThreadsTableViewController.swift"
+            timestampString = "558494685.021244"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "createNewThread(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessageBoard/MessageThreadsTableViewController.swift"
+            timestampString = "558494685.021317"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "createNewThread(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MessageBoard.MessageThreadsTableViewController.createNewThread(__ObjC.UITextField) -&gt; ()"
+                  moduleName = "MessageBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielaparra/Documents/Git%20Repo/ios-message-board/MessageBoard/MessageBoard/MessageThreadsTableViewController.swift"
+                  timestampString = "558494685.206306"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MessageBoard.MessageThreadsTableViewController.createNewThread(__ObjC.UITextField) -&gt; ()"
+                  moduleName = "MessageBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielaparra/Documents/Git%20Repo/ios-message-board/MessageBoard/MessageBoard/MessageThreadsTableViewController.swift"
+                  timestampString = "558494685.209534"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MessageBoard/MessageThreadsTableViewController.swift"
+            timestampString = "558494685.02139"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "createNewThread(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MessageBoard.MessageThreadsTableViewController.createNewThread(__ObjC.UITextField) -&gt; ()"
+                  moduleName = "MessageBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielaparra/Documents/Git%20Repo/ios-message-board/MessageBoard/MessageBoard/MessageThreadsTableViewController.swift"
+                  timestampString = "558494685.216616"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "574">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MessageBoard.MessageThreadsTableViewController.createNewThread(__ObjC.UITextField) -&gt; ()"
+                  moduleName = "MessageBoard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielaparra/Documents/Git%20Repo/ios-message-board/MessageBoard/MessageBoard/MessageThreadsTableViewController.swift"
+                  timestampString = "558494685.21969"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -26,6 +26,6 @@ class MessageDetailViewController: UIViewController {
     var messageThreadController: MessageThreadController?
     
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var messageTextView: UILabel!
+    @IBOutlet weak var messageTextView: UITextView!
     
 }

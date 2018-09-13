@@ -26,7 +26,6 @@ class MessageThreadController {
         //Do I set this data to the http body?
         do {
             request.httpBody = try JSONEncoder().encode(messageThread)
-            return
         } catch {
             fatalError("Error encoding message thread: \(error)")
         }
@@ -49,6 +48,7 @@ class MessageThreadController {
             NSLog(responseString)
             
             self.messageThreads.append(messageThread)
+            completion(nil)
             
         }.resume()
 

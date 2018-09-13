@@ -181,7 +181,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="messageTextView" destination="xQh-cK-4Hx" id="1DX-jb-cHe"/>
+                        <outlet property="messageTextView" destination="uco-wS-8DY" id="QM9-Ib-Pa2"/>
                         <outlet property="nameTextField" destination="Qaa-4Q-BKk" id="dOw-HD-f7G"/>
                     </connections>
                 </viewController>
