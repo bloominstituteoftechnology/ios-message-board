@@ -22,10 +22,23 @@ class MessageDetailViewController: UIViewController {
     }
     
     @IBAction func sendMessage(_ sender: Any) {
+        guard let sender = messageTitle.text,
+            let text = messageBody.text,
+            let messageThread = messageThread
+            else { return }
+        
+        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { (_) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     @IBOutlet weak var messageTitle: UITextField!
     @IBOutlet weak var messageBody: UITextView!
+    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
     
     /*
     // MARK: - Navigation

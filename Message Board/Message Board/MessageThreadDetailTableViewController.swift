@@ -12,7 +12,6 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
         self.navigationItem.title = messageThread?.title
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -44,8 +43,12 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMessage" {
+            guard let messageDetailVC = segue.destination as? MessageDetailViewController else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            messageDetailVC.messageThread = messageThreadController?.messageThreads[indexPath.row]
+            messageDetailVC.messageThreadController = messageThreadController
+        }
     }
     
     var messageThread: MessageThread?

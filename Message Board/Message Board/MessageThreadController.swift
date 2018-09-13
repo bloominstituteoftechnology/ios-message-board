@@ -19,7 +19,7 @@ class MessageThreadController {
         var requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
         requestURL.appendPathExtension("json")
         var request = URLRequest(url: requestURL)
-        request.httpMethod = HTTPMethod.put.rawValue
+        request.httpMethod = HTTPMethod.post.rawValue
         
         //Encode JSON
         do {
@@ -45,7 +45,7 @@ class MessageThreadController {
             self.messageThreads.append(messageThread)
             print("Post Successful")
             completion(nil)
-        }
+        }.resume()
         
     }
     
@@ -85,7 +85,7 @@ class MessageThreadController {
             messageThread.messages.append(message)
             print("Post Successful")
             completion(nil)
-        }
+        }.resume()
         
     }
     
