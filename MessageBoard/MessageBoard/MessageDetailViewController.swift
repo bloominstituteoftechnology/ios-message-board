@@ -9,14 +9,17 @@
 import UIKit
 
 class MessageDetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     @IBAction func sendMessage(_ sender: Any) {
+        guard let senderName = nameTextField.text,
+            let messageText = messageTextView.text,
+            let messageThread = messageThread else { return }
+        
+        messageThread.createMessage(messageThread: messageThread, text: messageText, sender: senderName) { (_) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     var messageThread: MessageThread?
