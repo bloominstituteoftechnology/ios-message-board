@@ -21,9 +21,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a new thread." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nrS-65-OX7">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a new thread." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nrS-65-OX7">
                                     <rect key="frame" x="8" y="7" width="359" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -33,6 +32,12 @@
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="nrS-65-OX7" firstAttribute="top" secondItem="Fhq-uL-XUu" secondAttribute="top" constant="7" id="LtA-4S-hc8"/>
+                                <constraint firstAttribute="trailing" secondItem="nrS-65-OX7" secondAttribute="trailing" constant="8" id="MON-LM-nEj"/>
+                                <constraint firstAttribute="bottom" secondItem="nrS-65-OX7" secondAttribute="bottom" constant="7" id="TFV-T8-75i"/>
+                                <constraint firstItem="nrS-65-OX7" firstAttribute="leading" secondItem="Fhq-uL-XUu" secondAttribute="leading" constant="8" id="U1Q-kx-qg0"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThreadCell" textLabel="QK5-eC-GaD" style="IBUITableViewCellStyleDefault" id="i05-ad-aro">
@@ -79,7 +84,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="eNA-65-481" detailTextLabel="a6e-Mq-ccn" style="IBUITableViewCellStyleSubtitle" id="sCf-4X-IrL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" textLabel="eNA-65-481" detailTextLabel="a6e-Mq-ccn" style="IBUITableViewCellStyleSubtitle" id="sCf-4X-IrL">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sCf-4X-IrL" id="J0v-RY-4AB">
