@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		F1B2A65321528DC100B29F5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A65221528DC100B29F5E /* AppDelegate.swift */; };
-		F1B2A65521528DC100B29F5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A65421528DC100B29F5E /* ViewController.swift */; };
 		F1B2A65821528DC100B29F5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1B2A65621528DC100B29F5E /* Main.storyboard */; };
 		F1B2A65A21528DC200B29F5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1B2A65921528DC200B29F5E /* Assets.xcassets */; };
 		F1B2A65D21528DC200B29F5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1B2A65B21528DC200B29F5E /* LaunchScreen.storyboard */; };
+		F1B2A6682152968500B29F5E /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A6672152968500B29F5E /* MessageThreadsTableViewController.swift */; };
+		F1B2A66A2152991400B29F5E /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A6692152991400B29F5E /* MessageThreadDetailTableViewController.swift */; };
+		F1B2A66C21529B6A00B29F5E /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A66B21529B6A00B29F5E /* MessageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F1B2A64F21528DC100B29F5E /* Message Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Message Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B2A65221528DC100B29F5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F1B2A65421528DC100B29F5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F1B2A65721528DC100B29F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1B2A65921528DC200B29F5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1B2A65C21528DC200B29F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1B2A65E21528DC200B29F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1B2A6672152968500B29F5E /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
+		F1B2A6692152991400B29F5E /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		F1B2A66B21529B6A00B29F5E /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +87,9 @@
 		F1B2A66621528DF900B29F5E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F1B2A65421528DC100B29F5E /* ViewController.swift */,
+				F1B2A6672152968500B29F5E /* MessageThreadsTableViewController.swift */,
+				F1B2A6692152991400B29F5E /* MessageThreadDetailTableViewController.swift */,
+				F1B2A66B21529B6A00B29F5E /* MessageDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -159,8 +165,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B2A65521528DC100B29F5E /* ViewController.swift in Sources */,
 				F1B2A65321528DC100B29F5E /* AppDelegate.swift in Sources */,
+				F1B2A66C21529B6A00B29F5E /* MessageDetailViewController.swift in Sources */,
+				F1B2A66A2152991400B29F5E /* MessageThreadDetailTableViewController.swift in Sources */,
+				F1B2A6682152968500B29F5E /* MessageThreadsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
