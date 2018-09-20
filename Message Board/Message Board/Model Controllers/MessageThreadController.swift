@@ -21,7 +21,6 @@ class MessageThreadController {
         requestURL.appendPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
-        print(request)
         
         do {
             request.httpBody = try JSONEncoder().encode(messageThread)
@@ -48,7 +47,6 @@ class MessageThreadController {
         requestURL.appendPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
-        print(request)
         
         do {
             request.httpBody = try JSONEncoder().encode(message)
@@ -74,7 +72,6 @@ class MessageThreadController {
         
         var requestURL = MessageThreadController.baseURL
         requestURL.appendPathExtension("json")
-        print(requestURL)
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             if let error = error {
