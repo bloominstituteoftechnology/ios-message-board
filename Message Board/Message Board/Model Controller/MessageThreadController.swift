@@ -23,6 +23,7 @@ class MessageThreadController {
     // MARK: - Create and send a MessageThread to the API
     
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
+        
         let newMessageThread = MessageThread(title: title)
         
         let url = MessageThreadController.baseURL.appendingPathComponent(newMessageThread.identifier)
@@ -54,6 +55,7 @@ class MessageThreadController {
     // MARK: - Create Messages within a MessageThread
     
     func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+        
         let newMessage = MessageThread.Message(text: text, sender: sender)
         
         let url = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
@@ -68,6 +70,7 @@ class MessageThreadController {
             request.httpBody = message
         } catch {
             NSLog("Error encoding \(newMessage): \(error)")
+            return
         }
         
         URLSession.shared.dataTask(with: request) { (data, _, error) in
@@ -86,6 +89,7 @@ class MessageThreadController {
     // MARK: Fetching data
     
     func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        
         let url = MessageThreadController.baseURL.appendingPathExtension("json")
 
         URLSession.shared.dataTask(with: url) { (data, _, error) in
@@ -100,9 +104,12 @@ class MessageThreadController {
                 completion(error)
                 return
             }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
 
             do {
-                let messageThreadDictionaries = try JSONDecoder().decode([String: MessageThread].self, from: data)
+                let messageThreadDictionaries = try decoder.decode([String: MessageThread].self, from: data)
                 let messageThreads = messageThreadDictionaries.map { $0.value }
                 self.messageThreads = messageThreads
                 completion(nil)

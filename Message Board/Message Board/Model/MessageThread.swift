@@ -66,6 +66,6 @@ class MessageThread: Codable, Equatable {
     // MARK: - Equatable protocol
     
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.identifier == rhs.identifier
+        return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.messages == rhs.messages
     }
 }

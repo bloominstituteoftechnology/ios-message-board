@@ -42,10 +42,10 @@ class MessageThreadsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         messageThreadController.fetchMessageThreads { (_) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.refresher.endRefreshing()
             }
         }
     }
