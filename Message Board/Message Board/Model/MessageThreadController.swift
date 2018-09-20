@@ -71,14 +71,21 @@ class MessageThreadController {
         
     }
     
-    func createMessage(messageThread: MessageThread, text: String, sender: String, complettion: @escaping (Error?) -> Void) {
+    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+        
+        guard let index = messageThreads.index(of: messageThread) else {completion(NSError()); return}
         
         let message = MessageThread.Message(text: text, sender: sender)
-        var requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
-        requestURL.appendingPathComponent("messages")
-        requestURL.appendingPathExtension("json")
+        
+        //let requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
+        //requestURL.appendingPathComponent("messages")
+        //requestURL.appendingPathExtension("json")
+        
+        let requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier).appendingPathComponent("messages").appendingPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
+        
+
         
         do {
             request.httpBody = try JSONEncoder().encode(message)
@@ -95,21 +102,21 @@ class MessageThreadController {
                 return
             }
             
-            guard let data = data else {
-                NSLog("No data was recieved")
-                completion(NSError())
-                return
-            }
+//            guard data != nil else {
+//                NSLog("No data was recieved")
+//                completion(NSError())
+//                return
+//            }
             
-            messageThread.messages.append(message)
+            self.messageThreads[index].messages.append(message) // bring up below 79
             completion(nil)
             
         }.resume()
-        
-        
     }
     
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void ) {
     
+}
     
     
 }

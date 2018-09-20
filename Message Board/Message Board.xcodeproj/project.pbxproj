@@ -91,7 +91,6 @@
 			children = (
 				C341340821538FAD002B7379 /* MessageDetailViewController.swift */,
 				C341340421538CD0002B7379 /* MessageThreadsTableViewController.swift */,
-				C3F177F62153EB8A00EFE0FD /* MessageThreadController.swift */,
 				C341340621538DC3002B7379 /* MessageThreadDetailTableViewController.swift */,
 				C34133F221538AD4002B7379 /* ViewController.swift */,
 			);
@@ -101,6 +100,7 @@
 		C341340C21539242002B7379 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3F177F62153EB8A00EFE0FD /* MessageThreadController.swift */,
 				C341340A2153923E002B7379 /* MessageThread.swift */,
 			);
 			path = Model;
