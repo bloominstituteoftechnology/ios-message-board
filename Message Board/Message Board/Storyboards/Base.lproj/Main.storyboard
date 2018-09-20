@@ -135,7 +135,7 @@
                     <navigationItem key="navigationItem" title="Title" id="bhl-6P-US8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QKX-hs-Qje">
                             <connections>
-                                <segue destination="hTl-5D-kxB" kind="show" id="GkM-vh-Nv9"/>
+                                <segue destination="hTl-5D-kxB" kind="show" identifier="addMessage" id="GkM-vh-Nv9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
