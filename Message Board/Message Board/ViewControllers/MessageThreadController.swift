@@ -15,6 +15,8 @@ class MessageThreadController {
     
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
         
+        
+        
     }
     
     func createMessage(){

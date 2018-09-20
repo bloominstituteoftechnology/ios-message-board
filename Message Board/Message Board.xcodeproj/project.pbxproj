@@ -18,6 +18,7 @@
 		C341340B2153923E002B7379 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341340A2153923E002B7379 /* MessageThread.swift */; };
 		C3F177F52153E4B400EFE0FD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F177F42153E4B400EFE0FD /* Default-568h@2x.png */; };
 		C3F177F72153EB8A00EFE0FD /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F177F62153EB8A00EFE0FD /* MessageThreadController.swift */; };
+		C3F177F9215407B800EFE0FD /* HTTP Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F177F8215407B800EFE0FD /* HTTP Method.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C341340A2153923E002B7379 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
 		C3F177F42153E4B400EFE0FD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C3F177F62153EB8A00EFE0FD /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
+		C3F177F8215407B800EFE0FD /* HTTP Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTP Method.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		C34133EF21538AD4002B7379 /* Message Board */ = {
 			isa = PBXGroup;
 			children = (
+				C3F177F8215407B800EFE0FD /* HTTP Method.swift */,
 				C341340C21539242002B7379 /* Model */,
 				C341340321538AEC002B7379 /* ViewControllers */,
 				C341340221538AE0002B7379 /* Storyboards */,
@@ -191,6 +194,7 @@
 				C341340921538FAD002B7379 /* MessageDetailViewController.swift in Sources */,
 				C341340721538DC3002B7379 /* MessageThreadDetailTableViewController.swift in Sources */,
 				C34133F121538AD4002B7379 /* AppDelegate.swift in Sources */,
+				C3F177F9215407B800EFE0FD /* HTTP Method.swift in Sources */,
 				C3F177F72153EB8A00EFE0FD /* MessageThreadController.swift in Sources */,
 				C341340B2153923E002B7379 /* MessageThread.swift in Sources */,
 			);
