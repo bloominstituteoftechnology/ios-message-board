@@ -40,6 +40,9 @@ class MessageThread: Codable, Equatable {
         self.messages = []
     }
     
+    
+    // MARK: This code has taken from the instruction
+    
     required init(from decoder: Decoder) throws {
         
         // 1
