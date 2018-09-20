@@ -12,11 +12,21 @@ class MessageThreadsTableViewController: UITableViewController {
 
     var messageThreadController = MessageThreadController()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        messageThreadController.fetchMessageThreads { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     @IBAction func createNewThread(_ sender: Any) {
     
         guard let messageTitle = messageTextField.text else {return}
        
+        
         // ???
         messageThreadController.createMessageThread(title: messageTitle) { (_) in
             DispatchQueue.main.async {
