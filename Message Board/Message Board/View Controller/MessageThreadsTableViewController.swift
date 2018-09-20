@@ -28,7 +28,16 @@ class MessageThreadsTableViewController: UITableViewController {
         tableView.addSubview(refresher)
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.tintColor = UIColor(red: 1.00, green: 0.21, blue: 0.55, alpha: 1.00)
-        refresher.addTarget(self, action: #selector(messageTextFieldAction), for: .valueChanged)
+        refresher.addTarget(self, action: #selector(reFetch), for: .valueChanged)
+    }
+    
+    @objc func reFetch() {
+        messageThreadController.fetchMessageThreads { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.refresher.endRefreshing()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
