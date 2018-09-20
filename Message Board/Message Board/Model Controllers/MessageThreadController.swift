@@ -11,7 +11,7 @@ import Foundation
 class MessageThreadController {
     
     var messageThreads: [MessageThread] = []
-    static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com")!
+    static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
     
     
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
@@ -21,6 +21,7 @@ class MessageThreadController {
         requestURL.appendPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
+        print(request)
         
         do {
             request.httpBody = try JSONEncoder().encode(messageThread)
@@ -28,7 +29,7 @@ class MessageThreadController {
             NSLog("Error encoding thread \(messageThread): \(error)")
         }
         // Create the data task
-        URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error with dataTask \(error)")
                 completion(error)
@@ -47,6 +48,7 @@ class MessageThreadController {
         requestURL.appendPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
+        print(request)
         
         do {
             request.httpBody = try JSONEncoder().encode(message)
@@ -54,26 +56,31 @@ class MessageThreadController {
             NSLog("Error encoding message \(message): \(error)")
         }
         
-        URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error with dataTask \(error)")
                 completion(error)
+                return
             }
             
             messageThread.messages.append(message)
             completion(nil)
+            return
         }.resume()
         
     }
     
     func fetchMessagesThread(completion: @escaping (Error?) -> Void) {
         
-        let requestURL = MessageThreadController.baseURL.appendingPathExtension("json")
+        var requestURL = MessageThreadController.baseURL
+        requestURL.appendPathExtension("json")
+        print(requestURL)
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             if let error = error {
                 NSLog("Error with dataTask \(error)")
                 completion(error)
+                return
             }
             guard let data = data else {
                 NSLog("No data returned from dataTask.")
@@ -81,11 +88,8 @@ class MessageThreadController {
                 return
             }
             
-            let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-            
             do {
-                let messageThreadDictionaries = try jsonDecoder.decode([String: MessageThread].self, from: data)
+                let messageThreadDictionaries = try JSONDecoder().decode([String: MessageThread].self, from: data)
                 let messageThreads = messageThreadDictionaries.map( { $0.value })
                 self.messageThreads = messageThreads
                 completion(nil)
