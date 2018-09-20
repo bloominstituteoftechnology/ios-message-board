@@ -20,7 +20,7 @@ class MessageThreadController {
         
         // initialize a new MessageThread object
         
-        var messageThreads = MessageThread(title: title)
+        let messageThreads = MessageThread(title: title)
         
         // create a URL using the thread's identifier property.
         // add the identifier on the end of the URL
