@@ -14,6 +14,8 @@
 		F1B2A6682152968500B29F5E /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A6672152968500B29F5E /* MessageThreadsTableViewController.swift */; };
 		F1B2A66A2152991400B29F5E /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A6692152991400B29F5E /* MessageThreadDetailTableViewController.swift */; };
 		F1B2A66C21529B6A00B29F5E /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A66B21529B6A00B29F5E /* MessageDetailViewController.swift */; };
+		F1B2A66F2152FCE900B29F5E /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A66E2152FCE900B29F5E /* MessageThread.swift */; };
+		F1B2A672215306C100B29F5E /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2A671215306C100B29F5E /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		F1B2A6672152968500B29F5E /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		F1B2A6692152991400B29F5E /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		F1B2A66B21529B6A00B29F5E /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		F1B2A66E2152FCE900B29F5E /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		F1B2A671215306C100B29F5E /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		F1B2A65121528DC100B29F5E /* Message Board */ = {
 			isa = PBXGroup;
 			children = (
+				F1B2A66D2152FCCA00B29F5E /* Models */,
+				F1B2A670215306A200B29F5E /* Model Controllers */,
 				F1B2A66621528DF900B29F5E /* View Controllers */,
 				F1B2A66521528DEB00B29F5E /* Storyboards */,
 				F1B2A66421528DDD00B29F5E /* Resources */,
@@ -92,6 +98,22 @@
 				F1B2A66B21529B6A00B29F5E /* MessageDetailViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F1B2A66D2152FCCA00B29F5E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F1B2A66E2152FCE900B29F5E /* MessageThread.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F1B2A670215306A200B29F5E /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F1B2A671215306C100B29F5E /* MessageThreadController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +190,9 @@
 				F1B2A65321528DC100B29F5E /* AppDelegate.swift in Sources */,
 				F1B2A66C21529B6A00B29F5E /* MessageDetailViewController.swift in Sources */,
 				F1B2A66A2152991400B29F5E /* MessageThreadDetailTableViewController.swift in Sources */,
+				F1B2A66F2152FCE900B29F5E /* MessageThread.swift in Sources */,
 				F1B2A6682152968500B29F5E /* MessageThreadsTableViewController.swift in Sources */,
+				F1B2A672215306C100B29F5E /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
