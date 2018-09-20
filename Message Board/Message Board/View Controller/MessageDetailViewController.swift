@@ -25,14 +25,18 @@ class MessageDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: - Actions
+    
+    @IBAction func sendBarButtonTapped(_ sender: Any) {
+        guard let messageThread = messageThread,
+            let name = nameTextField.text,
+            let message = messageTextView.text else { return }
+        
+        messageThreadController?.createMessage(messageThread: messageThread, text: message, sender: name, completion: { (_) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
-    */
 }

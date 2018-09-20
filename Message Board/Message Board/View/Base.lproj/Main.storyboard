@@ -162,7 +162,11 @@
                         <viewLayoutGuide key="safeArea" id="UTz-FQ-9Ch"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Message" id="1Wc-zg-ZO2">
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="R0i-bl-7lk"/>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="R0i-bl-7lk">
+                            <connections>
+                                <action selector="sendBarButtonTapped:" destination="grT-T2-VaH" id="rus-42-Ipj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="messageTextView" destination="Xl5-LA-s8r" id="Rc1-IN-SHv"/>
