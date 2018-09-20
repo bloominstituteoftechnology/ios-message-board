@@ -23,7 +23,7 @@ class MessageThread: Codable, Equatable {
         let sender: String
         let timestamp: Data
         
-        init(text: String, sender: String, timestamp: Data) {
+        init(text: String, sender: String) {
             self.text = text
             self.sender = sender
             self.timestamp = Data()
@@ -32,17 +32,15 @@ class MessageThread: Codable, Equatable {
     
     // MARK: - Initializer
     
-    init(title: String, identifier: UUID, messages: [MessageThread.Message] ) {
+    init(title: String) {
         self.title = title
         self.identifier = UUID().uuidString
-        self.messages = []
+        self.messages = [MessageThread.Message]()
     }
     
     // MARK: - Equatable protocol
     
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.messages == rhs.messages &&
-            lhs.title == rhs.title &&
-            lhs.identifier == rhs.identifier
+        return lhs.identifier == rhs.identifier
     }
 }
