@@ -24,9 +24,11 @@ class MessageThread: Codable {
             self.timestamp = timestamp
         }
     }
-    init(title: String, identifier: String, messages:[MessageThread.Message])
+    
+    init(title: String, identifier: String = UUID().uuidString , messages: []){
         self.title = title
         self.identifier = identifier
-        self.messages = messaages
-    
+        self.messages = messages
+        
+    }
 }
