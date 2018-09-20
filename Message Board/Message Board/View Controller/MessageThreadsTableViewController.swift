@@ -10,15 +10,20 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
     
-    @IBOutlet weak var msgTextField: UITextField!
+    // MAR: - Outlets
+    
+    @IBOutlet weak var messageTextField: UITextField!
+    
+    // MARK: - App lifecycle functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func msgTextFieldAction(_ sender: Any) {
-    }
+    // MARK: - Actions
     
+    @IBAction func messageTextFieldAction(_ sender: Any) {
+    }
 
     // MARK: - Table view data source
 
@@ -80,5 +85,4 @@ class MessageThreadsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
