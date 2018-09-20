@@ -14,9 +14,11 @@ class MessageThreadController {
     
     var messageThreads: [MessageThread] = []
     
+    
     // MARK: - Base URL
     
     static let baseURL = URL(string: "https:/lambda-message-board.firebaseio.com")!
+    
     
     // MARK: - Create and send a MessageThread to the API
     
@@ -48,6 +50,7 @@ class MessageThreadController {
         }.resume()
     }
     
+    
     // MARK: - Create Messages within a MessageThread
     
     func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
@@ -76,6 +79,37 @@ class MessageThreadController {
             
             messageThread.messages.append(newMessage)
             completion(nil)
+        }.resume()
+    }
+    
+    
+    // MARK: Fetching data
+    
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                NSLog("Error decoding data: \(error)")
+                completion(error)
+                return
+            }
+
+            guard let data = data else {
+                NSLog("No data returned")
+                completion(error)
+                return
+            }
+
+            do {
+                let messageThreadDictionaries = try JSONDecoder().decode([String: MessageThread].self, from: data)
+                let messageThreads = messageThreadDictionaries.map { $0.value }
+                self.messageThreads = messageThreads
+                completion(nil)
+            } catch {
+                NSLog("Error decoding:\(error)")
+                completion(error)
+            }
         }.resume()
     }
 }

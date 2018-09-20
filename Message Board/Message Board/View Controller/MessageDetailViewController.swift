@@ -15,16 +15,19 @@ class MessageDetailViewController: UIViewController {
     var messageThread: MessageThread?
     var messageThreadController: MessageThreadController?
     
+    
     // MARK: - Outlets
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
+    
     
     // MARK: - App Lifecycle funstions
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     
     // MARK: - Actions
     

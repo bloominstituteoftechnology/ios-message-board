@@ -15,6 +15,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
     var messageThread: MessageThread?
     var messageThreadController: MessageThreadController?
     
+    
     // MARK: - App lifecycle functions
     
     override func viewDidLoad() {
@@ -26,6 +27,8 @@ class MessageThreadDetailTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,6 +44,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
         
         return cell
     }
+    
     
     // MARK: - Navigation
     

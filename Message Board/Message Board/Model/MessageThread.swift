@@ -16,27 +16,49 @@ class MessageThread: Codable, Equatable {
     let identifier: String
     var messages: [MessageThread.Message]
     
+    
     // MARK: - Message struct
     
     struct Message: Equatable, Codable {
         let text: String
         let sender: String
-        let timestamp: Data
+        let timestamp: Date
         
         init(text: String, sender: String) {
             self.text = text
             self.sender = sender
-            self.timestamp = Data()
+            self.timestamp = Date()
         }
     }
     
-    // MARK: - Initializer
+    
+    // MARK: - Initializers
     
     init(title: String) {
         self.title = title
         self.identifier = UUID().uuidString
-        self.messages = [MessageThread.Message]()
+        self.messages = []
     }
+    
+    required init(from decoder: Decoder) throws {
+        
+        // 1
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // 2
+        let title = try container.decode(String.self, forKey: .title)
+        let identifier = try container.decode(String.self, forKey: .identifier)
+        let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+        
+        // 3
+        let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
+        
+        // 4
+        self.title = title
+        self.identifier = identifier
+        self.messages = messages
+    }
+    
     
     // MARK: - Equatable protocol
     

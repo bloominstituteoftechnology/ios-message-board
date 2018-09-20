@@ -14,15 +14,18 @@ class MessageThreadsTableViewController: UITableViewController {
     
     var messageThreadController = MessageThreadController()
     
+    
     // MAR: - Outlets
     
     @IBOutlet weak var messageTextField: UITextField!
+    
     
     // MARK: - App lifecycle functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     
     // MARK: - Actions
     
@@ -35,6 +38,7 @@ class MessageThreadsTableViewController: UITableViewController {
             }
         }
     }
+    
 
     // MARK: - Table view data source
     
@@ -50,6 +54,7 @@ class MessageThreadsTableViewController: UITableViewController {
         
         return cell
     }
+    
     
     // MARK: - Navigation
     
