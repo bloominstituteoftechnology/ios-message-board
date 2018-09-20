@@ -10,6 +10,11 @@ import UIKit
 
 class MessageThreadDetailTableViewController: UITableViewController {
     
+    // MARK: - Properties
+    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
+    
     // MARK: - App lifecycle functions
     
     override func viewDidLoad() {
