@@ -13,7 +13,7 @@ class MessageThreadsTableViewController: UITableViewController {
     // MARK: - Properties
     
     var messageThreadController = MessageThreadController()
-    
+    var refresher: UIRefreshControl!
     
     // MAR: - Outlets
     
@@ -24,6 +24,11 @@ class MessageThreadsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refresher = UIRefreshControl()
+        tableView.addSubview(refresher)
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.tintColor = UIColor(red: 1.00, green: 0.21, blue: 0.55, alpha: 1.00)
+        refresher.addTarget(self, action: #selector(messageTextFieldAction), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +36,7 @@ class MessageThreadsTableViewController: UITableViewController {
         messageThreadController.fetchMessageThreads { (_) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refresher.endRefreshing()
             }
         }
     }
