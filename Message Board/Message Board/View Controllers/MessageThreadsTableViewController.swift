@@ -14,8 +14,9 @@ class MessageThreadsTableViewController: UITableViewController {
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBAction func messageTextAction(_ sender: Any) {
-        guard let text = messageTextField.text
-            else { return }
+        guard let title = messageTextField.text else { return }
+            let identifier = UUID().uuidString
+            let completion = tableView.reloadData()
         
         func reload() { DispatchQueue.main.async { self.tableView.reloadData() } }
         
@@ -23,13 +24,12 @@ class MessageThreadsTableViewController: UITableViewController {
         
         /// In the action call the createMessageThread method, pass in the unwrapped text for the new thread's title.
         /// In the completion closure of createMessageThread, reload the table view on the main queue.
-        messageThreadController.createMessageThread(title: text, identifier: UUID().uuidString, completion: DispatchQueue.main.async {
-            reload()
-        })
-        
+        messageThreadController.createMessageThread(title: title, identifier: identifier) {_ in
+            DispatchQueue.main.async() { completion }
+        }
         /////////// This is Broken /////////////
         
-        self.title = text
+        self.title = title
         
     }
     
@@ -54,9 +54,9 @@ class MessageThreadsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
 
-        let message = messageThreadController.messageThreads[indexPath.row]
-        cell.textLabel?.text = message.title
-        cell.detailTextLabel?.text = message.identifier
+        let messageThread = messageThreadController.messageThreads[indexPath.row]
+        cell.textLabel?.text = messageThread.title
+        cell.detailTextLabel?.text = messageThread.identifier
 
         return cell
     }
@@ -67,16 +67,14 @@ class MessageThreadsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "messageDetail" {
             
-            guard let indexPath = tableView.indexPathForSelectedRow,
-                let messageThreadVC = segue.destination as? MessageThreadController else { return }
+            guard let messageThreadVC = segue.destination as? MessageThreadDetailTableViewController,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
             
-            let messages = messageThreadController.messageThreads[indexPath.row]
+                let messageThread = messageThreadController.messageThreads[indexPath.row]
             
-            messageThreadVC.messageThreads = messages
-            messageThreadVC.messageThreadController = messageThreadController
-            messageThreadVC.
+                messageThreadVC.messageThread = messageThread
+                messageThreadVC.messageThreadController = messageThreadController
         }
     }
  
-
 }

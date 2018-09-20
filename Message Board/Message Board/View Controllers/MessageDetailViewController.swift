@@ -10,10 +10,17 @@ import UIKit
 
 class MessageDetailViewController: UIViewController {
     
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
+    
     @IBOutlet weak var messageSenderTextField: UITextField!
     @IBOutlet weak var messageBodyTextView: UITextView!
     
     @IBAction func sendMessageButtonTapped(_ sender: Any) {
+        
+        guard let sender = messageSenderTextField,
+            let text = messageBodyTextView else { return }
+            let timeStamp = Date()
     }
     
     override func viewDidLoad() {
