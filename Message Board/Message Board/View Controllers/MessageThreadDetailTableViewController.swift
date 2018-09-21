@@ -16,11 +16,6 @@ class MessageThreadDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -31,15 +26,12 @@ class MessageThreadDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subtitleCell", for: indexPath)
 
-        //guard let message = messageThread?.messages[indexPath.row] else { return cell}
+        guard let messageThread = messageThread else { return UITableViewCell() }
         
-        //cell.textLabel?.text = message.text
-        //cell.detailTextLabel?.text = message.sender
-        
-        cell.textLabel?.text = messageThread?.messages[indexPath.row].text
-        cell.detailTextLabel?.text = messageThread?.messages[indexPath.row].sender
+        cell.textLabel?.text = messageThread.messages[indexPath.row].text
+        cell.detailTextLabel?.text = messageThread.messages[indexPath.row].sender
 
         return cell
     }
@@ -51,9 +43,8 @@ class MessageThreadDetailTableViewController: UITableViewController {
         if segue.identifier == "detailTableToViewController" {
             
             guard let messageVC = segue.destination as? MessageDetailViewController,
-                let indexPath = tableView.indexPathForSelectedRow else { return }
-            
-            let messageThread = messageThreadController?.messageThreads[indexPath.row]
+            let messageThreadController = messageThreadController,
+            let messageThread = messageThread else { return }
             
             messageVC.messageThread = messageThread
             messageVC.messageThreadController = messageThreadController

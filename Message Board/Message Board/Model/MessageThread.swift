@@ -13,7 +13,7 @@ class MessageThread: Codable, Equatable{
     let title: String
     let identifier: String
     
-    var messages: [MessageThread.Message] = []
+    var messages: [MessageThread.Message]
     
     init(title: String) {
         self.title = title

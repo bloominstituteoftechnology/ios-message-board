@@ -10,14 +10,11 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
     
-    let messageThreadController: MessageThreadController = MessageThreadController()
+    let messageThreadController = MessageThreadController()
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBAction func messageTextAction(_ sender: Any) {
         guard let title = messageTextField.text else { return }
-        
-        /// In the action call the createMessageThread method, pass in the unwrapped text for the new thread's title.
-        /// In the completion closure of createMessageThread, reload the table view on the main queue.
         
         messageThreadController.createMessageThread(title: title) { (_) in
             DispatchQueue.main.async {
@@ -28,6 +25,8 @@ class MessageThreadsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         messageThreadController.fetchMessageThreads { (_) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -37,8 +36,6 @@ class MessageThreadsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//     Finally, in the MessageThreadsTableViewController, call the viewWillAppear method. Inside of it, call the messageThreadController's fetchMessageThreads method. In the completion closure, //reload the table view on the main queue. This will allow the table view controller to fetch any new threads and messages made every time this table view controller appears.
         
     }
 
@@ -55,7 +52,6 @@ class MessageThreadsTableViewController: UITableViewController {
         let messageThread = messageThreadController.messageThreads[indexPath.row]
         
         cell.textLabel?.text = messageThread.title
-        cell.detailTextLabel?.text = messageThread.identifier
 
         return cell
     }
@@ -70,9 +66,8 @@ class MessageThreadsTableViewController: UITableViewController {
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             
                 let messageThread = messageThreadController.messageThreads[indexPath.row]
-            
-                messageThreadVC.messageThread = messageThread
-                messageThreadVC.messageThreadController = messageThreadController
+                    messageThreadVC.messageThread = messageThread
+                    messageThreadVC.messageThreadController = messageThreadController
         }
     }
  

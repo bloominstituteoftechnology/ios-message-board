@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="1271.2" y="146.17691154422789"/>
         </scene>
-        <!--Title-->
+        <!--Message Thread Detail Table View Controller-->
         <scene sceneID="QVQ-N4-8sL">
             <objects>
                 <tableViewController id="H69-bs-TJP" customClass="MessageThreadDetailTableViewController" customModule="Message_Board" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,7 +113,7 @@
                             <outlet property="delegate" destination="H69-bs-TJP" id="FrW-Zl-L5D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="8oV-uK-Iho">
+                    <navigationItem key="navigationItem" id="8oV-uK-Iho">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g9D-CT-gpX">
                             <connections>
                                 <segue destination="ny0-Pr-SRh" kind="show" identifier="detailTableToViewController" id="ZVP-l6-gjR"/>

@@ -99,23 +99,24 @@ class MessageThreadController {
                 return
             }
             
+            let messageDecoder = JSONDecoder()
+            messageDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            
             do {
                 let messageDecoder = JSONDecoder()
                 let messageThreadDictionaries = try messageDecoder.decode([String: MessageThread].self, from: data)
-                self.messageThreads = messageThreadDictionaries
-                completion(self.messageThreads)
+                let messageThreads = messageThreadDictionaries.map( {$0.value} )
+                self.messageThreads = messageThreads
+                completion(nil)
                 
             } catch {
                 NSLog("Unable to decode data into itunes search results: \(error)")
-                completion(nil)
+                completion(error)
                 return
             
             }
-        }
+        }.resume()
     }
-    
-    let messageThreads = messageThreads.map(createMessage(<#T##MessageThreadController#>)
     
 }
 
-//Since the MessageThread is a class, you can directly append it to its array of messages here.
