@@ -15,32 +15,31 @@ class MessageThreadsTableViewController: UITableViewController {
     @IBOutlet weak var messageTextField: UITextField!
     @IBAction func messageTextAction(_ sender: Any) {
         guard let title = messageTextField.text else { return }
-            let identifier = UUID().uuidString
-            let completion = tableView.reloadData()
-        
-        func reload() { DispatchQueue.main.async { self.tableView.reloadData() } }
-        
-        /////////// This is Broken /////////////
         
         /// In the action call the createMessageThread method, pass in the unwrapped text for the new thread's title.
         /// In the completion closure of createMessageThread, reload the table view on the main queue.
-        messageThreadController.createMessageThread(title: title, identifier: identifier) {_ in
-            DispatchQueue.main.async() { completion }
+        
+        messageThreadController.createMessageThread(title: title) { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-        /////////// This is Broken /////////////
         
-        self.title = title
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        messageThreadController.fetchMessageThreads { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//     Finally, in the MessageThreadsTableViewController, call the viewWillAppear method. Inside of it, call the messageThreadController's fetchMessageThreads method. In the completion closure, //reload the table view on the main queue. This will allow the table view controller to fetch any new threads and messages made every time this table view controller appears.
+        
     }
 
     // MARK: - Table view data source
@@ -50,11 +49,11 @@ class MessageThreadsTableViewController: UITableViewController {
         return messageThreadController.messageThreads.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
 
         let messageThread = messageThreadController.messageThreads[indexPath.row]
+        
         cell.textLabel?.text = messageThread.title
         cell.detailTextLabel?.text = messageThread.identifier
 

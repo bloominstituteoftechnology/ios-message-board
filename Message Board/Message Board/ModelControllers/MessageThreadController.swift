@@ -21,46 +21,44 @@ class MessageThreadController {
         case DELETE = "DELETE"
     }
     
-    func createMessageThread (title: String, identifier: String, completion: @escaping (Error?) -> Void) {
+    func createMessageThread (title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = [], completion: @escaping (Error?) -> Void) {
         
-        var messageThreads: [MessageThread] = []
+        let messageThread = MessageThread(title: title)
         
-        var requestURL = MessageThreadController.baseURL.appendingPathComponent("identifier")
+        var requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
         requestURL.appendPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.PUT.rawValue
         
         do {
-            request.httpBody = try JSONEncoder().encode(messageThreads)
-            return
+            request.httpBody = try JSONEncoder().encode(messageThread)
         } catch {
             fatalError("#1 Error encoding message thread")
         }
         
-        let dataTask = URLSession.shared.dataTask(with: request) { (Data, _, error) in
+        URLSession.shared.dataTask(with: request) { (Data, _, error) -> Void in
             if let error = error {
                 NSLog("#2 Error sending data: \(error)")
                 completion(error)
                 return
+            
             }
-            guard let data = Data else {
-                NSLog("#3 Error sending data. Nothing sent")
-                completion(NSError())
-                return
-            }
-            messageThreads.append(MessageThread)
-            if let error = error {
-            completion(error)
-            return
-            }
+            self.messageThreads.append(messageThread)
+            completion(nil)
+            
         }.resume()
     }
     
-    func createMessage(messageThread: [MessageThread], text: String, sender: String, completion: @escaping (Error?) -> Void) {
+    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
         
-        var message: [MessageThread.Message] = []
+        guard let index = messageThreads.index(of: messageThread) else {
+            completion(NSError())
+            return
+        }
+        let message = MessageThread.Message(text: text, sender: sender)
+        messageThreads[index].messages.append(message)
         
-        let appendRequestURL = MessageThreadController.baseURL.appendingPathComponent("identifier")
+        let appendRequestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
         var requestURL = appendRequestURL.appendingPathComponent("messages") // Should match the name of the MessageThread's array of messages property
         requestURL.appendPathExtension("json")
         var request = URLRequest(url: requestURL)
@@ -73,25 +71,51 @@ class MessageThreadController {
             fatalError("#4 Error encoding message")
         }
         
-        let dataTask = URLSession.shared.dataTask(with: request) { (Data, _, error) in
+        URLSession.shared.dataTask(with: request) { (Data, _, error) in
             if let error = error {
                 NSLog("#5 Error sending message data: \(error)")
                 completion(error)
                 return
             }
+        completion(nil)
+        }.resume()
+    }
+    
+    /// Fetch ///
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        
+        var fetchUrl = MessageThreadController.baseURL
+        fetchUrl.appendPathExtension("json")
+        
+        URLSession.shared.dataTask(with: fetchUrl) {(Data, _, error) in
+            if let error = error {
+                NSLog("Error fetching data: \(error)")
+                completion(error)
+                return
+            }
             guard let data = Data else {
-                NSLog("#6 Error sending message data. Nothing sent")
+                NSLog("No data returned from fetch")
                 completion(NSError())
                 return
             }
-            message.append(MessageThread.Message)
-            if let error = error {
-            completion(error)
-            return
+            
+            do {
+                let messageDecoder = JSONDecoder()
+                let messageThreadDictionaries = try messageDecoder.decode([String: MessageThread].self, from: data)
+                self.messageThreads = messageThreadDictionaries
+                completion(self.messageThreads)
+                
+            } catch {
+                NSLog("Unable to decode data into itunes search results: \(error)")
+                completion(nil)
+                return
+            
             }
-        }.resume()
+        }
     }
-
+    
+    let messageThreads = messageThreads.map(createMessage(<#T##MessageThreadController#>)
+    
 }
 
 //Since the MessageThread is a class, you can directly append it to its array of messages here.

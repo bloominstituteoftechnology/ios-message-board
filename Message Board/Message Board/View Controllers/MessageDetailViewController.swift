@@ -18,9 +18,16 @@ class MessageDetailViewController: UIViewController {
     
     @IBAction func sendMessageButtonTapped(_ sender: Any) {
         
-        guard let sender = messageSenderTextField,
-            let text = messageBodyTextView else { return }
-            let timeStamp = Date()
+        guard let sender = messageSenderTextField.text,
+            let text = messageBodyTextView.text,
+            let messageThread = messageThread else { return }
+        
+        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { (_) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
+       
     }
     
     override func viewDidLoad() {

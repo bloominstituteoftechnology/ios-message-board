@@ -31,16 +31,20 @@ class MessageThreadDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subtitleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
 
-        guard let message = messageThread?.messages[indexPath.row] else { return cell}
-        cell.textLabel?.text = message.text
-        cell.detailTextLabel?.text = message.sender
+        //guard let message = messageThread?.messages[indexPath.row] else { return cell}
+        
+        //cell.textLabel?.text = message.text
+        //cell.detailTextLabel?.text = message.sender
+        
+        cell.textLabel?.text = messageThread?.messages[indexPath.row].text
+        cell.detailTextLabel?.text = messageThread?.messages[indexPath.row].sender
 
         return cell
     }
  
-    // MARK: - Navigation // detailTableToViewController
+    // MARK: - Navigation // messageDetail // detailTableToViewController
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
