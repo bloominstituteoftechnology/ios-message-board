@@ -8,7 +8,10 @@
 
 import Foundation
 
-class MessageThread: Codable, Equatable {
+class MessageThread: Codable, Equatable, Comparable {
+    static func < (lhs: MessageThread, rhs: MessageThread) -> Bool {
+        return lhs.title < rhs.title
+    }
     
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
         return lhs.identifier == rhs.identifier &&
@@ -27,7 +30,11 @@ class MessageThread: Codable, Equatable {
         self.identifier = UUID().uuidString
     }
     
-    struct Message: Equatable, Codable {
+    struct Message: Equatable, Codable, Comparable {
+        static func < (lhs: MessageThread.Message, rhs: MessageThread.Message) -> Bool {
+            return lhs.timeStamp < rhs.timeStamp
+        }
+        
         let text: String
         let sender: String
         let timeStamp: Date

@@ -40,6 +40,7 @@ class MessageThreadController {
             }
             
             self.messageThreads.append(messageThread)
+            self.messageThreads.sort()
             completion("All good")
         }
         
@@ -67,6 +68,7 @@ class MessageThreadController {
                 return
             }
             thread.messages.append(message)
+            thread.messages.sort()
             completion("All Good2")
         }
         dataTask.resume()
@@ -89,7 +91,10 @@ class MessageThreadController {
             do {
                 let messageThreadDictionaries = try JSONDecoder().decode([String: MessageThread].self, from: data)
                 let messageThreads = messageThreadDictionaries.map { $0.value }
-                self.messageThreads = messageThreads
+                self.messageThreads = messageThreads.sorted()
+                for thread in self.messageThreads {
+                    thread.messages.sort()
+                }
             } catch {
                 completion("error decoding json messages: \(error)")
                 return
