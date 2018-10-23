@@ -13,6 +13,7 @@
 		39A04037217FAC5600A23642 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A04035217FAC5600A23642 /* LaunchScreen.storyboard */; };
 		39A0403F217FB7DA00A23642 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0403E217FB7DA00A23642 /* MessageThreadsTableViewController.swift */; };
 		39A04041217FBE4900A23642 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A04040217FBE4900A23642 /* MessageThreadDetailTableViewController.swift */; };
+		39A04043217FC3E700A23642 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A04042217FC3E700A23642 /* MessageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		39A04038217FAC5600A23642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39A0403E217FB7DA00A23642 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		39A04040217FBE4900A23642 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		39A04042217FC3E700A23642 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				39A04030217FAC5500A23642 /* Main.storyboard */,
 				39A0403E217FB7DA00A23642 /* MessageThreadsTableViewController.swift */,
 				39A04040217FBE4900A23642 /* MessageThreadDetailTableViewController.swift */,
+				39A04042217FC3E700A23642 /* MessageDetailViewController.swift */,
 				39A04033217FAC5600A23642 /* Assets.xcassets */,
 				39A04035217FAC5600A23642 /* LaunchScreen.storyboard */,
 				39A04038217FAC5600A23642 /* Info.plist */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A0402D217FAC5500A23642 /* AppDelegate.swift in Sources */,
+				39A04043217FC3E700A23642 /* MessageDetailViewController.swift in Sources */,
 				39A04041217FBE4900A23642 /* MessageThreadDetailTableViewController.swift in Sources */,
 				39A0403F217FB7DA00A23642 /* MessageThreadsTableViewController.swift in Sources */,
 			);
