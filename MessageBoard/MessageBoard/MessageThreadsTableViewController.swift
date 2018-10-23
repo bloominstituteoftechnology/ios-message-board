@@ -3,7 +3,15 @@ import UIKit
 class MessageThreadsTableViewController: UITableViewController {
     let messageThreadController = MessageThreadController()
     
- 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        messageThreadController.fetchMessageThreads { (success) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     @IBAction func CreateANewThread(_ sender: Any) {
         guard let title = messageThreadTextField.text else { return }
