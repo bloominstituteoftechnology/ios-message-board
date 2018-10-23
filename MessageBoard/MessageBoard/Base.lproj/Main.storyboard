@@ -21,7 +21,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPx-eh-1Et">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPx-eh-1Et">
                                     <rect key="frame" x="3" y="3" width="369" height="39"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -33,10 +33,10 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="OPx-eh-1Et" firstAttribute="leading" secondItem="Ysd-dj-pl8" secondAttribute="leading" constant="3" id="FMg-Pn-0Wb"/>
-                                <constraint firstAttribute="bottom" secondItem="OPx-eh-1Et" secondAttribute="bottom" constant="3" id="QxU-8g-Zs4"/>
-                                <constraint firstAttribute="trailing" secondItem="OPx-eh-1Et" secondAttribute="trailing" constant="3" id="XHS-SE-8SQ"/>
-                                <constraint firstItem="OPx-eh-1Et" firstAttribute="top" secondItem="Ysd-dj-pl8" secondAttribute="top" constant="3" id="gkV-ox-hrP"/>
+                                <constraint firstItem="OPx-eh-1Et" firstAttribute="leading" secondItem="Ysd-dj-pl8" secondAttribute="leading" constant="3" id="2At-Ig-M20"/>
+                                <constraint firstItem="OPx-eh-1Et" firstAttribute="top" secondItem="Ysd-dj-pl8" secondAttribute="top" constant="3" id="9S6-BN-O9D"/>
+                                <constraint firstAttribute="bottom" secondItem="OPx-eh-1Et" secondAttribute="bottom" constant="3" id="aVx-lG-C2b"/>
+                                <constraint firstAttribute="trailing" secondItem="OPx-eh-1Et" secondAttribute="trailing" constant="3" id="lzc-6A-fqO"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -165,7 +165,11 @@
                         <viewLayoutGuide key="safeArea" id="lCD-wA-XKX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="YVU-ot-A9X">
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="DrO-Cx-axE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="DrO-Cx-axE">
+                            <connections>
+                                <action selector="sendButton:" destination="eyD-ju-XOY" id="5Z2-nk-epW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="textField" destination="2q8-GM-snM" id="puA-jT-mPx"/>
