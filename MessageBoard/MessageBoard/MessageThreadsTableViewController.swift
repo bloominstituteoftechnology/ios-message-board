@@ -1,7 +1,7 @@
 import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
-
+    let messageThreadController = MessageThreadController()
     
     @IBAction func CreateANewThread(_ sender: Any) {
     }

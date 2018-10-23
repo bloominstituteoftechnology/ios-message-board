@@ -4,8 +4,9 @@ class MessageThreadController {
     var messageThreads: [MessageThread] = []
     
     static let baseURL: URL! = URL(string: "https://lambda-chat-project.firebaseio.com/")
+    typealias RequestClosure = (_ success: Bool) -> Void
     
-    func createMessageThread(title: String, completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+    func createMessageThread(title: String, completion: @escaping RequestClosure) {
         let messageThread = MessageThread(title: title)
         let url = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier).appendingPathExtension("json")
         
@@ -19,7 +20,7 @@ class MessageThreadController {
             fatalError("Error encoding message thread: \(messageThread) \(error)")
         }
         
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             // Fail on error
             if let error = error {
                 NSLog("Error: \(error)")
@@ -30,7 +31,32 @@ class MessageThreadController {
             self.messageThreads.append(messageThread)
             completion(true)
         }
-        dataTask.resume()
+        .resume()
+    }
+    
+    func createMessage(thread: MessageThread, text: String, sender: String, completion: @escaping RequestClosure) {
+        let newMessage = MessageThread.Message(text: text, sender: sender)
+        let url = MessageThreadController.baseURL.appendingPathComponent(thread.identifier).appendingPathComponent("messages").appendingPathExtension("json")
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(newMessage)
+        } catch {
+            fatalError("Error encoding message thread: \(newMessage) \(error)")
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error: \(error)")
+                completion(false)
+                return
+            }
+            
+            thread.messages.append(newMessage)
+            completion(true)
+        } .resume()
     }
     
     
