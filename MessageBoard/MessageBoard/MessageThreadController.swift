@@ -82,7 +82,7 @@ class MessageThreadController {
             }
             
             guard let data = data else {
-                completion("no data returned: \(error)")
+                completion("no data returned: \(error!)")
                 return
             }
             
