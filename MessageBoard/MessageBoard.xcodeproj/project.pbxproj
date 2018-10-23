@@ -12,6 +12,7 @@
 		4B0FDD97217FA104006EF9CE /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FDD96217FA104006EF9CE /* MessageDetailViewController.swift */; };
 		4B0FDD9B217FA143006EF9CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FDD99217FA143006EF9CE /* LaunchScreen.storyboard */; };
 		4B0FDD9C217FA143006EF9CE /* LambdaLogoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FDD9A217FA143006EF9CE /* LambdaLogoAssets.xcassets */; };
+		4B0FDD9E217FA371006EF9CE /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FDD9D217FA371006EF9CE /* MessageThread.swift */; };
 		4B4020A3217EBD1F0021EBA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4020A2217EBD1F0021EBA9 /* AppDelegate.swift */; };
 		4B4020A8217EBD1F0021EBA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4020A6217EBD1F0021EBA9 /* Main.storyboard */; };
 		4B4020AA217EBD200021EBA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B4020A9217EBD200021EBA9 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		4B0FDD96217FA104006EF9CE /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		4B0FDD99217FA143006EF9CE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B0FDD9A217FA143006EF9CE /* LambdaLogoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LambdaLogoAssets.xcassets; sourceTree = "<group>"; };
+		4B0FDD9D217FA371006EF9CE /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
 		4B40209F217EBD1F0021EBA9 /* MessageBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B4020A2217EBD1F0021EBA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B4020A7217EBD1F0021EBA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				4B4020A2217EBD1F0021EBA9 /* AppDelegate.swift */,
 				4B4020A6217EBD1F0021EBA9 /* Main.storyboard */,
 				4B0FDD96217FA104006EF9CE /* MessageDetailViewController.swift */,
+				4B0FDD9D217FA371006EF9CE /* MessageThread.swift */,
 				4B0FDD92217F9CC0006EF9CE /* MessageThreadsTableViewController.swift */,
 				4B0FDD94217F9F5B006EF9CE /* MessageThreadDetailTableViewController.swift */,
 				4B4020A9217EBD200021EBA9 /* Assets.xcassets */,
@@ -160,6 +163,7 @@
 				4B0FDD93217F9CC0006EF9CE /* MessageThreadsTableViewController.swift in Sources */,
 				4B0FDD97217FA104006EF9CE /* MessageDetailViewController.swift in Sources */,
 				4B0FDD95217F9F5B006EF9CE /* MessageThreadDetailTableViewController.swift in Sources */,
+				4B0FDD9E217FA371006EF9CE /* MessageThread.swift in Sources */,
 				4B4020A3217EBD1F0021EBA9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
