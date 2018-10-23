@@ -17,6 +17,24 @@ class MessageThread: Codable {
         return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.messages == rhs.messages
     }
     
+    required init(from decoder: Decoder) throws {
+        
+        // 1 container is a KeyedDecodingContainer object
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // 2 Using the container object, pull out the individual values from each key-value pair.
+        let title = try container.decode(String.self, forKey: .title)
+        let identifier = try container.decode(String.self, forKey: .identifier)
+        let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+        
+        // 3 Take each MessageThread.Message object and sort of discard the identifier key by mapping through the dictionaries and returning only the value, which is the actual messate object.
+        let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
+        
+        // 4 Set properties to newly decoded properties
+        self.title = title
+        self.identifier = identifier
+        self.messages = messages
+    }
     
     struct Message: Equatable, Codable {
         let text: String
