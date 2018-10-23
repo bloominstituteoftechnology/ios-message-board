@@ -40,7 +40,7 @@ class MessageThreadController {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        
+    
         do {
             request.httpBody = try JSONEncoder().encode(newMessage)
         } catch {
@@ -59,5 +59,35 @@ class MessageThreadController {
         } .resume()
     }
     
+    func fetchMessageThreads(completion: @escaping RequestClosure) {
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                NSLog("Error: \(error)")
+                completion(false)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Data was not recieved.")
+                completion(false)
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let messageThreadDictionaries = try jsonDecoder.decode([String: MessageThread].self, from: data)
+                let messageThreads = messageThreadDictionaries.map({ $0.value })
+                self.messageThreads = messageThreads
+                completion(true)
+            } catch {
+                NSLog("Error decoding data: \(error)")
+                completion(false)
+                return
+            }
+           
+            }.resume()
+    }
     
 }
