@@ -1,15 +1,33 @@
 import UIKit
 
+private let refreshControl = UIRefreshControl()
+
 class MessageThreadsTableViewController: UITableViewController {
     let messageThreadController = MessageThreadController()
+    
+    @objc func fetch() {
+        messageThreadController.fetchMessageThreads { (success) in
+            DispatchQueue.main.async { self.tableView.reloadData() }
+        }
+    }
+    
+    override func viewDidLoad() {
+        let refreshControl = UIRefreshControl()
+        tableView.addSubview(refreshControl)
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.tintColor = UIColor(red: 1.00, green: 0.21, blue: 0.55, alpha: 1.0) //pink
+        refreshControl.addTarget(self, action: #selector(fetch), for: .valueChanged)
+        refreshControl.endRefreshing()
+        
+    }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         messageThreadController.fetchMessageThreads { (success) in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            DispatchQueue.main.async { self.tableView.reloadData() }
         }
     }
     
