@@ -39,4 +39,38 @@ class MessageThreadController {
         
         dataTask.resume()
     }
+    
+    func createMessage(thread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+        let message = MessageThread.Message(text: text, sender: sender, timestamp: Date())
+        
+        var requestURL = MessageThreadController.baseURL.appendingPathComponent(thread.identifier).appendingPathComponent("message")
+        requestURL.appendPathExtension("json")
+        
+        var request = URLRequest(url: requestURL)
+        
+        request.httpMethod = "POST"
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(message)
+        } catch {
+            NSLog("Unable to encode messageThread: \(error)")
+            completion(error)
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { data, _ , error in
+            
+            if let error = error {
+                NSLog("Server POST error: \(error)")
+                completion(error)
+                return
+            }
+            
+            self.messageThreads.append(thread)
+            completion(nil)
+        }
+        
+        dataTask.resume()
+    }
+    
 }
