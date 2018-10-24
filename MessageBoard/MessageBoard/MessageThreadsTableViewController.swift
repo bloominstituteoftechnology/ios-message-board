@@ -19,12 +19,8 @@ class MessageThreadsTableViewController: UITableViewController {
         messageThreadController.createMessageThread(title: title) { (success) in
             DispatchQueue.main.async { self.tableView.reloadData()}
         }
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+        
+        messageThreadTextField.text = ""
     }
 
     // MARK: - Table view data source
@@ -48,7 +44,7 @@ class MessageThreadsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddEntry" {
+        if segue.identifier == "ShowMessageThreads" {
             guard let indexPath = tableView.indexPathForSelectedRow,
                 let detailTVC = segue.destination as? MessageThreadDetailTableViewController else { return }
             let message = messageThreadController.messageThreads[indexPath.row]

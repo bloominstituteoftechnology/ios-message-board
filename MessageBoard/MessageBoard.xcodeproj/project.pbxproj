@@ -77,9 +77,9 @@
 			children = (
 				4B4020A2217EBD1F0021EBA9 /* AppDelegate.swift */,
 				4B4020A6217EBD1F0021EBA9 /* Main.storyboard */,
-				4B0FDD96217FA104006EF9CE /* MessageDetailViewController.swift */,
 				4B0FDD9D217FA371006EF9CE /* MessageThread.swift */,
 				4B0FDD9F217FA819006EF9CE /* MessageThreadController.swift */,
+				4B0FDD96217FA104006EF9CE /* MessageDetailViewController.swift */,
 				4B0FDD92217F9CC0006EF9CE /* MessageThreadsTableViewController.swift */,
 				4B0FDD94217F9F5B006EF9CE /* MessageThreadDetailTableViewController.swift */,
 				4B4020A9217EBD200021EBA9 /* Assets.xcassets */,

@@ -3,7 +3,7 @@ import Foundation
 class MessageThreadController {
     var messageThreads: [MessageThread] = []
     
-    static let baseURL: URL! = URL(string: "https://lambda-chat-project.firebaseio.com/")
+    static let baseURL: URL! = URL(string: "https://message-board-2a09c.firebaseio.com/")
     typealias RequestClosure = (_ success: Bool) -> Void
     
     func createMessageThread(title: String, completion: @escaping RequestClosure) {
