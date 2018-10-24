@@ -8,9 +8,9 @@ class MessageThreadController {
     
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
         
-        let messageThreads = MessageThread(title: title)
+        let messageThread = MessageThread(title: title)
         
-        var requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThreads.identifier)
+        var requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
         requestURL.appendPathExtension("json")
         
         var request = URLRequest(url: requestURL)
@@ -32,7 +32,11 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-    
+            
+            self.messageThreads.append(messageThread)
+            completion(nil)
         }
+        
+        dataTask.resume()
     }
 }
