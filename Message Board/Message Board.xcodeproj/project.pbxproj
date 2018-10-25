@@ -64,11 +64,11 @@
 			children = (
 				39A0402C217FAC5500A23642 /* AppDelegate.swift */,
 				39A04030217FAC5500A23642 /* Main.storyboard */,
+				39A04044217FC57E00A23642 /* MessageThread.swift */,
+				39A04046217FCC1500A23642 /* MessageThreadController.swift */,
 				39A0403E217FB7DA00A23642 /* MessageThreadsTableViewController.swift */,
 				39A04040217FBE4900A23642 /* MessageThreadDetailTableViewController.swift */,
 				39A04042217FC3E700A23642 /* MessageDetailViewController.swift */,
-				39A04044217FC57E00A23642 /* MessageThread.swift */,
-				39A04046217FCC1500A23642 /* MessageThreadController.swift */,
 				39A04033217FAC5600A23642 /* Assets.xcassets */,
 				39A04035217FAC5600A23642 /* LaunchScreen.storyboard */,
 				39A04038217FAC5600A23642 /* Info.plist */,

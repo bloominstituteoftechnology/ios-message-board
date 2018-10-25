@@ -6,12 +6,12 @@ class MessageThreadsTableViewController: UITableViewController {
     
     @IBOutlet weak var messageThreadOutlet: UITextField!
     @IBAction func messageThreadTextField(_ sender: Any) {
+        
         guard let threadTitle = messageThreadOutlet.text else { return }
         
         messageThreadController.createMessageThread(title: threadTitle) { (success) in
             DispatchQueue.main.async {self.tableView.reloadData()}
         }
-        
     }
     
     override func viewDidLoad() {
