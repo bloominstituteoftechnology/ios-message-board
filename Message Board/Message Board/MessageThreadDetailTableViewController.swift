@@ -25,10 +25,10 @@ class MessageThreadDetailTableViewController: UITableViewController {
         return messageThread?.messages.count ?? 0
     }
 
-    let reuseIdentifier = "cell"
+    let detailReuseIdentifier = "detailCell"
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: detailReuseIdentifier, for: indexPath)
 
         let message = messageThread?.messages[indexPath.row]
         
