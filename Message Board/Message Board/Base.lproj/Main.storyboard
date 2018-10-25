@@ -67,6 +67,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="λ Message Board" id="XFN-kW-3xa"/>
+                    <connections>
+                        <outlet property="messageThreadOutlet" destination="b8J-cv-Q5y" id="7Wh-sE-oGd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NU1-iU-S18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
