@@ -18,11 +18,9 @@ class MessageDetailViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         })
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }

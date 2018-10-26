@@ -13,22 +13,22 @@ class MessageThread: Codable, Equatable {
     let title: String
     let identifier: String
     
+    init(title: String, messages: [MessageThread.Message] = []) {
+        self.title = title
+        self.messages = messages
+        self.identifier = UUID().uuidString
+    }
+    
     struct Message: Codable, Equatable {
         let text: String
         let sender: String
         let timestamp: Date
         
-        init(text: String, sender: String, timestamp: Date) {
+        init(text: String, sender: String) {
             self.text = text
             self.sender = sender
             self.timestamp = Date()
         }
-    }
-    
-    init(title: String) {
-        self.title = title
-        self.messages = []
-        self.identifier = UUID().uuidString
     }
     
     required init(from decoder: Decoder) throws {

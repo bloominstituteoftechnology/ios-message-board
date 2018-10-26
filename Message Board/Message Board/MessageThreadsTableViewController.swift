@@ -2,7 +2,7 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
     
-    var messageThreadController: MessageThreadController = MessageThreadController()
+    var messageThreadController = MessageThreadController()
     
     @IBOutlet weak var messageThreadOutlet: UITextField!
     @IBAction func messageThreadTextField(_ sender: Any) {
@@ -12,11 +12,21 @@ class MessageThreadsTableViewController: UITableViewController {
         messageThreadController.createMessageThread(title: threadTitle) { (success) in
             DispatchQueue.main.async {self.tableView.reloadData()}
         }
+        messageThreadOutlet.text = ""
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        messageThreadController.fetchMessageThreads { (error) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -45,6 +55,7 @@ class MessageThreadsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        
         guard let destination = segue.destination as? MessageThreadDetailTableViewController,
             let indexPath = tableView.indexPathForSelectedRow else {return}
         
@@ -52,6 +63,4 @@ class MessageThreadsTableViewController: UITableViewController {
         destination.messageThread = messageThreadController.messageThreads[indexPath.row]
         
     }
-    
-    
 }

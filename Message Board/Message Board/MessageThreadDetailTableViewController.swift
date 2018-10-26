@@ -7,7 +7,6 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         self.title = messageThread?.title
     }
     
@@ -43,7 +42,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    
         guard let destination = segue.destination as? MessageDetailViewController else { return }
         
         destination.messageThreadController = messageThreadController

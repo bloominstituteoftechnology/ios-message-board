@@ -4,21 +4,24 @@ class MessageThreadController {
     
     var messageThreads: [MessageThread] = []
     
-    static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
+    static let baseURL = URL(string: "https://moses-lambda-message-board.firebaseio.com/")!
+    
     
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
         
         let messageThread = MessageThread(title: title)
         
-        var requestURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
-        requestURL.appendPathExtension("json")
+        let requestURL = MessageThreadController.baseURL
+            .appendingPathComponent(messageThread.identifier)
+            .appendingPathExtension("json")
         
         var request = URLRequest(url: requestURL)
         
         request.httpMethod = "PUT"
         
         do {
-            request.httpBody = try JSONEncoder().encode(messageThreads)
+            request.httpBody = try JSONEncoder().encode(messageThread)
+            
         } catch {
             NSLog("Unable to encode messageThread: \(error)")
             completion(error)
@@ -32,18 +35,19 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-            
             self.messageThreads.append(messageThread)
             completion(nil)
         }
-        
         dataTask.resume()
     }
     
+    
+    
     func createMessage(thread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
-        let message = MessageThread.Message(text: text, sender: sender, timestamp: Date())
+        let message = MessageThread.Message(text: text, sender: sender)
         
         var requestURL = MessageThreadController.baseURL.appendingPathComponent(thread.identifier).appendingPathComponent("message")
+        
         requestURL.appendPathExtension("json")
         
         var request = URLRequest(url: requestURL)
@@ -65,12 +69,43 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-            
-            self.messageThreads.append(thread)
-            completion(nil)
+            thread.messages.append(message)
+            completion(error)
         }
-        
         dataTask.resume()
     }
     
+    
+    
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void ) {
+        
+        let requestURL = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, error in
+            
+            if let error = error {
+                NSLog("\(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data from data task")
+                completion(NSError())
+                return
+            }
+            
+            do{
+                let messageThreadsDictionaries = try JSONDecoder().decode([String: MessageThread].self, from: data)
+                let messageThreads = messageThreadsDictionaries.map( {$0.value} )
+                self.messageThreads = messageThreads
+                completion(error)
+            } catch {
+                NSLog("Error encoding message: \(error)")
+                completion(error)
+                return
+            }
+        }
+        dataTask.resume()
+    }
 }
