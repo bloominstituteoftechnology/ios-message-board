@@ -62,6 +62,7 @@ class MessageThreadController {
         
         do {
         requestURL.httpBody = try JSONEncoder().encode(messageThread)
+            self.messageThreads.append(messageThread)
             completion(nil)
         }catch {
             NSLog("Failed to encode \"PUT\" data.")
@@ -77,7 +78,7 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-            self.messageThreads.append(messageThread)
+            
             
         }
         dataTask.resume()
@@ -88,9 +89,10 @@ class MessageThreadController {
         
         // Construct URL
         let appendedURL = MessageThreadController.baseURL?.appendingPathExtension("json")
+        print(appendedURL)
         
         //call Data Task
-        let dataTask = URLSession().dataTask(with: appendedURL!) { (data, _, error) in
+        let dataTask = URLSession.shared.dataTask(with: appendedURL!) { (data, _, error) in
             if let error = error {
                 NSLog("Error with dataTask in fetchThreads.")
                 completion(error)
@@ -103,11 +105,17 @@ class MessageThreadController {
             }
             do {
                 let messageThreadDictionaries = try JSONDecoder().decode([String : MessageThread].self, from: data)
-                let messageThreads = messageThreadDictionaries
+                let otherMessageThreads = messageThreadDictionaries.map({$0.value})
+                self.messageThreads = otherMessageThreads
+                completion(nil)
             }
             catch {
+                NSLog("Could not decode data.")
+                completion(NSError())
+                return
             }
         }
+        dataTask.resume()
     }
     
 }

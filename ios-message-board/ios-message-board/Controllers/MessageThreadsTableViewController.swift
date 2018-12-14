@@ -18,6 +18,18 @@ class MessageThreadsTableViewController: UITableViewController, UITextFieldDeleg
         super.viewDidLoad()
         messageTextField.delegate = self
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        messageThreadController.fetchThreads { error in
+            if let error = error{
+                NSLog("Error with fetchThreads in MTTVC viewWillAppear: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     //MARK: Textfield action and method
     @IBAction func messageTextField(_ sender: Any) {
