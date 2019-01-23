@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		A253B02121F9010E0030316E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A253B02021F9010E0030316E /* AppDelegate.swift */; };
-		A253B02321F9010E0030316E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A253B02221F9010E0030316E /* ViewController.swift */; };
 		A253B02621F9010E0030316E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A253B02421F9010E0030316E /* Main.storyboard */; };
 		A253B02821F9010F0030316E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A253B02721F9010F0030316E /* Assets.xcassets */; };
 		A253B02B21F9010F0030316E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A253B02921F9010F0030316E /* LaunchScreen.storyboard */; };
+		A253B03321F9043C0030316E /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A253B03221F9043C0030316E /* MessageThreadsTableViewController.swift */; };
+		A253B03621F909920030316E /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A253B03521F909920030316E /* MessageThreadDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A253B01D21F9010E0030316E /* MessageBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A253B02021F9010E0030316E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A253B02221F9010E0030316E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A253B02521F9010E0030316E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A253B02721F9010F0030316E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A253B02A21F9010F0030316E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A253B02C21F9010F0030316E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A253B03221F9043C0030316E /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
+		A253B03521F909920030316E /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +57,38 @@
 			isa = PBXGroup;
 			children = (
 				A253B02021F9010E0030316E /* AppDelegate.swift */,
-				A253B02221F9010E0030316E /* ViewController.swift */,
 				A253B02421F9010E0030316E /* Main.storyboard */,
 				A253B02721F9010F0030316E /* Assets.xcassets */,
 				A253B02921F9010F0030316E /* LaunchScreen.storyboard */,
 				A253B02C21F9010F0030316E /* Info.plist */,
+				A253B03821F909ED0030316E /* Models */,
+				A253B03421F9096F0030316E /* Views */,
+				A253B03721F909E60030316E /* Controllers */,
 			);
 			path = MessageBoard;
+			sourceTree = "<group>";
+		};
+		A253B03421F9096F0030316E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A253B03221F9043C0030316E /* MessageThreadsTableViewController.swift */,
+				A253B03521F909920030316E /* MessageThreadDetailTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A253B03721F909E60030316E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A253B03821F909ED0030316E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +162,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A253B02321F9010E0030316E /* ViewController.swift in Sources */,
 				A253B02121F9010E0030316E /* AppDelegate.swift in Sources */,
+				A253B03621F909920030316E /* MessageThreadDetailTableViewController.swift in Sources */,
+				A253B03321F9043C0030316E /* MessageThreadsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
