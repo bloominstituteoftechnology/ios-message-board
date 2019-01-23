@@ -13,7 +13,7 @@
         <!--λ Message Board-->
         <scene sceneID="PTT-NF-icp">
             <objects>
-                <tableViewController id="QFa-pI-Nte" sceneMemberID="viewController">
+                <tableViewController id="QFa-pI-Nte" customClass="MessageThreadsTVC" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EZh-eg-BSR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +28,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="textField:" destination="QFa-pI-Nte" eventType="editingDidEndOnExit" id="hsP-Ij-uJl"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,6 +60,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="λ Message Board" id="AWB-w9-svD"/>
+                    <connections>
+                        <outlet property="testField" destination="bD3-Ch-H5Y" id="pAk-lh-bcx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUD-eh-wrU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
