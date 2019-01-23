@@ -37,6 +37,20 @@ class MessageThread: Equatable, Codable {
             lhs.messages == rhs.messages
     }
     
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+    
+        let title = try container.decode(String.self, forKey: .title)
+        let identifier = try container.decode(String.self, forKey: .indentifier)
+        let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+        
+        let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
+        
+        self.title = title
+        self.indentifier = identifier
+        self.messages = messages
+    }
+    
     func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
         
         let newMessage = MessageThread.Message(text: text, sender: sender)
