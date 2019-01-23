@@ -15,6 +15,8 @@
 		7A28EA0B21F8FF05005616DA /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28EA0A21F8FF05005616DA /* MessageThreadsTableViewController.swift */; };
 		7A28EA0D21F8FFE6005616DA /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28EA0C21F8FFE6005616DA /* MessageThreadDetailTableViewController.swift */; };
 		7A28EA1021F902B8005616DA /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28EA0F21F902B7005616DA /* MessageThread.swift */; };
+		7A28EA1321F906D2005616DA /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28EA1221F906D2005616DA /* MessageThreadController.swift */; };
+		7A28EA1621F909BF005616DA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28EA1521F909BF005616DA /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		7A28EA0A21F8FF05005616DA /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		7A28EA0C21F8FFE6005616DA /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		7A28EA0F21F902B7005616DA /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		7A28EA1221F906D2005616DA /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
+		7A28EA1521F909BF005616DA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				7A28E9F821F8FDCB005616DA /* AppDelegate.swift */,
-				7A28EA0F21F902B7005616DA /* MessageThread.swift */,
+				7A28EA1521F909BF005616DA /* HTTPMethod.swift */,
+				7A28EA1121F906BD005616DA /* Model */,
+				7A28EA1421F906D7005616DA /* Model Controller */,
 				7A28EA0E21F9022F005616DA /* View Controllers */,
 				7A28E9FC21F8FDCB005616DA /* Main.storyboard */,
 				7A28E9FF21F8FDCD005616DA /* Assets.xcassets */,
@@ -79,6 +85,22 @@
 				7A28E9FA21F8FDCB005616DA /* MessageDetailViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7A28EA1121F906BD005616DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A28EA0F21F902B7005616DA /* MessageThread.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A28EA1421F906D7005616DA /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7A28EA1221F906D2005616DA /* MessageThreadController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +176,11 @@
 			files = (
 				7A28E9FB21F8FDCB005616DA /* MessageDetailViewController.swift in Sources */,
 				7A28EA0B21F8FF05005616DA /* MessageThreadsTableViewController.swift in Sources */,
+				7A28EA1621F909BF005616DA /* HTTPMethod.swift in Sources */,
 				7A28EA0D21F8FFE6005616DA /* MessageThreadDetailTableViewController.swift in Sources */,
 				7A28EA1021F902B8005616DA /* MessageThread.swift in Sources */,
 				7A28E9F921F8FDCB005616DA /* AppDelegate.swift in Sources */,
+				7A28EA1321F906D2005616DA /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
