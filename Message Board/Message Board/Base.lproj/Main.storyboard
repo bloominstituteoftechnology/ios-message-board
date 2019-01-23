@@ -28,6 +28,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="createThread:" destination="uO3-u6-cwQ" eventType="editingDidEndOnExit" id="VBJ-4W-oC6"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,6 +69,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="λ Message Board" id="6N3-H5-VMN"/>
+                    <connections>
+                        <outlet property="threadTextField" destination="9WX-4E-xis" id="EK2-pf-wKy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4FQ-s4-Hgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,8 +164,16 @@
                         <viewLayoutGuide key="safeArea" id="y5G-Co-gbz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Message" id="7uv-Bu-zAQ">
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="U64-q4-Xbr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="U64-q4-Xbr">
+                            <connections>
+                                <action selector="sendMessageTapped:" destination="lWd-DM-v1Y" id="HLA-CM-IZT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="messageTextView" destination="Vye-71-Usw" id="vm1-bB-Kyh"/>
+                        <outlet property="nameTextField" destination="s4e-bB-A5f" id="TPK-rg-0M4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3y-qV-ttH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
