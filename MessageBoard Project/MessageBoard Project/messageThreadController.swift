@@ -91,4 +91,34 @@ class MessageThreadController {
         }.resume()
     }
     
+    func fetchMessageThread(completion: @escaping (Error?) -> Void)  {
+        
+        //create a url to get the data from
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+                completion(error)
+            }
+            
+            //unwrap the data using a jsondecoder
+            guard let data = data else { return }
+            do{
+                let jD = JSONDecoder()
+               let messageThreadDictionaries = try jD.decode([String: MessageThread].self, from: data) // json is a dictionary of string: and our type. We have to input the highest level in the json, which is usually our first model object
+                
+                //create a constant that will map through the messageThreadDictionaries and return only the values of each dictionary
+                let messageThreads = messageThreadDictionaries.map({$0.value})
+                
+                //set the class's messageThreads variable to the messageThread you just made so the rest of the application can use the threads
+                self.messageThreads = messageThreads
+                completion(nil)
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
+    
 }
