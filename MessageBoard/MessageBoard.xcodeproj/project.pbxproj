@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		485DE76C21F90BC5007EE8C9 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485DE76B21F90BC5007EE8C9 /* MessageThread.swift */; };
+		485DE76E21F913EC007EE8C9 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485DE76D21F913EC007EE8C9 /* MessageThreadController.swift */; };
 		48D19CD921F900A9003E8604 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D19CD821F900A9003E8604 /* AppDelegate.swift */; };
 		48D19CDB21F900A9003E8604 /* MessageDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D19CDA21F900A9003E8604 /* MessageDetailVC.swift */; };
 		48D19CDE21F900A9003E8604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D19CDC21F900A9003E8604 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		485DE76B21F90BC5007EE8C9 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		485DE76D21F913EC007EE8C9 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 		48D19CD521F900A9003E8604 /* MessageBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D19CD821F900A9003E8604 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48D19CDA21F900A9003E8604 /* MessageDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailVC.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				48D19CD821F900A9003E8604 /* AppDelegate.swift */,
 				485DE76B21F90BC5007EE8C9 /* MessageThread.swift */,
+				485DE76D21F913EC007EE8C9 /* MessageThreadController.swift */,
 				48D19CEC21F90373003E8604 /* Controllers */,
 				48D19CDC21F900A9003E8604 /* Main.storyboard */,
 				48D19CDF21F900AB003E8604 /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 				48D19CD921F900A9003E8604 /* AppDelegate.swift in Sources */,
 				485DE76C21F90BC5007EE8C9 /* MessageThread.swift in Sources */,
 				48D19CEB21F90364003E8604 /* MessageThreadsTVC.swift in Sources */,
+				485DE76E21F913EC007EE8C9 /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
