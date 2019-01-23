@@ -28,5 +28,9 @@ class MessageDetailTableViewController: UITableViewController {
         return cell
     }
     
+    // Properties
+    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 
 }
