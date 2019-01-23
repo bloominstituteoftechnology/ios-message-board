@@ -13,6 +13,7 @@
 		48D19CE021F900AB003E8604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D19CDF21F900AB003E8604 /* Assets.xcassets */; };
 		48D19CE321F900AB003E8604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D19CE121F900AB003E8604 /* LaunchScreen.storyboard */; };
 		48D19CEB21F90364003E8604 /* MessageThreadsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D19CEA21F90364003E8604 /* MessageThreadsTVC.swift */; };
+		48D19CEE21F90532003E8604 /* MessageThreadDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D19CED21F90532003E8604 /* MessageThreadDetailTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		48D19CE221F900AB003E8604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D19CE421F900AB003E8604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48D19CEA21F90364003E8604 /* MessageThreadsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTVC.swift; sourceTree = "<group>"; };
+		48D19CED21F90532003E8604 /* MessageThreadDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				48D19CEA21F90364003E8604 /* MessageThreadsTVC.swift */,
+				48D19CED21F90532003E8604 /* MessageThreadDetailTVC.swift */,
 				48D19CDA21F900A9003E8604 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48D19CEE21F90532003E8604 /* MessageThreadDetailTVC.swift in Sources */,
 				48D19CDB21F900A9003E8604 /* ViewController.swift in Sources */,
 				48D19CD921F900A9003E8604 /* AppDelegate.swift in Sources */,
 				48D19CEB21F90364003E8604 /* MessageThreadsTVC.swift in Sources */,

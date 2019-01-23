@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="-551" y="126"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Message Thread DetailTVC-->
         <scene sceneID="4Yt-Mk-0tG">
             <objects>
-                <tableViewController id="3oh-hx-3td" sceneMemberID="viewController">
+                <tableViewController id="3oh-hx-3td" customClass="MessageThreadDetailTVC" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pWa-bG-1I0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
