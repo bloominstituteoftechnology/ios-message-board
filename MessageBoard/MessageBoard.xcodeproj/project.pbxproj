@@ -13,6 +13,7 @@
 		A253B02B21F9010F0030316E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A253B02921F9010F0030316E /* LaunchScreen.storyboard */; };
 		A253B03321F9043C0030316E /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A253B03221F9043C0030316E /* MessageThreadsTableViewController.swift */; };
 		A253B03621F909920030316E /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A253B03521F909920030316E /* MessageThreadDetailTableViewController.swift */; };
+		A253B03A21F90C300030316E /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A253B03921F90C300030316E /* MessageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A253B02C21F9010F0030316E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A253B03221F9043C0030316E /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		A253B03521F909920030316E /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		A253B03921F90C300030316E /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				A253B03221F9043C0030316E /* MessageThreadsTableViewController.swift */,
 				A253B03521F909920030316E /* MessageThreadDetailTableViewController.swift */,
+				A253B03921F90C300030316E /* MessageDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A253B02121F9010E0030316E /* AppDelegate.swift in Sources */,
+				A253B03A21F90C300030316E /* MessageDetailViewController.swift in Sources */,
 				A253B03621F909920030316E /* MessageThreadDetailTableViewController.swift in Sources */,
 				A253B03321F9043C0030316E /* MessageThreadsTableViewController.swift in Sources */,
 			);

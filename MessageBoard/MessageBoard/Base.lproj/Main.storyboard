@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="954.39999999999998" y="138.91625615763547"/>
         </scene>
-        <!--Title-->
+        <!--REST APIs-->
         <scene sceneID="vAx-EZ-y1t">
             <objects>
                 <tableViewController id="NAL-yB-1l5" customClass="MessageThreadDetailTableViewController" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,13 +115,69 @@
                             <outlet property="delegate" destination="NAL-yB-1l5" id="mVK-wG-vsd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="drS-5q-lyX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z0T-m4-0mA"/>
+                    <navigationItem key="navigationItem" title="REST APIs" id="drS-5q-lyX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z0T-m4-0mA">
+                            <connections>
+                                <segue destination="ECb-Jx-qKG" kind="show" identifier="plusSegue" id="oEE-gx-rQz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAm-u2-qTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1750" y="139"/>
+        </scene>
+        <!--New Message-->
+        <scene sceneID="oJ6-Zt-z11">
+            <objects>
+                <viewController id="ECb-Jx-qKG" customClass="MessageDetailViewController" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O0L-Nn-rzC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tho-20-g49">
+                                <rect key="frame" x="8" y="140" width="359" height="638"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NoW-An-qYp">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I3J-1P-z75">
+                                        <rect key="frame" x="0.0" y="38" width="359" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Tho-20-g49" firstAttribute="leading" secondItem="hCV-fG-LuW" secondAttribute="leading" constant="8" id="0Zh-Lr-7y6"/>
+                            <constraint firstItem="hCV-fG-LuW" firstAttribute="bottom" secondItem="Tho-20-g49" secondAttribute="bottom" id="4ao-qi-lCx"/>
+                            <constraint firstItem="Tho-20-g49" firstAttribute="top" secondItem="hCV-fG-LuW" secondAttribute="top" id="5ZM-JH-P21"/>
+                            <constraint firstItem="hCV-fG-LuW" firstAttribute="trailing" secondItem="Tho-20-g49" secondAttribute="trailing" constant="8" id="PAj-Mx-ICb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hCV-fG-LuW"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Message" id="cmi-ya-NVw">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="per-Ob-Iif">
+                            <connections>
+                                <action selector="sendButton:" destination="ECb-Jx-qKG" id="aHE-vW-OMt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="NoW-An-qYp" id="AT5-R9-0as"/>
+                        <outlet property="textView" destination="I3J-1P-z75" id="7ZD-rC-LxN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UYR-DJ-iaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2519" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bad-oz-hVf">
