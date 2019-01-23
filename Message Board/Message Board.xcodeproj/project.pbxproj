@@ -15,6 +15,7 @@
 		77E0E92821F9038F00F93501 /* MessageDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0E92721F9038F00F93501 /* MessageDetailTableViewController.swift */; };
 		77E0E92A21F9057800F93501 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0E92921F9057800F93501 /* MessageDetailViewController.swift */; };
 		77E0E92C21F906D300F93501 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0E92B21F906D300F93501 /* MessageThread.swift */; };
+		77E0E92E21F90DB200F93501 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0E92D21F90DB200F93501 /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		77E0E92721F9038F00F93501 /* MessageDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailTableViewController.swift; sourceTree = "<group>"; };
 		77E0E92921F9057800F93501 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		77E0E92B21F906D300F93501 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		77E0E92D21F90DB200F93501 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				77E0E92721F9038F00F93501 /* MessageDetailTableViewController.swift */,
 				77E0E92921F9057800F93501 /* MessageDetailViewController.swift */,
 				77E0E92B21F906D300F93501 /* MessageThread.swift */,
+				77E0E92D21F90DB200F93501 /* MessageThreadController.swift */,
 			);
 			path = "Message Board";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				77E0E92621F901CA00F93501 /* MessageThreadsTableViewController.swift in Sources */,
 				77E0E92C21F906D300F93501 /* MessageThread.swift in Sources */,
 				77E0E92821F9038F00F93501 /* MessageDetailTableViewController.swift in Sources */,
+				77E0E92E21F90DB200F93501 /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
