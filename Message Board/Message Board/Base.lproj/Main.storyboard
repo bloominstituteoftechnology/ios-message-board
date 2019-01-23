@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -115,12 +116,67 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="SKo-4t-rIv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZpL-F8-sjD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZpL-F8-sjD">
+                            <connections>
+                                <segue destination="HPT-d3-9ZJ" kind="show" identifier="AddMessageSegue" id="M9S-Rv-3bF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfR-un-xzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1801" y="133"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="tXE-Vf-nFU">
+            <objects>
+                <viewController id="HPT-d3-9ZJ" customClass="MessageDetailViewController" customModule="Message_Board" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sqH-ky-ljS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="X6u-Jy-3w8">
+                                <rect key="frame" x="8" y="124" width="359" height="535"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2Z-hU-85t">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xCN-94-zdw">
+                                        <rect key="frame" x="0.0" y="38" width="359" height="497"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="t3Y-Qy-0Gh" firstAttribute="bottom" secondItem="X6u-Jy-3w8" secondAttribute="bottom" constant="8" id="MtW-ec-JAG"/>
+                            <constraint firstItem="X6u-Jy-3w8" firstAttribute="leading" secondItem="t3Y-Qy-0Gh" secondAttribute="leading" constant="8" id="Ts7-oz-Hgc"/>
+                            <constraint firstItem="X6u-Jy-3w8" firstAttribute="top" secondItem="t3Y-Qy-0Gh" secondAttribute="top" constant="8" id="lVK-Bw-sBl"/>
+                            <constraint firstItem="t3Y-Qy-0Gh" firstAttribute="trailing" secondItem="X6u-Jy-3w8" secondAttribute="trailing" constant="8" id="wKr-9Y-wC8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t3Y-Qy-0Gh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="AxA-Ud-xuC">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="yEl-xA-RjL">
+                            <connections>
+                                <action selector="sendButtonTapped:" destination="HPT-d3-9ZJ" id="QJB-6n-CPK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageTextView" destination="xCN-94-zdw" id="fyR-oo-6bc"/>
+                        <outlet property="nameTextField" destination="p2Z-hU-85t" id="8P6-0q-XQw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LZQ-VA-SVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2516" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Vr-5G-n57">
