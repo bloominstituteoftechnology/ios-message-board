@@ -10,7 +10,8 @@ import Foundation
 
 class MessageThreadController {
     var messageThreads: [MessageThread] = []
-
+    
+    var messageThread: MessageThread?
     
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
     
@@ -68,12 +69,40 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-          //  self.MessageThread.messages.append(message)
+            self.messageThread?.messages.append(message)
             completion(nil)
             }.resume()
         
+    }
+    
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
         
-        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let decodedDict = try jsonDecoder.decode([String: MessageThread].self, from: data)
+                let messageThreads = Array(decodedDict.values)
+                self.messageThreads = messageThreads
+                completion(nil)
+            } catch {
+                print("Error decoding received data: \(error)")
+                completion(error)
+                return
+            }
+            
+            }.resume()
     }
     
     

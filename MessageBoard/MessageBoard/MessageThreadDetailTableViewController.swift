@@ -26,10 +26,6 @@ class MessageThreadDetailTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -39,9 +35,11 @@ class MessageThreadDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
+        
+        guard let message = messageThread?.messages[indexPath.row] else { return cell }
 
-        //cell.textLabel?.text = MessageThread.Message[indexPath].row.text
-      //  cell.detailTextLabel?.text = messages[indexPath].row.sender
+        cell.textLabel?.text = message.text
+        cell.detailTextLabel?.text = message.sender //[indexPath].row.sender
 
         return cell
     }

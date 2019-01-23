@@ -22,9 +22,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4c-Fc-fFp">
-                                    <rect key="frame" x="139" y="7" width="97" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4c-Fc-fFp">
+                                    <rect key="frame" x="8" y="8" width="359" height="28"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -34,6 +33,12 @@
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="W4c-Fc-fFp" secondAttribute="trailing" constant="8" id="26u-ne-hTO"/>
+                                <constraint firstItem="W4c-Fc-fFp" firstAttribute="top" secondItem="sdM-wS-YDK" secondAttribute="top" constant="8" id="IYX-2V-nVs"/>
+                                <constraint firstItem="W4c-Fc-fFp" firstAttribute="leading" secondItem="sdM-wS-YDK" secondAttribute="leading" constant="8" id="PAH-IA-Bbw"/>
+                                <constraint firstAttribute="bottom" secondItem="W4c-Fc-fFp" secondAttribute="bottom" constant="8" id="mwe-zd-xuJ"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" textLabel="8V1-5e-QVg" style="IBUITableViewCellStyleDefault" id="y0q-eF-9eF">
