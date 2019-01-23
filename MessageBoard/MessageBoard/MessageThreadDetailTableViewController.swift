@@ -9,17 +9,21 @@
 import UIKit
 
 class MessageThreadDetailTableViewController: UITableViewController {
+    
+    var messageThread: MessageThread?
+    
+    var messageThreadController: MessageThreadController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.title = messageThread?.title
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,18 +33,19 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return messageThread?.messages.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
 
-        // Configure the cell...
+        //cell.textLabel?.text = MessageThread.Message[indexPath].row.text
+      //  cell.detailTextLabel?.text = messages[indexPath].row.sender
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,14 +82,19 @@ class MessageThreadDetailTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddMessage" {
+            guard let addMessageVC = segue.destination as? MessageDetailViewController else {return}
+            
+            addMessageVC.messageThreadController = messageThreadController
+            addMessageVC.messageThread = messageThread
+        }
+    
+
     }
-    */
 
 }

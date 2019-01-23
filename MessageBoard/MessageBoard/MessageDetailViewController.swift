@@ -16,6 +16,8 @@ class MessageDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 
     /*
     // MARK: - Navigation
@@ -29,6 +31,16 @@ class MessageDetailViewController: UIViewController {
     
     
     @IBAction func sendButtonTapped(_ sender: UIBarButtonItem) {
+        guard let name = nameTextField.text, let message = messageTextView.text  else { return }
+        
+        messageThreadController?.createMessage(messageThread: messageThread!, text: message, sender: name, completion: { (error) in
+            if let error = error {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     
