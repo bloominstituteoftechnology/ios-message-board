@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="-551" y="126"/>
         </scene>
-        <!--Message Thread DetailTVC-->
+        <!--Title-->
         <scene sceneID="4Yt-Mk-0tG">
             <objects>
                 <tableViewController id="3oh-hx-3td" customClass="MessageThreadDetailTVC" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,6 +103,13 @@
                             <outlet property="delegate" destination="3oh-hx-3td" id="nIi-dl-qmI"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="95a-k3-MN2">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="nOI-bj-ZYe">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="sendSegue" id="xsU-dX-tLq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQT-Qe-qHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
