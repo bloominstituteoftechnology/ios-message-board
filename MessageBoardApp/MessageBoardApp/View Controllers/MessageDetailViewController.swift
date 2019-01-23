@@ -12,7 +12,10 @@ class MessageDetailViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     
-    @IBOutlet weak var messaeTextView: UITextView!
+    @IBOutlet weak var messageTextView: UITextView!
+    
+     var messageThread: MessageThread?
+     var messageThreadController: MessageThreadController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,19 @@ class MessageDetailViewController: UIViewController {
     }
 
     @IBAction func sendBarButtonPressed(_ sender: UIBarButtonItem) {
+        
+        guard let name = nameTextField.text, !name.isEmpty, let message = messageTextView.text, !message.isEmpty, let messageThread = messageThread else {return}
+        
+        messageThreadController?.createMessage(messageThread: messageThread, text: message, sender: name, completion: { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+        })
     }
     
 }

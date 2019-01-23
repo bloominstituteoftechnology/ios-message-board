@@ -87,7 +87,7 @@ class MessageThreadController {
         
         URLSession.shared.dataTask(with: request) { (_, _, error) in
             if error != nil {
-                NSLog("Error completing data task \(error)")
+                NSLog("Error completing data task \(error!)")
                 completion(error)
                 return
             }
@@ -95,5 +95,51 @@ class MessageThreadController {
             completion(nil)
         }.resume()
         
+    }
+    
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+//        Create a URL that takes the baseURL and appends the "json" path extension onto it. Again, this is only necessary when using Firebase as the API.
+        
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        
+       // Create a URLSessionDataTask using the dataTask(with: URL, ...) convenience method.
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+//Inside of the data task's completion closure, check for an error.
+            if error != nil {
+                NSLog("Error getting data from url \(error!.localizedDescription)")
+                completion(error)
+                return
+            }
+            
+//            Unwrap the data, and using a JSONDecoder object and a do-try-catch block, decode the JSON as [String: MessageThread].self into a constant called messageThreadDictionaries. If you are unclear as to why we decoding the JSON this way, refer back to the example JSON. At the highest level, the MessageThreads are the values of UUID string keys. Make sure to handle errors in the catch statement.
+            
+            guard let data = data else {
+                NSLog("Error getting data \(error!.localizedDescription)")
+                completion(error)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            do {
+                let messageThreadDictionaries = try decoder.decode([String: MessageThread].self, from: data)
+                //            Create a constant called messageThreads. For its value, map the messageThreadDictionaries and return only the values of each dictionary.
+                let messageThreads = messageThreadDictionaries.map { $0.value }
+//                Set the class's messageThreads variable to the messageThreads constant you just made so the rest of the application can use the threads.
+                self.messageThreads = messageThreads
+//                Call completion.
+                completion(nil)
+            } catch {
+                NSLog("Error decoding message thread dictionary \(error)")
+                completion(error)
+                return
+            }
+            
+
+            
+            }.resume()
     }
 }
