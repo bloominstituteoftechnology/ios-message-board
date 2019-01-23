@@ -22,9 +22,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bD3-Ch-H5Y">
-                                    <rect key="frame" x="139" y="7" width="97" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bD3-Ch-H5Y">
+                                    <rect key="frame" x="20" y="7" width="335" height="30"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -34,6 +33,12 @@
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="bD3-Ch-H5Y" secondAttribute="bottom" constant="7" id="00G-HQ-gHl"/>
+                                <constraint firstItem="bD3-Ch-H5Y" firstAttribute="leading" secondItem="JY9-nu-hJe" secondAttribute="leading" constant="20" id="78D-ZV-LSf"/>
+                                <constraint firstItem="bD3-Ch-H5Y" firstAttribute="top" secondItem="JY9-nu-hJe" secondAttribute="top" constant="7" id="eZR-3L-dEb"/>
+                                <constraint firstAttribute="trailing" secondItem="bD3-Ch-H5Y" secondAttribute="trailing" constant="20" id="l17-RN-Iro"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" textLabel="WYV-ch-WVP" detailTextLabel="fKo-GO-yCc" style="IBUITableViewCellStyleSubtitle" id="WNM-zf-Mba">
@@ -104,9 +109,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="95a-k3-MN2">
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="nOI-bj-ZYe">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="cam-DM-JqI">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="sendSegue" id="xsU-dX-tLq"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="itemSegue" id="zdy-s1-0fE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -131,16 +136,54 @@
             </objects>
             <point key="canvasLocation" x="-1257" y="126"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MessageDetailVC" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dkb-m1-TC8">
+                                <rect key="frame" x="20" y="136" width="335" height="450"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter your name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18R-sZ-jfD">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fjb-jS-vdQ">
+                                        <rect key="frame" x="0.0" y="50" width="335" height="400"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="zk4-vb-hst"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dkb-m1-TC8" secondAttribute="trailing" constant="20" id="Mdd-lx-fW1"/>
+                            <constraint firstItem="Dkb-m1-TC8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QrW-4X-Hpf"/>
+                            <constraint firstItem="Dkb-m1-TC8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="WOB-1Z-4kj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Ke4-ZR-tJE">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="Y5o-hy-lnj">
+                            <connections>
+                                <action selector="send:" destination="BYZ-38-t0r" id="wWI-OG-FSV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="18R-sZ-jfD" id="fmS-EU-H4L"/>
+                        <outlet property="textView" destination="Fjb-jS-vdQ" id="lLj-N9-vfn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
