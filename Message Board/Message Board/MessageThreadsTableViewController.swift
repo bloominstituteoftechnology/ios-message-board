@@ -86,5 +86,10 @@ class MessageThreadsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func search(_ sender: Any) {
+    }
+    
+    // MARK: - Properties
+    
+    @IBOutlet weak var textField: UITextField!
 }

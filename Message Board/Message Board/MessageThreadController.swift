@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class MessageThreadController {
+    
+    var messageThreads: [MessageThread] = []
+    
+    static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
+    
+    func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
+        
+        let messageThread = MessageThread(title: title)
+    }
+}

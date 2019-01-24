@@ -26,5 +26,13 @@ class MessageDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func send(_ sender: UIBarButtonItem) {
+    }
+    
+    
+    // MARK - : Properties
+    @IBOutlet weak var detailTextField: UITextField!
+    
+    @IBOutlet weak var detailTextView: UITextView!
+    
 }
