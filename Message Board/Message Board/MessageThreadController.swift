@@ -28,7 +28,7 @@ class MessageThreadController {
         
         do {
             let encoder = JSONEncoder()
-            request.httpBody = try encoder.encode(title)
+            request.httpBody = try encoder.encode(messageThread)
         } catch {
             print(error)
             completion(error)
@@ -47,19 +47,38 @@ class MessageThreadController {
         
     }
     
-    func createMessage(text: String, sender: String, completion: @escaping (Error?) -> Void) {
-        let messageThread = MessageThread.Message(text: text, sender: sender)
+    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+        let newMessage = MessageThread.Message(text: text, sender: sender)
         
         var url = MessageThreadController.baseURL
         
-        url.appendPathComponent("")
+        url.appendPathComponent(messageThread.identifier)
+        url.appendPathComponent("messages")
         url.appendPathComponent("json")
         
         var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
         
         do {
-            let encoder = 
+            let encoder = JSONEncoder()
+            urlRequest.httpBody = try encoder.encode(newMessage)
+        } catch {
+            print(error)
+            completion(error)
+            return
         }
+        
+        URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            
+            messageThread.messages.append(newMessage)
+            completion(nil)
+        }.resume()
+        
         
     }
 }
