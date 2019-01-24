@@ -46,6 +46,40 @@ class MessageThreadController {
         
     }
     
+    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+        
+        let newMessage = MessageThread.Message(text: text, sender: sender)
+        
+        let messageThreadURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.indentifier)
+        
+        let messagesURL = messageThreadURL.appendingPathComponent("messages")
+        
+        let jsonURL = messagesURL.appendingPathExtension("json")
+        
+        var requestURL = URLRequest(url: jsonURL)
+        requestURL.httpMethod = "POST"
+        
+        let jsonEncoder = JSONEncoder()
+        
+        do {
+            requestURL.httpBody = try jsonEncoder.encode(newMessage)
+        } catch {
+            print(NSError())
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: requestURL) { (_, _, error) in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            messageThread.messages.append(newMessage)
+            completion(nil)
+            }.resume()
+    }
+    
     func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
         let url = MessageThreadController.baseURL.appendingPathExtension("json")
         
@@ -64,12 +98,12 @@ class MessageThreadController {
     
             do {
                 let messageThreadDictionaries = try decoder.decode([String: MessageThread].self, from: data)
-                let messageThreads = messageThreadDictionaries.map({ $1 })
+                let messageThreads = messageThreadDictionaries.map({ $0.value })
                 self.messageThreads = messageThreads
                 completion(nil)
             } catch {
                 print(error)
-                completion(NSError())
+                completion(error)
                 return
             }
         }.resume()

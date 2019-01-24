@@ -18,9 +18,10 @@ class MessageDetailViewController: UIViewController {
     @IBAction func sendButtonTapped(_ sender: UIBarButtonItem) {
         guard let name = nameTextField.text,
             let message = messageTextView.text,
-            let messageThread = messageThread else { return }
+            let messageThread = messageThread,
+            let messageThreadController = messageThreadController else { return }
         
-        messageThread.createMessage(messageThread: messageThread, text: message, sender: name) { (error) in
+        messageThreadController.createMessage(messageThread: messageThread, text: message, sender: name) { (error) in
             if let error = error {
                 print(error)
                 return
