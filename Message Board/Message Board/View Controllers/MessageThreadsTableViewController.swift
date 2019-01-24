@@ -10,8 +10,17 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        messageThreadController.fecthMessageThreads { (error) in
+            if let error = error {
+                NSLog("could not retreive data, sorry about it: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     @IBAction func createThread(_ sender: Any) {
