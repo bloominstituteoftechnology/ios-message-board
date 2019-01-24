@@ -50,4 +50,42 @@ class MessageThreadController {
         
     }
     
+    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+        
+        let messageComponents = MessageThread.Message(text: text, sender: sender)
+        
+        let threadMessageURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
+        
+        let messageURL = threadMessageURL.appendingPathComponent("messages")
+        
+        let url = messageURL.appendingPathExtension("json")
+        
+        var requestURL = URLRequest(url: url)
+        requestURL.httpMethod = "POST"
+        
+        do {
+            let encoder = JSONEncoder()
+            requestURL.httpBody = try encoder.encode(messageComponents)
+        } catch {
+            print(error)
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: requestURL) { (_, _, error) in
+            
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            
+            messageThread.messages.append(messageComponents)
+            
+            completion(nil)
+            
+        }.resume()
+        
+    }
+    
 }
