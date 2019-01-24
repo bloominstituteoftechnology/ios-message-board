@@ -15,6 +15,8 @@
 		F847BBFA21F90B4A00DC691B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F847BBF921F90B4A00DC691B /* README.md */; };
 		F847BBFC21F90C6200DC691B /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847BBFB21F90C6200DC691B /* MessageThreadDetailTableViewController.swift */; };
 		F847BBFE21F913D300DC691B /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847BBFD21F913D300DC691B /* MessageDetailViewController.swift */; };
+		F847BC0521F9226700DC691B /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847BC0421F9226700DC691B /* MessageThread.swift */; };
+		F847BC0821F934FC00DC691B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F847BC0721F934FC00DC691B /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		F847BBF921F90B4A00DC691B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F847BBFB21F90C6200DC691B /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		F847BBFD21F913D300DC691B /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		F847BC0421F9226700DC691B /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		F847BC0721F934FC00DC691B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 		F847BBD821F9065300DC691B = {
 			isa = PBXGroup;
 			children = (
+				F847BC0721F934FC00DC691B /* Default-568h@2x.png */,
 				F847BBE321F9065300DC691B /* iOS Message Board */,
 				F847BBE221F9065300DC691B /* Products */,
 			);
@@ -61,6 +66,7 @@
 		F847BBE321F9065300DC691B /* iOS Message Board */ = {
 			isa = PBXGroup;
 			children = (
+				F847BC0621F9227500DC691B /* Model Related */,
 				F847BBFF21F914B000DC691B /* Set and Forget */,
 				F847BBE821F9065300DC691B /* Main.storyboard */,
 				F847BC0021F914BA00DC691B /* View Controllers */,
@@ -97,6 +103,14 @@
 				F847BBF921F90B4A00DC691B /* README.md */,
 			);
 			path = References;
+			sourceTree = "<group>";
+		};
+		F847BC0621F9227500DC691B /* Model Related */ = {
+			isa = PBXGroup;
+			children = (
+				F847BC0421F9226700DC691B /* MessageThread.swift */,
+			);
+			path = "Model Related";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +174,7 @@
 				F847BBEF21F9065300DC691B /* LaunchScreen.storyboard in Resources */,
 				F847BBEC21F9065300DC691B /* Assets.xcassets in Resources */,
 				F847BBFA21F90B4A00DC691B /* README.md in Resources */,
+				F847BC0821F934FC00DC691B /* Default-568h@2x.png in Resources */,
 				F847BBEA21F9065300DC691B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +190,7 @@
 				F847BBFE21F913D300DC691B /* MessageDetailViewController.swift in Sources */,
 				F847BBFC21F90C6200DC691B /* MessageThreadDetailTableViewController.swift in Sources */,
 				F847BBE521F9065300DC691B /* AppDelegate.swift in Sources */,
+				F847BC0521F9226700DC691B /* MessageThread.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Y6994DAGM;
-				INFOPLIST_FILE = "iOS Message Board/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOS Message Board/Set and Forget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,7 +356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Y6994DAGM;
-				INFOPLIST_FILE = "iOS Message Board/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOS Message Board/Set and Forget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
