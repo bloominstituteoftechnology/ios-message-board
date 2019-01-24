@@ -10,9 +10,9 @@ enum PushMethod: String {
 class MessageThreadController {
     //call MessageThreadController.baseURL
     static let baseURL = URL(string: "https://books-49747.firebaseio.com/")!
-
+    
+    
     var messageThreads: [MessageThread] = []
-    //var messages: [Message] = []
     
     func createMessageThread(withTitle title: String, completion: @escaping(Error?) -> Void) {
         let messageThread = MessageThread(title: title)
@@ -74,5 +74,36 @@ class MessageThreadController {
             messageThread.messages.append(message)
             completion(nil)
             }.resume()
+    }
+    
+    func fetchMessageThreads(completion: @escaping(Error?) -> Void) {
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let messageThreadDictionaries = try jsonDecoder.decode([String: MessageThread].self, from: data)
+                let messageThreads = Array(messageThreadDictionaries.values)
+                let messageThreadsValue = messageThreadDictionaries.compactMap({ $0.value })
+                completion(nil)
+            } catch {
+                print("Error decoding received data: \(error)")
+                completion(error)
+                return
+            }
+        }.resume()
     }
 }
