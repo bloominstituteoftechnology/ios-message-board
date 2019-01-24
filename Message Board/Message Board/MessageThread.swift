@@ -13,6 +13,12 @@ class MessageThread: Equatable, Codable {
     let indentifier: String
     var messages: [MessageThread.Message]
     
+    init(title: String, indentifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
+        self.title = title
+        self.indentifier = indentifier
+        self.messages = messages
+    }
+    
     struct Message: Equatable, Codable {
         let text: String
         let sender: String
@@ -25,27 +31,20 @@ class MessageThread: Equatable, Codable {
         }
     }
     
-    init(title: String, indentifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
-        self.title = title
-        self.indentifier = indentifier
-        self.messages = messages
-    }
-    
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.title == rhs.title &&
-            lhs.indentifier == rhs.indentifier &&
-            lhs.messages == rhs.messages
+        return lhs.indentifier == rhs.indentifier &&
+            rhs.indentifier == lhs.indentifier
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-    
+
         let title = try container.decode(String.self, forKey: .title)
         let identifier = try container.decode(String.self, forKey: .indentifier)
         let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
-        
+
         let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
-        
+
         self.title = title
         self.indentifier = identifier
         self.messages = messages
