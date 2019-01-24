@@ -33,7 +33,7 @@
                                     </connections>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.085843891213435414" green="0.12759698354343491" blue="0.16447890228426398" alpha="0.4532052654109589" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="9WX-4E-xis" firstAttribute="top" secondItem="Qed-Wd-qyg" secondAttribute="top" constant="8" id="9Yi-kl-UEG"/>
                                 <constraint firstAttribute="trailing" secondItem="9WX-4E-xis" secondAttribute="trailing" constant="8" id="TdR-Tw-VWO"/>

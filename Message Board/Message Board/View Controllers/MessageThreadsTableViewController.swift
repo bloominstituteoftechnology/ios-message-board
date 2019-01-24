@@ -23,7 +23,7 @@ class MessageThreadsTableViewController: UITableViewController {
     }
     
     @objc
-    func refreshMessageThreads() {
+    private func refreshMessageThreads() {
         fetchMessageThreads()
     }
     
