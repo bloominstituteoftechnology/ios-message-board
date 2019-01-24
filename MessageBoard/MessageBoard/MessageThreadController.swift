@@ -12,22 +12,14 @@ class MessageThreadController {
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
 
     var messageThreads: [MessageThread] = []
-    var messages: [Message] = []
+    //var messages: [Message] = []
     
-    func createMessageThread(withTitle title: String, identifier: String) -> MessageThread {
-        let messageThread = MessageThread(title: title, identifier: identifier)
-        return messageThread
-    }
-
-    func put(messageThread: MessageThread, using method: PushMethod, completion: @escaping(Error?) -> Void) {
-        var url = MessageThreadController.baseURL
-        if method == .put {
-            url.appendPathComponent(messageThread.identifier)
-        }
+    func createMessageThread(withTitle title: String, completion: @escaping(Error?) -> Void) {
+        let messageThread = MessageThread(title: title)
+        let url = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
+        let newURL = url.appendingPathExtension("json")
         
-        url.appendPathExtension("https://lambda-message-board.firebaseio.com/695398C4-498C-40A8-AA76-CB2B20DFD9FA/.json")
-        
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: newURL)
         request.httpMethod = "PUT"
         
         do {
@@ -48,28 +40,24 @@ class MessageThreadController {
             
             completion(nil)
             }.resume()
-    }
     
+    }
+        
+        
     func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping(Error?) -> Void) {
-        let message = MessageThread.Message(messageThread: MessageThread, text: text, sender: sender)
-        return message
-    }
-    
-    func post(messageThread: MessageThread, using method: PushMethod, completion: @escaping(Error?) -> Void) {
-        var url = MessageThreadController.baseURL
-        if method == .post {
-            url.appendPathComponent(messageThread.identifier)
-            url.appendPathComponent(messages)
-        }
+        let message = MessageThread.Message(text: text, sender: sender)
+       
+        let url = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
+        var newUrl = url.appendingPathComponent("messages")
         
-        url.appendPathExtension("https://lambda-message-board.firebaseio.com/695398C4-498C-40A8-AA76-CB2B20DFD9FA/.json")
+        newUrl.appendPathExtension("json")
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: newUrl)
         request.httpMethod = "POST"
         
         do {
             let encoder = JSONEncoder()
-            request.httpBody = try encoder.encode(messageThread.messages)
+            request.httpBody = try encoder.encode(message)
         } catch {
             print(error)
             completion(error)
