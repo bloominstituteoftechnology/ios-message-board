@@ -10,24 +10,29 @@ class MessageThreadDetailTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        navigationItem.title = messageThread?.title
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (messageThread?.messages.count)!
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) 
+        
+        let messages = messageThread?.messages[indexPath.row]
+        cell.textLabel?.text = messages?.text
+        cell.detailTextLabel?.text = messages?.sender
         return cell
-    }
-    */
+
+            }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

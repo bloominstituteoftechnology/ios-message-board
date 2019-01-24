@@ -5,6 +5,9 @@ import UIKit
 class MessageDetailVC: UIViewController {
 
     //MARK: Properties
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     

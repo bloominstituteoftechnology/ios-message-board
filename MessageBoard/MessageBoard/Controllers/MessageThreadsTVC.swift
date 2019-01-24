@@ -18,6 +18,8 @@ class MessageThreadsTVC: UITableViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.testField.text = ""
+
             }
         }
     }
@@ -33,19 +35,19 @@ class MessageThreadsTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) else { return }
 
         let messageThread = messageThreadController.messageThreads[indexPath.row]
         cell.textLabel?.text = messageThread.title
-        cell.detailTextLabel?.text = messageThread.identifier
         return cell
     }
 
     // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard let destination = segue.destination as? MessageThreadDetailTVC else { return }
+        
+        destination.messageThread = messageThreadController.messageThreads[indexPath.row]
 
+    }
 }
