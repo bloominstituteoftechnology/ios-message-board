@@ -9,13 +9,25 @@
 import UIKit
 
 class MessageDetailViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     @IBAction func sendMessageTapped(_ sender: Any) {
+        guard let sender = nameTextField.text, !sender.isEmpty,
+            let text = messageTextView.text, !text.isEmpty,
+            let messageThread = messageThread else { return }
         
+        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { (error) in
+            if let error = error {
+                NSLog("\(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
         
     }
     

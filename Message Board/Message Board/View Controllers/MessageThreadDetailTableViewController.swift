@@ -26,7 +26,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
         return messageThread?.messages.count ?? 0
     }
     
-    let reuseIdentifier = "ShowMessages"
+    let reuseIdentifier = "MessageDetailCell"
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
@@ -39,7 +39,6 @@ class MessageThreadDetailTableViewController: UITableViewController {
         return cell
     }
     
-    
 //    // Override to support editing the table view.
 //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 //        if editingStyle == .delete {
@@ -48,12 +47,15 @@ class MessageThreadDetailTableViewController: UITableViewController {
 //        }
 //    }
     
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "CreateMessage" {
+            let destination = segue.destination as! MessageDetailViewController
+            
+            destination.messageThreadController = messageThreadController
+            destination.messageThread = messageThread
+        }
     }
     
     // MARK : - Properties

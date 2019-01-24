@@ -8,7 +8,7 @@
 
 import Foundation
 
-let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
+let baseURL = URL(string: "https://moses-lambda-message-board.firebaseio.com/")!
 
 enum httpMethod: String {
     case put = "PUT"

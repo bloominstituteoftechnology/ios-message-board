@@ -23,6 +23,7 @@ class MessageThreadsTableViewController: UITableViewController {
                 return
             }
             DispatchQueue.main.async {
+                self.threadTextField.text = ""
                 self.tableView.reloadData()
             }
         }
@@ -34,7 +35,7 @@ class MessageThreadsTableViewController: UITableViewController {
         return messageThreadController.messageThreads.count
     }
     
-    let reuseIdentifier = "ShowMessages"
+    let reuseIdentifier = "MessageThreadCell"
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
@@ -58,7 +59,7 @@ class MessageThreadsTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
+        if segue.identifier == "ShowMessages" {
             guard let destination = segue.destination as? MessageThreadDetailTableViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             
