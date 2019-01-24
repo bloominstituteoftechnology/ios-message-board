@@ -94,7 +94,7 @@ class MessageThreadController {
                 do {
                     let messageThreadDictionaries = try jsonDecoder.decode([String : MessageThread].self, from: data)
                     let messageThreads = messageThreadDictionaries.map { $0.value }
-                    self.messageThreads = messageThreads
+                    self.messageThreads = messageThreads.sorted { $0.title.lowercased() < $1.title.lowercased() }
                     completion(nil)
                 } catch {
                     NSLog("error decoding data")
