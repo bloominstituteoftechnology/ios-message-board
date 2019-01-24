@@ -10,9 +10,34 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshMessageThreads), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchMessageThreads()
+    }
+    
+    @objc
+    func refreshMessageThreads() {
+        fetchMessageThreads()
+    }
+    
+    private func fetchMessageThreads() {
+        messageThreadController.fecthMessageThreads { (error) in
+            if let error = error {
+                NSLog("could not retreive data, sorry about it: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
+            }
+        }
     }
     
     @IBAction func createThread(_ sender: Any) {
@@ -45,18 +70,6 @@ class MessageThreadsTableViewController: UITableViewController {
         cell.textLabel?.text = messageThread.title
         
         return cell
-    }
-    
-    private func fetchMessageThreads() {
-        messageThreadController.fecthMessageThreads { (error) in
-            if let error = error {
-                NSLog("could not retreive data, sorry about it: \(error)")
-                return
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
     }
     
     // MARK: - Navigation
