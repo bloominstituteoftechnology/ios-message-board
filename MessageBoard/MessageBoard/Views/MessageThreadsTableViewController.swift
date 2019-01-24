@@ -28,7 +28,9 @@ class MessageThreadsTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -88,14 +90,20 @@ class MessageThreadsTableViewController: UITableViewController {
     }
     */
 
-    /*
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "messageSegue"{
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)
+            let message = messageThreadController.messageThreads[indexPath!.row]
+            let detailVC = segue.destination as! MessageThreadDetailTableViewController
+            detailVC.messageThreadController = messageThreadController
+            detailVC.messageThread = message
+        }
     }
-    */
+  
 
 }
