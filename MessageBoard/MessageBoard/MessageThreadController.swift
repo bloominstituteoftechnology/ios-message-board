@@ -11,17 +11,17 @@ import Foundation
 class MessageThreadController {
     var messageThreads: [MessageThread] = []
     
-    var messageThread: MessageThread?
+    //var messageThread: MessageThread?
     
-    static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
+    static var baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
     
     func createMessageThread(withTitle title: String, completion: @escaping (Error?) -> Void) {
         let messageThread = MessageThread(title: title)
         
-        MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
-        MessageThreadController.baseURL.appendingPathExtension("json")
+       let threadURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
+       let threadjson = threadURL.appendingPathExtension("json")
         
-        var urlRequest = URLRequest(url: MessageThreadController.baseURL)
+        var urlRequest = URLRequest(url: threadjson)
         urlRequest.httpMethod = "PUT"
         
         do {
@@ -48,9 +48,9 @@ class MessageThreadController {
     func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
         let message = MessageThread.Message(text: text, sender: sender)
         
-        MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
-        MessageThreadController.baseURL.appendingPathComponent("messages")
-        MessageThreadController.baseURL.appendingPathExtension("json")
+        MessageThreadController.baseURL.appendPathComponent(messageThread.identifier)
+        MessageThreadController.baseURL.appendPathComponent("messages")
+        MessageThreadController.baseURL.appendPathExtension("json")
         
         var urlRequest = URLRequest(url: MessageThreadController.baseURL)
         urlRequest.httpMethod = "POST"
@@ -69,7 +69,7 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-            self.messageThread?.messages.append(message)
+            messageThread.messages.append(message)
             completion(nil)
             }.resume()
         

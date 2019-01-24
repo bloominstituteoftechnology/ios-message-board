@@ -22,7 +22,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4c-Fc-fFp">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a new thread:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4c-Fc-fFp">
                                     <rect key="frame" x="8" y="8" width="359" height="28"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -127,7 +127,7 @@
             </objects>
             <point key="canvasLocation" x="1436" y="160"/>
         </scene>
-        <!--Title-->
+        <!--New Message-->
         <scene sceneID="fBi-Ec-F9V">
             <objects>
                 <viewController id="wto-zd-Mgn" customClass="MessageDetailViewController" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,7 +144,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cV3-5q-Htc">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cV3-5q-Htc">
                                         <rect key="frame" x="0.0" y="38" width="359" height="215"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -162,7 +162,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tAz-x7-O0E"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="mXo-mB-gkx">
+                    <navigationItem key="navigationItem" title="New Message" id="mXo-mB-gkx">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="GBK-NC-Y2e">
                             <connections>
                                 <action selector="sendButtonTapped:" destination="wto-zd-Mgn" id="o5b-T4-DrA"/>
