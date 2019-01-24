@@ -9,7 +9,7 @@ enum PushMethod: String {
 
 class MessageThreadController {
     //call MessageThreadController.baseURL
-    static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
+    static let baseURL = URL(string: "https://books-49747.firebaseio.com/")!
 
     var messageThreads: [MessageThread] = []
     //var messages: [Message] = []
@@ -37,10 +37,10 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-            
+            //append the `MessageThread` object to the `messageThreads` variable
+            self.messageThreads.append(messageThread)
             completion(nil)
             }.resume()
-    
     }
         
         
@@ -70,7 +70,8 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-            
+            //append the `MessageThread.Message` object to the `MessageThread.Message` variable
+            messageThread.messages.append(message)
             completion(nil)
             }.resume()
     }

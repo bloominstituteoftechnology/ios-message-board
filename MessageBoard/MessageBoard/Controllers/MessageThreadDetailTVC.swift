@@ -36,10 +36,10 @@ class MessageThreadDetailTVC: UITableViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
         guard let destination = segue.destination as? MessageDetailVC else { return }
         
-        destination.messageThread = messageThreadController?.messageThreads[indexPath.row]
+        destination.messageThread = messageThread
+        destination.messageThreadController = messageThreadController
         
     }
 }

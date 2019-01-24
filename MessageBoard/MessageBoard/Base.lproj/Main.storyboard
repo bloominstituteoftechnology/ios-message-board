@@ -183,7 +183,7 @@
                     <navigationItem key="navigationItem" title="Title" id="Ke4-ZR-tJE">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="Y5o-hy-lnj">
                             <connections>
-                                <action selector="send:" destination="BYZ-38-t0r" id="wWI-OG-FSV"/>
+                                <action selector="send:" destination="BYZ-38-t0r" id="bYG-hE-dmp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

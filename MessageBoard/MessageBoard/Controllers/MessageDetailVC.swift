@@ -15,9 +15,16 @@ class MessageDetailVC: UIViewController {
         guard let sender = textField.text else { return }
         guard let text = textView.text else { return }
         guard let messageThread = messageThread else { return }
-        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { (error) in
-            self.navigationController?.popViewController(animated: true)
-        })
+        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender) { (error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+
+            }
+        }
     }
     
     override func viewDidLoad() {

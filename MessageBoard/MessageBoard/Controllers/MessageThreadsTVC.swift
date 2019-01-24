@@ -23,11 +23,6 @@ class MessageThreadsTVC: UITableViewController {
             }
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,7 +30,7 @@ class MessageThreadsTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
 
         let messageThread = messageThreadController.messageThreads[indexPath.row]
         cell.textLabel?.text = messageThread.title
@@ -48,6 +43,6 @@ class MessageThreadsTVC: UITableViewController {
         guard let destination = segue.destination as? MessageThreadDetailTVC else { return }
         
         destination.messageThread = messageThreadController.messageThreads[indexPath.row]
-
+        destination.messageThreadController = messageThreadController
     }
 }
