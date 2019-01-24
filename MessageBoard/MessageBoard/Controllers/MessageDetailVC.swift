@@ -12,7 +12,12 @@ class MessageDetailVC: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func send(_ sender: Any) {
-        
+        guard let sender = textField.text else { return }
+        guard let text = textView.text else { return }
+        guard let messageThread = messageThread else { return }
+        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { (error) in
+            self.navigationController?.popViewController(animated: true)
+        })
     }
     
     override func viewDidLoad() {
