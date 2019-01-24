@@ -42,6 +42,7 @@ class MessageThreadController {
     
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
         let messageThread = MessageThread(title: title)
+        messageThreads.append(messageThread)
         var url = MessageThreadController.baseURL
         url = url.appendingPathComponent(messageThread.identifier)
         url = url.appendingPathExtension("json")

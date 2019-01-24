@@ -11,8 +11,7 @@ import Foundation
 class MessageThread: Codable, Equatable{
     
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.messages == rhs.messages &&
-            lhs.title == rhs.title &&
+        return
             lhs.identifier == rhs.identifier
     }
     
