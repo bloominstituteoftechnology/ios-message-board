@@ -6,39 +6,53 @@
 //  Copyright © 2019 Glas Labs. All rights reserved.
 //
 
+
 import Foundation
 
-class MessageThread: Codable, Equatable {
+class MessageThread: Equatable, Codable {
     
     let title: String
     let identifier: String
     var messages: [MessageThread.Message]
     
+    init(title: String,
+         identifier: String = UUID().uuidString,
+         messages: [MessageThread.Message] = []) {
+        self.title = title
+        self.identifier = identifier
+        self.messages = messages
+    }
     
-    struct Message: Codable, Equatable {
+    struct Message: Equatable, Codable {
         let text: String
         let sender: String
         let timestamp: Date
-
+        
         init(text: String, sender: String, timestamp: Date = Date()) {
             self.text = text
-            self.timestamp = timestamp
             self.sender = sender
+            self.timestamp = timestamp
         }
-        
     }
     
+    static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
+        return lhs.identifier == rhs.identifier &&
+            rhs.identifier == lhs.identifier
+    }
     
-    init(title: String, messages: [MessageThread.Message] = [],  identifier: String = UUID().uuidString) {
+    required init(from decoder: Decoder) throws {
         
-        self.messages = messages
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let title = try container.decode(String.self, forKey: .title)
+        let identifier = try container.decode(String.self, forKey: .identifier)
+        
+        let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+        
+        let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
+        
         self.title = title
         self.identifier = identifier
-    }
-    
-    static func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return rhs.title == lhs.title &&
-         rhs.identifier == lhs.identifier &&
-         rhs.messages == lhs.messages
+        self.messages = messages
     }
 }
