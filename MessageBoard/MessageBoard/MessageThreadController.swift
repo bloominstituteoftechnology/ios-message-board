@@ -96,8 +96,9 @@ class MessageThreadController {
             
             do {
                 let messageThreadDictionaries = try jsonDecoder.decode([String: MessageThread].self, from: data)
-                let messageThreads = Array(messageThreadDictionaries.values)
-                let messageThreadsValue = messageThreadDictionaries.compactMap({ $0.value })
+                //let messageThreads = Array(messageThreadDictionaries.values)
+                let messageThreads = messageThreadDictionaries.map { $0.value }
+                self.messageThreads = messageThreads
                 completion(nil)
             } catch {
                 print("Error decoding received data: \(error)")
