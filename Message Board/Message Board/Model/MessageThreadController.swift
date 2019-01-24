@@ -72,8 +72,7 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-           
-            
+            messageThread.messages.append(message)
             completion(nil)
         }
         dataTask.resume()

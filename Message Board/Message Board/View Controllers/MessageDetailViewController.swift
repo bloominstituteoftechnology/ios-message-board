@@ -21,7 +21,9 @@ class MessageDetailViewController: UIViewController {
     
     // MARK : - Properties
     
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
-    
 }

@@ -12,12 +12,18 @@ class MessageThreadDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = messageThread?.title
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return messageThread?.messages.count ?? 0
     }
     
     let reuseIdentifier = "ShowMessages"
@@ -25,7 +31,10 @@ class MessageThreadDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         
-        // Configure the cell...
+        let message = messageThread?.messages[indexPath.row]
+        
+        cell.textLabel?.text = message?.sender
+        cell.detailTextLabel?.text = message?.text
         
         return cell
     }
@@ -49,5 +58,6 @@ class MessageThreadDetailTableViewController: UITableViewController {
     
     // MARK : - Properties
     
-    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 }
