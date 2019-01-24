@@ -12,15 +12,7 @@ class MessageThreadsTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        messageThreadController.fecthMessageThreads { (error) in
-            if let error = error {
-                NSLog("could not retreive data, sorry about it: \(error)")
-                return
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        fetchMessageThreads()
     }
     
     @IBAction func createThread(_ sender: Any) {
@@ -55,15 +47,17 @@ class MessageThreadsTableViewController: UITableViewController {
         return cell
     }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     }
-     }
-     */
+    private func fetchMessageThreads() {
+        messageThreadController.fecthMessageThreads { (error) in
+            if let error = error {
+                NSLog("could not retreive data, sorry about it: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     // MARK: - Navigation
     

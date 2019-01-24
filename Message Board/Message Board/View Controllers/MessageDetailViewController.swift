@@ -10,10 +10,6 @@ import UIKit
 
 class MessageDetailViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction func sendMessageTapped(_ sender: Any) {
         guard let sender = nameTextField.text, !sender.isEmpty,
             let text = messageTextView.text, !text.isEmpty,
