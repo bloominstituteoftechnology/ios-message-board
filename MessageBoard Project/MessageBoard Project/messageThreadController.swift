@@ -21,7 +21,9 @@ class MessageThreadController {
         let messageThread = MessageThread(title: title)
         
         //we need to create a URL using the thread's identifier property, this will let us put the thread at a unique location in the API
-        let url = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier).appendingPathExtension("json")
+        let url = MessageThreadController.baseURL
+            .appendingPathComponent(messageThread.identifier)
+            .appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: url)
         
@@ -40,7 +42,7 @@ class MessageThreadController {
         
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {
-                print(error.localizedDescription)
+                print("Error PUTing the data: \(error.localizedDescription)")
                 completion(error)
                 return
             }
@@ -71,7 +73,7 @@ class MessageThreadController {
         do {
            request.httpBody =  try jE.encode(mtm)
         } catch  {
-            print("Error decoding data: \(error.localizedDescription)")
+            print("Error din the create message function: \(error.localizedDescription)")
             completion(error)
             return
         }
@@ -80,7 +82,7 @@ class MessageThreadController {
         
         URLSession.shared.dataTask(with: request) { (_, _, error) in
             if let error = error {
-                print(error.localizedDescription)
+                print("Error with the data task request function: \(error.localizedDescription)")
                 completion(error)
                 return
             }
@@ -98,7 +100,7 @@ class MessageThreadController {
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
-                print("\(error.localizedDescription)")
+                print("Error in the fetch message data task: \(error.localizedDescription)")
                 completion(error)
             }
             
@@ -116,7 +118,7 @@ class MessageThreadController {
                 completion(nil)
                 
             } catch {
-                print(error.localizedDescription)
+                print("Error in the fetch function: \(error.localizedDescription)")
             }
         }.resume()
     }

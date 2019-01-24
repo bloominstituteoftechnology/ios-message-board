@@ -22,13 +22,16 @@ class MessageDetailViewController: UIViewController {
     }
     
     @IBAction func sendMessage(_ sender: UIBarButtonItem) {
-        guard let text = textField.text, !text.isEmpty, let body = textView.text, !body.isEmpty, let messageThread = messageThread else { return }
-        mtc?.createMessage(with: messageThread, text: body, sender: text, completion: { (error) in
+        guard let text = textField.text, !text.isEmpty,
+            let body = textView.text, !body.isEmpty,
+            let messageThread = messageThread else { return }
+        
+            mtc?.createMessage(with: messageThread, text: body, sender: text, completion: { (error) in
             if let error = error {
-                print(error.localizedDescription)
+                print("Error in the send message function in detailViewController: \(error.localizedDescription)")
             }
             DispatchQueue.main.async {
-                 self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }
         })
     }

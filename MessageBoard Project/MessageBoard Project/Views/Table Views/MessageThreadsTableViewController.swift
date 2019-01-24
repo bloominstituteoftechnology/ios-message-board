@@ -22,7 +22,7 @@ class MessageThreadsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         mtc.fetchMessageThread { (error) in
             if let error = error {
-                print(error.localizedDescription)
+                print("Error in the view will appear tbv controller: \(error.localizedDescription)")
             }
             
             DispatchQueue.main.async {
@@ -36,7 +36,7 @@ class MessageThreadsTableViewController: UITableViewController {
         guard let text = textField.text, !text.isEmpty else { return }
         mtc.createMessageThread(with: text) { (error) in
             if let error = error {
-                print(error.localizedDescription)
+                print("Error trying to create message thread in tbv controller: \(error.localizedDescription)")
                 return
             }
             DispatchQueue.main.async {

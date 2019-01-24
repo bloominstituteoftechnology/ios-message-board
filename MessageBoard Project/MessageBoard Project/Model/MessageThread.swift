@@ -15,11 +15,11 @@ class MessageThread: Codable, Equatable {
     var identifier: String
     var messages: [MessageThread.Message]
     
-//    init(title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
-//        self.title = title
-//        self.identifier = identifier
-//        self.messages = messages
-//    }
+    init(title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
+        self.title = title
+        self.identifier = identifier
+        self.messages = messages
+    }
     
     required init(from decoder: Decoder) throws {
         

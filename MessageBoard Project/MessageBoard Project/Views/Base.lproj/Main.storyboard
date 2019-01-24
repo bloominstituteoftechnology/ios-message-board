@@ -118,7 +118,7 @@
                     <navigationItem key="navigationItem" title="Title" id="xZt-1z-cU9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qAo-ot-HCV">
                             <connections>
-                                <segue destination="ovk-Kv-zqz" kind="show" identifier="addSegue" id="Epg-CP-ZpB"/>
+                                <segue destination="ovk-Kv-zqz" kind="show" identifier="addSegue" id="zdt-Q5-F9e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
