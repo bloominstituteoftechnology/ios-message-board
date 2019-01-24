@@ -50,38 +50,4 @@ class MessageThread: Equatable, Codable {
         self.indentifier = identifier
         self.messages = messages
     }
-    
-//    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
-//
-//        let newMessage = MessageThread.Message(text: text, sender: sender)
-//
-//        let messageThreadURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.indentifier)
-//
-//        let messagesURL = messageThreadURL.appendingPathComponent("messages")
-//
-//        let jsonURL = messagesURL.appendingPathExtension("json")
-//
-//        var requestURL = URLRequest(url: jsonURL)
-//        requestURL.httpMethod = "POST"
-//
-//        let jsonEncoder = JSONEncoder()
-//
-//        do {
-//            requestURL.httpBody = try jsonEncoder.encode(newMessage)
-//        } catch {
-//            print(NSError())
-//            completion(error)
-//            return
-//        }
-//
-//        URLSession.shared.dataTask(with: requestURL) { (_, _, error) in
-//            if let error = error {
-//                print(error)
-//                completion(error)
-//                return
-//            }
-//            self.messages.append(newMessage)
-//            completion(nil)
-//        }.resume()
-//    }
 }
