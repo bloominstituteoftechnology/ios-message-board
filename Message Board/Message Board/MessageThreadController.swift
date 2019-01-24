@@ -12,7 +12,7 @@ class MessageThreadController {
     
     var messageThreads: [MessageThread] = []
     
-    static let baseURL = URL(string: "https://message-board-3e056.firebaseio.com/")!
+    static let baseURL = URL(string: "https://message-board-65174.firebaseio.com/")!
     
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
         
@@ -21,7 +21,7 @@ class MessageThreadController {
         var url = MessageThreadController.baseURL
         
         url.appendPathComponent(messageThread.identifier)
-        url.appendPathComponent("json")
+        url.appendPathExtension("json")
         
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
@@ -54,7 +54,7 @@ class MessageThreadController {
         
         url.appendPathComponent(messageThread.identifier)
         url.appendPathComponent("messages")
-        url.appendPathComponent("json")
+        url.appendPathExtension("json")
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"

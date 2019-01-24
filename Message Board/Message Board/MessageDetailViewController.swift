@@ -27,8 +27,24 @@ class MessageDetailViewController: UIViewController {
     }
     */
     @IBAction func send(_ sender: UIBarButtonItem) {
+        
+        guard let sender = detailTextField.text, !sender.isEmpty,
+            let text = detailTextView.text, !text.isEmpty,
+            let messageThread = messageThread else { return }
+        
+        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { (error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
+        
     }
-    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
     
     // MARK - : Properties
     @IBOutlet weak var detailTextField: UITextField!
