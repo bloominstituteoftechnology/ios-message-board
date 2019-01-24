@@ -15,6 +15,31 @@ class MessageThreadController {
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
     //NOTE: In order to access this baseURL, you must call the class MessageThreadController, then .baseURL because this is a static property.
     
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void){
+        var url = MessageThreadController.baseURL
+        url = url.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                let messageThreadDictionaries = try decoder.decode([String: MessageThread].self, from: data)
+                let messageThreads = Array(messageThreadDictionaries.values)
+                self.messageThreads = messageThreads
+                completion(nil)
+            } catch {
+                print("Error decoding received data: \(error)")
+                completion(error)
+                return
+            }
+        }.resume()
+    }
+    
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
         let messageThread = MessageThread(title: title)
         var url = MessageThreadController.baseURL
