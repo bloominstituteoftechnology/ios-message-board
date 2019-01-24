@@ -78,8 +78,35 @@ class MessageThreadController {
         dataTask.resume()
     }
     
+    func fecthMessageThreads(completion: @escaping (Error?) -> Void) {
+        let url = baseURL.appendingPathExtension("json")
+        
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                NSLog("error getting data: \(error)")
+                completion(error)
+                return
+            }
+            
+            if let data = data {
+                let jsonDecoder = JSONDecoder()
+                
+                do {
+                    let messageThreadDictionaries = try jsonDecoder.decode([String : MessageThread].self, from: data)
+                    let messageThreads = messageThreadDictionaries.map { $0.value }
+                    self.messageThreads = messageThreads
+                    completion(nil)
+                } catch {
+                    NSLog("error decoding data")
+                    completion(error)
+                    return
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
     //MARk: - Properties
     
     private(set) var messageThreads: [MessageThread] = []
-    
 }
