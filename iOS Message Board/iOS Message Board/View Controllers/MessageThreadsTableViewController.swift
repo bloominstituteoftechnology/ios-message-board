@@ -113,6 +113,6 @@ class MessageThreadsTableViewController: UITableViewController {
         
     }
     
-    let segueIdentifierTVCtoDTVC = "ThreadtoMessage"
+    let segueIdentifierTVCtoDTVC = "MessageBoardtoThread"
 
 }
