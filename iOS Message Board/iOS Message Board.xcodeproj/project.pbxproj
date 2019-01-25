@@ -18,6 +18,7 @@
 		F847BC0521F9226700DC691B /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847BC0421F9226700DC691B /* MessageThread.swift */; };
 		F847BC0821F934FC00DC691B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F847BC0721F934FC00DC691B /* Default-568h@2x.png */; };
 		F847BC0A21F9E1BF00DC691B /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847BC0921F9E1BF00DC691B /* MessageThreadController.swift */; };
+		F847BC0D21FB12C100DC691B /* AlternativeMessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847BC0C21FB12C100DC691B /* AlternativeMessageThread.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		F847BC0421F9226700DC691B /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
 		F847BC0721F934FC00DC691B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F847BC0921F9E1BF00DC691B /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
+		F847BC0C21FB12C100DC691B /* AlternativeMessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeMessageThread.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				F847BC0421F9226700DC691B /* MessageThread.swift */,
+				F847BC0C21FB12C100DC691B /* AlternativeMessageThread.swift */,
 				F847BC0921F9E1BF00DC691B /* MessageThreadController.swift */,
 			);
 			path = "Model Related";
@@ -193,6 +196,7 @@
 				F847BBFE21F913D300DC691B /* MessageDetailViewController.swift in Sources */,
 				F847BBFC21F90C6200DC691B /* MessageThreadDetailTableViewController.swift in Sources */,
 				F847BBE521F9065300DC691B /* AppDelegate.swift in Sources */,
+				F847BC0D21FB12C100DC691B /* AlternativeMessageThread.swift in Sources */,
 				F847BC0521F9226700DC691B /* MessageThread.swift in Sources */,
 				F847BC0A21F9E1BF00DC691B /* MessageThreadController.swift in Sources */,
 			);
