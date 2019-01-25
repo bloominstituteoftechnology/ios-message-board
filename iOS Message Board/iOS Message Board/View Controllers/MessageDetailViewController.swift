@@ -25,7 +25,19 @@ class MessageDetailViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func sendMessage(_ sender: Any) {
+        guard let messageThread = messageThread,
+            let message = textView.text,
+            let sender = textField.text else { return }
         
+        messageThreadController?.createMessage(messageThread: messageThread, text: message, sender: sender, completion: { (error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     
