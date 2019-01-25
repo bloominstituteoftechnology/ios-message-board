@@ -10,16 +10,26 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
     
-    // MARK: Properties
+    // MARK: Properties and Connections
     
     let reuseIdentifier = "MessageThreadsCell"
     
     @IBOutlet weak var textField: UITextField!
     
     @IBAction func textField(_ sender: Any) {
+        guard let text = textField.text else { return }
         
+        messageThreadController.createMessageThread(title: text) { (error) in
+            if let error = error {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
+    var messageThreadController: MessageThreadController = MessageThreadController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,22 +43,18 @@ class MessageThreadsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return messageThreadController.messageThreads.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 
-        // Configure the cell...
-
+        let messageContent = messageThreadController.messageThreads[indexPath.row]
+        
+        cell.textLabel?.text = messageContent.title
+        
         return cell
     }
     
@@ -88,14 +94,25 @@ class MessageThreadsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == segueIdentifierTVCtoDTVC {
+            
+            guard let destination = segue.destination as? MessageThreadDetailTableViewController,
+                let indexPath = tableView.indexPathForSelectedRow?.row else { return }
+            
+            // Pass the selected object to the new view controller.
+            destination.messageThread = messageThreadController.messageThreads[indexPath]
+            
+            destination.messageThreadController = messageThreadController
+            
+        }
+        
     }
-    */
+    
+    let segueIdentifierTVCtoDTVC = "ThreadtoMessage"
 
 }
