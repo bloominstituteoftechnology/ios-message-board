@@ -34,6 +34,7 @@ For reasons that will be discussed later in these instructions, we're going to s
 8. Add an outlet from the text field, and an action from it as well. Set the action's event to "Did End On Exit".
 
 #### MessageThreadDetailTableViewController
+> Doesn't mention making reuse identifiers for the table cell
 
 1. Add a second `UITableViewController` scene to the storyboard.
 2. Create a "Show" segue from the **first table view controller's cell** to this new table view controller scene. Give the segue an identifier.
@@ -91,6 +92,8 @@ Or you can use this with a JSON viewer if you want (they're the exact same):
     - An `identifier` string constant.
 3. We need to create a separate model object for the messages within the thread. This goes back to the concept of making a model object for each "layer" of the JSON. You may notice that the value for the `"messages"` key in the JSON is another dictionary. Inside of the `MessageThread` class, create a struct called `Message`. 
 
+> class inside of a class, or struct instead of a class?
+
 This may seem a bit odd to nest a class inside of a class, but this is fairly common when using `Codable`. However, this may change as time goes on. `Codable` is relatively new as it was only released in Swift 4. In order to refer to this `Message` class, you must write `MessageThread.Message`.
 
 4. In the `Message` struct, add the following:
@@ -101,7 +104,7 @@ This may seem a bit odd to nest a class inside of a class, but this is fairly co
     - Adopt the `Equatable` and `Codable` protocols.
 5. In the `MessageThread` class, add a `messages: [MessageThread.Message]` variable.
 6. Create an initializer for the `MessageThread` class. Give a default value of an empty array to the `messages` property, and a value of `UUID().uuidString` to the `identifier` property.
-7. Adopt the `Equatable` protocol in the `MessageThread` class. You will need to manually implement the `==` function. **HINT:** [This article](https://www.natashatherobot.com/implementing-equatable-for-protocols-swift/) will help you get started it if you're unfamiliar with how to do it. Of course, feel free to ask your PMs for help as well.
+7. Adopt the `Equatable` protocol in the `MessageThread` class. You will need to manually implement the `==` function. **HINT:** [This article](https://www.natashatherobot.com/implementing-equatable-for-protocols-swift/) will help you get started it if you're unfamiliar with how to do it. Of course, feel free to ask your PMs for help as well after observing the 20 minute rule.
 
 At this point, the model objects are set up to be able to be saved to the API, but we'll have some trouble fetching them. There is one last thing to implement in order for them to be decoded correctly when fetching them from the API, but we'll implement it later. 
 
@@ -134,7 +137,7 @@ You now need a method to create messages within a `MessageThread`. In order to d
 1. In the `MessageThreadsTableViewController`, add a `messageThreadController: MessageThreadController` property. Set its default value to a new instance of `MessageThreadController`.
 2. Using the `messageThreadController`, implement `numberOfRowsInSection` and `cellForRowAt`. Each cell should display the title of its corresponding `MessageThread` object.
 3. In the action of the text field, unwrap its `text` and call the `createMessageThread` method, passing in the unwrapped text for the new thread's title. In the completion closure of `createMessageThread`, reload the table view on the main queue.
-4. Go to the `MessageThreadDetailTableViewController` and create the following varables:
+4. Go to the `MessageThreadDetailTableViewController` and create the following variables:
     - `messageThread: MessageThread?`
     - `messageThreadController: MessageThreadController?`
 5. Back in the `MessageThreadsTableViewController`, implement the `prepare(for segue: ...)` method, passing the `messageThreadController`, and the `MessageThread` that corresponds to the cell the user tapped on.
