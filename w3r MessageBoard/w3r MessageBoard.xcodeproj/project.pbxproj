@@ -11,6 +11,7 @@
 		1BC89E2E220241CA001FED62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC89E2C220241CA001FED62 /* Main.storyboard */; };
 		1BC89E30220241CB001FED62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BC89E2F220241CB001FED62 /* Assets.xcassets */; };
 		1BC89E33220241CB001FED62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC89E31220241CB001FED62 /* LaunchScreen.storyboard */; };
+		1BC89E3B2202435C001FED62 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC89E3A2202435B001FED62 /* MessageThreadsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		1BC89E2F220241CB001FED62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BC89E32220241CB001FED62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BC89E34220241CB001FED62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BC89E3A2202435B001FED62 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				1BC89E28220241CA001FED62 /* AppDelegate.swift */,
 				1BC89E2C220241CA001FED62 /* Main.storyboard */,
+				1BC89E3A2202435B001FED62 /* MessageThreadsTableViewController.swift */,
 				1BC89E2F220241CB001FED62 /* Assets.xcassets */,
 				1BC89E31220241CB001FED62 /* LaunchScreen.storyboard */,
 				1BC89E34220241CB001FED62 /* Info.plist */,
@@ -133,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BC89E29220241CA001FED62 /* AppDelegate.swift in Sources */,
+				1BC89E3B2202435C001FED62 /* MessageThreadsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
