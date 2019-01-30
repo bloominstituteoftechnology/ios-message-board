@@ -15,6 +15,7 @@
 		1BC89E3D22024545001FED62 /* MessageDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC89E3C22024545001FED62 /* MessageDetailTableViewController.swift */; };
 		1BC89E3F22024810001FED62 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC89E3E22024810001FED62 /* MessageViewController.swift */; };
 		1BC89E4422024918001FED62 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC89E4322024918001FED62 /* MessageThread.swift */; };
+		1BC89E4722024C32001FED62 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC89E4622024C32001FED62 /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1BC89E3C22024545001FED62 /* MessageDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailTableViewController.swift; sourceTree = "<group>"; };
 		1BC89E3E22024810001FED62 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		1BC89E4322024918001FED62 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		1BC89E4622024C32001FED62 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		1BC89E27220241CA001FED62 /* w3r MessageBoard */ = {
 			isa = PBXGroup;
 			children = (
+				1BC89E4822024C36001FED62 /* Model Controller */,
 				1BC89E452202491C001FED62 /* Model */,
 				1BC89E42220248AD001FED62 /* Views */,
 				1BC89E2F220241CB001FED62 /* Assets.xcassets */,
@@ -103,6 +106,14 @@
 				1BC89E4322024918001FED62 /* MessageThread.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1BC89E4822024C36001FED62 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1BC89E4622024C32001FED62 /* MessageThreadController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 				1BC89E3F22024810001FED62 /* MessageViewController.swift in Sources */,
 				1BC89E4422024918001FED62 /* MessageThread.swift in Sources */,
 				1BC89E3D22024545001FED62 /* MessageDetailTableViewController.swift in Sources */,
+				1BC89E4722024C32001FED62 /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
