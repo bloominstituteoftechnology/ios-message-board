@@ -15,6 +15,19 @@ class MessageThreadsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mtc.fetchMessageThreads { (error) in
+            if let error = error {
+                print("Error calling the fetchMessageThreads \(error.localizedDescription)")
+            }
+        
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     @IBAction func actionTextField(_ sender: UITextField) {
         guard let text = textField.text, !text.isEmpty else { return }

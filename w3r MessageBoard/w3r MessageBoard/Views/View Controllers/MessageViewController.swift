@@ -25,9 +25,9 @@ class MessageViewController: UIViewController {
     @IBAction func sendMessage(_ sender: UIBarButtonItem) {
         guard let title = textField.text, !title.isEmpty, let message = textView.text, !message.isEmpty, let messageThread = messageThread else { return }
         
-        mtc?.createMessageThread(with: title, completion: { (error) in
+        mtc?.createMessage(with: messageThread, text: message, sender: title, completion: { (error) in
             if let error = error {
-                print("Error calling the create messageThread method: \(error.localizedDescription)")
+                print("Error calling the createMessage method: \(error.localizedDescription)")
             }
             
             DispatchQueue.main.async {
