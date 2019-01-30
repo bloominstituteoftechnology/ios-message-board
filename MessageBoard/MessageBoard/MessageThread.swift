@@ -11,6 +11,13 @@ import Foundation
 class MessageThread: Codable {
     let title: String
     let identifier: String
+    var messages: [MessageThread.Message]
+    
+    init(title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
+        self.title = title
+        self.identifier = identifier
+        self.messages = messages
+    }
     
     struct Message: Equatable, Codable {
         let text: String
