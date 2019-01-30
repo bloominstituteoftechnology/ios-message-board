@@ -23,17 +23,17 @@ class MessageViewController: UIViewController {
     
 
     @IBAction func sendMessage(_ sender: UIBarButtonItem) {
+        guard let title = textField.text, !title.isEmpty, let message = textView.text, !message.isEmpty, let messageThread = messageThread else { return }
+        
+        mtc?.createMessageThread(with: title, completion: { (error) in
+            if let error = error {
+                print("Error calling the create messageThread method: \(error.localizedDescription)")
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        })
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
