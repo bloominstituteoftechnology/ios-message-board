@@ -9,6 +9,10 @@
 import UIKit
 
 class MessageDetailTableViewController: UITableViewController {
+    
+    var messageThread: MessageThread?
+    var mtc: MessageThreadController?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
