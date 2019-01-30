@@ -12,6 +12,8 @@
 		1BC89E30220241CB001FED62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BC89E2F220241CB001FED62 /* Assets.xcassets */; };
 		1BC89E33220241CB001FED62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC89E31220241CB001FED62 /* LaunchScreen.storyboard */; };
 		1BC89E3B2202435C001FED62 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC89E3A2202435B001FED62 /* MessageThreadsTableViewController.swift */; };
+		1BC89E3D22024545001FED62 /* MessageDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC89E3C22024545001FED62 /* MessageDetailTableViewController.swift */; };
+		1BC89E3F22024810001FED62 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC89E3E22024810001FED62 /* MessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		1BC89E32220241CB001FED62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BC89E34220241CB001FED62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BC89E3A2202435B001FED62 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
+		1BC89E3C22024545001FED62 /* MessageDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailTableViewController.swift; sourceTree = "<group>"; };
+		1BC89E3E22024810001FED62 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				1BC89E28220241CA001FED62 /* AppDelegate.swift */,
 				1BC89E2C220241CA001FED62 /* Main.storyboard */,
+				1BC89E3E22024810001FED62 /* MessageViewController.swift */,
+				1BC89E3C22024545001FED62 /* MessageDetailTableViewController.swift */,
 				1BC89E3A2202435B001FED62 /* MessageThreadsTableViewController.swift */,
 				1BC89E2F220241CB001FED62 /* Assets.xcassets */,
 				1BC89E31220241CB001FED62 /* LaunchScreen.storyboard */,
@@ -137,6 +143,8 @@
 			files = (
 				1BC89E29220241CA001FED62 /* AppDelegate.swift in Sources */,
 				1BC89E3B2202435C001FED62 /* MessageThreadsTableViewController.swift in Sources */,
+				1BC89E3F22024810001FED62 /* MessageViewController.swift in Sources */,
+				1BC89E3D22024545001FED62 /* MessageDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
