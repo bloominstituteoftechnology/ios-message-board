@@ -9,6 +9,9 @@
 import UIKit
 
 class MessageViewController: UIViewController {
+    
+    var messageThread: MessageThread?
+    var mtc: MessageThreadController?
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
