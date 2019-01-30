@@ -13,6 +13,7 @@
 		4B13582222024588009F6A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B13582122024588009F6A12 /* Assets.xcassets */; };
 		4B13582522024588009F6A12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B13582322024588009F6A12 /* LaunchScreen.storyboard */; };
 		4B13582D220246D2009F6A12 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13582C220246D2009F6A12 /* MessageThreadsTableViewController.swift */; };
+		4B13582F22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13582E22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4B13582422024588009F6A12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B13582622024588009F6A12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B13582C220246D2009F6A12 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
+		4B13582E22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				4B13581C22024587009F6A12 /* ViewController.swift */,
 				4B13581E22024587009F6A12 /* Main.storyboard */,
 				4B13582C220246D2009F6A12 /* MessageThreadsTableViewController.swift */,
+				4B13582E22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift */,
 				4B13582122024588009F6A12 /* Assets.xcassets */,
 				4B13582322024588009F6A12 /* LaunchScreen.storyboard */,
 				4B13582622024588009F6A12 /* Info.plist */,
@@ -140,6 +143,7 @@
 			files = (
 				4B13581D22024587009F6A12 /* ViewController.swift in Sources */,
 				4B13582D220246D2009F6A12 /* MessageThreadsTableViewController.swift in Sources */,
+				4B13582F22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift in Sources */,
 				4B13581B22024587009F6A12 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
