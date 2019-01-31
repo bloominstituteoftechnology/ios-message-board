@@ -18,6 +18,10 @@ class MessageThread: Codable {
         self.identifier = identifier
         self.messages = messages
     }
+    // Adopt the Equatable protocol
+    static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
+        return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.messages == rhs.messages
+    }
     
     struct Message: Equatable, Codable {
         let text: String
