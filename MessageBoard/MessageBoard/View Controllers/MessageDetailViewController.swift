@@ -18,22 +18,18 @@ class MessageDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func send(_ sender: Any) {
+        guard let name = messageDetailTextField.text,
+            let message = messageDetailTextView.text,
+            let thread = messageThread else { return }
+        
+        messageThreadController?.createMessage(thread: thread, text: message, sender: name, completion: { (success) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
