@@ -22,9 +22,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-xS-8b1">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a new thread:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-xS-8b1">
                                     <rect key="frame" x="8" y="7" width="359" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -33,7 +32,12 @@
                                     </connections>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="ZWG-xS-8b1" firstAttribute="centerX" secondItem="fx9-dt-6Yg" secondAttribute="centerX" id="cAm-i5-Vc9"/>
+                                <constraint firstItem="ZWG-xS-8b1" firstAttribute="leading" secondItem="fx9-dt-6Yg" secondAttribute="leading" constant="8" id="mKw-aM-Ayq"/>
+                                <constraint firstItem="ZWG-xS-8b1" firstAttribute="centerY" secondItem="fx9-dt-6Yg" secondAttribute="centerY" id="sZ8-8I-69I"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageThreadCell" id="ktP-WA-KlF">
@@ -111,9 +115,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xn0-eX-BNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="-18"/>
+            <point key="canvasLocation" x="-44" y="707"/>
         </scene>
-        <!--Title-->
+        <!--New Message-->
         <scene sceneID="tAj-gw-DFp">
             <objects>
                 <viewController id="fFv-fN-5W4" customClass="MessageDetailViewController" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,7 +152,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zEs-NQ-2LM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="yLe-ET-Wxu">
+                    <navigationItem key="navigationItem" title="New Message" id="yLe-ET-Wxu">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="yt8-LV-73G">
                             <connections>
                                 <action selector="send:" destination="fFv-fN-5W4" id="qNm-aZ-0B8"/>
@@ -162,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cI3-g2-zRX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1975.2" y="-18.440779610194905"/>
+            <point key="canvasLocation" x="636" y="707"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zqy-3P-j4T">

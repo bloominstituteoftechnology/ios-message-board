@@ -11,12 +11,17 @@ import UIKit
 class MessageThreadsTableViewController: UITableViewController {
     let messageThreadController = MessageThreadController()
     
+    // Create an instance of the UIRefreshControl class
+    let messageThreadRefreshControl = UIRefreshControl()
+    
     @IBOutlet weak var messageThreadTextField: UITextField!
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Configure Refresh Control by adding a target and an action for the valueChanged event
+        messageThreadRefreshControl.addTarget(self, action: #selector(fetchMessageThreads), for: .valueChanged)
+        // Add Refresh Control to Table View
+        tableView.refreshControl = messageThreadRefreshControl
 
     }
     
@@ -66,6 +71,15 @@ class MessageThreadsTableViewController: UITableViewController {
             let message = messageThreadController.messageThreads[indexPath.row]
             detailTVC.messageThread = message
             detailTVC.messageThreadController = messageThreadController
+        }
+    }
+    
+    @objc private func fetchMessageThreads() {
+        messageThreadController.fetchMessageThreads { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.messageThreadRefreshControl.endRefreshing()
+            }
         }
     }
 
