@@ -46,7 +46,7 @@ class MessageThreadsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageThreadCell", for: indexPath)
 
         let message = messageThreadController.messageThreads[indexPath.row]
         cell.textLabel?.text = message.title
