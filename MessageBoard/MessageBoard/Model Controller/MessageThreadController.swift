@@ -38,6 +38,31 @@ class MessageThreadController {
         }.resume()
     }
     
+    func createMessage(thread: MessageThread, text: String, sender: String, completion: @escaping (_ success: Bool) -> Void) {
+        let newMessage = MessageThread.Message(text: text, sender: sender)
+        let url = MessageThreadController.baseURL.appendingPathComponent(thread.identifier).appendingPathComponent("messages").appendingPathExtension("json")
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(newMessage)
+        } catch {
+            fatalError("Error encoding message thread: \(newMessage) \(error)")
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error: \(error)")
+                completion(false)
+                return
+            }
+            
+            thread.messages.append(newMessage)
+            completion(true)
+        }.resume()
+    }
+    
     
 }
 
