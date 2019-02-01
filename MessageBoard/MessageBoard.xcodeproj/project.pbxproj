@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4B13581B22024587009F6A12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13581A22024587009F6A12 /* AppDelegate.swift */; };
-		4B13581D22024587009F6A12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13581C22024587009F6A12 /* ViewController.swift */; };
 		4B13582022024587009F6A12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B13581E22024587009F6A12 /* Main.storyboard */; };
 		4B13582222024588009F6A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B13582122024588009F6A12 /* Assets.xcassets */; };
 		4B13582522024588009F6A12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B13582322024588009F6A12 /* LaunchScreen.storyboard */; };
@@ -16,12 +15,12 @@
 		4B13582F22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13582E22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift */; };
 		4B13583122024D0E009F6A12 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13583022024D0E009F6A12 /* MessageDetailViewController.swift */; };
 		4B13583322026C3C009F6A12 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13583222026C3C009F6A12 /* MessageThread.swift */; };
+		4B13583522027376009F6A12 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B13583422027376009F6A12 /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4B13581722024587009F6A12 /* MessageBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B13581A22024587009F6A12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4B13581C22024587009F6A12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B13581F22024587009F6A12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B13582122024588009F6A12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B13582422024588009F6A12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +29,7 @@
 		4B13582E22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		4B13583022024D0E009F6A12 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		4B13583222026C3C009F6A12 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		4B13583422027376009F6A12 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +62,50 @@
 		4B13581922024587009F6A12 /* MessageBoard */ = {
 			isa = PBXGroup;
 			children = (
-				4B13581A22024587009F6A12 /* AppDelegate.swift */,
-				4B13581C22024587009F6A12 /* ViewController.swift */,
-				4B13581E22024587009F6A12 /* Main.storyboard */,
-				4B13583022024D0E009F6A12 /* MessageDetailViewController.swift */,
+				4B1358362202737F009F6A12 /* Model */,
+				4B13583722027387009F6A12 /* Model Controller */,
+				4B13583822027396009F6A12 /* View Controllers */,
+				4B135839220273D1009F6A12 /* Resources */,
+				4B13582122024588009F6A12 /* Assets.xcassets */,
+			);
+			path = MessageBoard;
+			sourceTree = "<group>";
+		};
+		4B1358362202737F009F6A12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				4B13583222026C3C009F6A12 /* MessageThread.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B13583722027387009F6A12 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B13583422027376009F6A12 /* MessageThreadController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		4B13583822027396009F6A12 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B13583022024D0E009F6A12 /* MessageDetailViewController.swift */,
 				4B13582C220246D2009F6A12 /* MessageThreadsTableViewController.swift */,
 				4B13582E22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift */,
-				4B13582122024588009F6A12 /* Assets.xcassets */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4B135839220273D1009F6A12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4B13581A22024587009F6A12 /* AppDelegate.swift */,
+				4B13581E22024587009F6A12 /* Main.storyboard */,
 				4B13582322024588009F6A12 /* LaunchScreen.storyboard */,
 				4B13582622024588009F6A12 /* Info.plist */,
 			);
-			path = MessageBoard;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,11 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B13581D22024587009F6A12 /* ViewController.swift in Sources */,
 				4B13582D220246D2009F6A12 /* MessageThreadsTableViewController.swift in Sources */,
 				4B13583122024D0E009F6A12 /* MessageDetailViewController.swift in Sources */,
 				4B13582F22024BCE009F6A12 /* MessageThreadDetailTableViewController.swift in Sources */,
 				4B13581B22024587009F6A12 /* AppDelegate.swift in Sources */,
+				4B13583522027376009F6A12 /* MessageThreadController.swift in Sources */,
 				4B13583322026C3C009F6A12 /* MessageThread.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
