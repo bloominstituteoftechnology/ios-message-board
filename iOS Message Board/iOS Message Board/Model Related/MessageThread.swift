@@ -39,7 +39,7 @@ class MessageThread: Equatable, Codable {
     // Make sure both sides are equal to each other.
     // The identifier is what matters most here, since we need to retrieve
     // the correct item's content and we're not using SHA or GPG verification.
-    static func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
+    static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
         return rhs.identifier == lhs.identifier &&
             lhs.identifier == rhs.identifier
     }
