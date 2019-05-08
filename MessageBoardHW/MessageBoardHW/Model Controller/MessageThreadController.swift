@@ -14,7 +14,7 @@ class MessageThreadController {
     
     //you wll now make the method to create and send a MessageThread to the API.
     
-    func createMessageThread(with title: String, completion: @escaping ()-> Void){
+    func createMessageThread(with title: String, completion: @escaping (Error?)-> Void){
         //initialize a new MessageThread
         let newMT = MessageThread(title: title)
         
@@ -29,28 +29,29 @@ class MessageThreadController {
         do {
             let je = JSONEncoder()
             urlRequest.httpBody = try je.encode(newMT)
+            completion(nil)
         } catch  {
             print("Error encoding data into the httpBody: \(error.localizedDescription)")
-            completion()
+            completion(error)
             return
         }
         
         URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
             if let error = error {
                 print("Error inside the data task: \(error.localizedDescription)")
-                completion()
+                completion(error)
                 return
             }
             
             //if there is no error then append the MessageThread objcet to the messageThread variable
             self.messageThreads.append(newMT)
-            completion()
+            completion(nil)
         }.resume()
     }
     
     //you now need a method to create messages within the messageThread
     
-    func createMessage(with messageThread: MessageThread, text: String, sender: String, completion: @escaping ()-> Void){
+    func createMessage(with messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?)-> Void){
         //initialize a messageThread.message object
         let mtm = MessageThread.Message(text: text, sender: sender)
         
@@ -65,9 +66,10 @@ class MessageThreadController {
         do {
             let je = JSONEncoder()
            urlRequest.httpBody =  try je.encode(mtm) //this is the data we want to send to the server
+            completion(nil)
         } catch  {
             print("Error encoding the message into the httpBody: \(error.localizedDescription)")
-            completion()
+            completion(error)
             return
         }
         
@@ -75,13 +77,13 @@ class MessageThreadController {
         URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
             if let error = error {
                 print("Error inside the createMessageFunction data task: \(error.localizedDescription)")
-                completion()
+                completion(error)
                 return
             }
             
             //if there was no error, then append the MessageThread.Message Object to the MessageThread.Message variable. Since the MessageThread is a class, you can directly append it to its array of messages here.
             messageThread.messages.append(mtm)
-            completion()
+            completion(nil)
         }
     }
 }

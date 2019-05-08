@@ -66,8 +66,8 @@
 				1B45D59022836A7200516161 /* Main.storyboard */,
 				1BF895FB2283869100841213 /* Table View Controllers */,
 				1BF895FC2283869D00841213 /* View Controllers */,
-				1BF895F722837EAE00841213 /* MessageThread.swift */,
-				1BF895F92283809B00841213 /* MessageThreadController.swift */,
+				1BF895FD228386BB00841213 /* Model */,
+				1BF895FE228386C500841213 /* Model Controller */,
 				1B45D59322836A7300516161 /* Assets.xcassets */,
 				1B45D59522836A7300516161 /* LaunchScreen.storyboard */,
 				1B45D59822836A7300516161 /* Info.plist */,
@@ -90,6 +90,22 @@
 				1BF895F522837E0300841213 /* MessageDetailViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1BF895FD228386BB00841213 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BF895F722837EAE00841213 /* MessageThread.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1BF895FE228386C500841213 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1BF895F92283809B00841213 /* MessageThreadController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
