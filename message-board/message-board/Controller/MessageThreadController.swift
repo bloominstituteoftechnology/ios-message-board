@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum PushMethod: String {
+	case post = "POST"
+	case put = "PUT"
+}
+
 class MessageThreadController {
 	
 	func CreateMessageThread (title: String, completion: @escaping (Error?) -> Void) {
@@ -21,15 +26,36 @@ class MessageThreadController {
 		url.appendPathExtension("json")
 		
 		var  request = URLRequest(url: url)
+		request.httpMethod = PushMethod.post.rawValue
+		
 		print(request)
 		
 		do {
 			let encoder = JSONEncoder()
 			request.httpBody = try encoder.encode(thread)
-			completion(nil)
 		} catch {
 			completion(error)
 		}
+		
+		URLSession.shared.dataTask(with: request) { ( _, _, error) in
+			if let error = error {
+				//create message
+				let message = MessageThread.Message(text: error as! String, sender: "Sender is error")
+				//append meesage
+				thread.message.append(message)
+				//append new thread to threads
+				self.messageThreads.append(thread)
+				completion(error)
+				
+				print(error)
+				return
+			}
+			
+			
+			
+		}.resume()
+		
+		
 		
 	}
 	
