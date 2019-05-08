@@ -53,6 +53,7 @@ class MessageThreadTableViewController: UITableViewController {
         if segue.identifier == "CellSegue" {
             guard let destinationVC = segue.destination as? MessageThreadDetailTableViewController, let index = tableView.indexPathForSelectedRow else { return }
             let messageThreadToPass = mtc.messageThreads[index.row]
+            print("this is the messageThread to pass to the detail tableViewcontroller: \(messageThreadToPass)")
             destinationVC.mt = messageThreadToPass
             destinationVC.mtc = mtc
         }
