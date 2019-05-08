@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		FF2E03C32283731B0001D190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E03C22283731B0001D190 /* AppDelegate.swift */; };
-		FF2E03C52283731B0001D190 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E03C42283731B0001D190 /* ViewController.swift */; };
 		FF2E03C82283731B0001D190 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2E03C62283731B0001D190 /* Main.storyboard */; };
 		FF2E03CA2283731C0001D190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2E03C92283731C0001D190 /* Assets.xcassets */; };
 		FF2E03CD2283731C0001D190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2E03CB2283731C0001D190 /* LaunchScreen.storyboard */; };
+		FF2E03DB228373E10001D190 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E03DA228373E10001D190 /* MessageThread.swift */; };
+		FF2E03DD228373F70001D190 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E03DC228373F70001D190 /* MessageThreadController.swift */; };
+		FF2E03DF228374150001D190 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E03DE228374150001D190 /* MessageThreadsTableViewController.swift */; };
+		FF2E03E1228374280001D190 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E03E0228374280001D190 /* MessageThreadDetailTableViewController.swift */; };
+		FF2E03E32283743A0001D190 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E03E22283743A0001D190 /* MessageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FF2E03BF2283731B0001D190 /* Message Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Message Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2E03C22283731B0001D190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF2E03C42283731B0001D190 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF2E03C72283731B0001D190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF2E03C92283731C0001D190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF2E03CC2283731C0001D190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF2E03CE2283731C0001D190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF2E03DA228373E10001D190 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		FF2E03DC228373F70001D190 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
+		FF2E03DE228374150001D190 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
+		FF2E03E0228374280001D190 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		FF2E03E22283743A0001D190 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,58 @@
 		FF2E03C12283731B0001D190 /* Message Board */ = {
 			isa = PBXGroup;
 			children = (
-				FF2E03C22283731B0001D190 /* AppDelegate.swift */,
-				FF2E03C42283731B0001D190 /* ViewController.swift */,
-				FF2E03C62283731B0001D190 /* Main.storyboard */,
-				FF2E03C92283731C0001D190 /* Assets.xcassets */,
-				FF2E03CB2283731C0001D190 /* LaunchScreen.storyboard */,
-				FF2E03CE2283731C0001D190 /* Info.plist */,
+				FF2E03D72283738A0001D190 /* Model */,
+				FF2E03D6228373870001D190 /* Model Controller */,
+				FF2E03D5228373850001D190 /* View Controllers */,
+				FF2E03D4228373810001D190 /* Storyboards */,
+				FF2E03D9228373BB0001D190 /* Resources */,
 			);
 			path = "Message Board";
+			sourceTree = "<group>";
+		};
+		FF2E03D4228373810001D190 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E03C62283731B0001D190 /* Main.storyboard */,
+				FF2E03CB2283731C0001D190 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FF2E03D5228373850001D190 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E03DE228374150001D190 /* MessageThreadsTableViewController.swift */,
+				FF2E03E0228374280001D190 /* MessageThreadDetailTableViewController.swift */,
+				FF2E03E22283743A0001D190 /* MessageDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FF2E03D6228373870001D190 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E03DC228373F70001D190 /* MessageThreadController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		FF2E03D72283738A0001D190 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E03DA228373E10001D190 /* MessageThread.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF2E03D9228373BB0001D190 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E03C22283731B0001D190 /* AppDelegate.swift */,
+				FF2E03C92283731C0001D190 /* Assets.xcassets */,
+				FF2E03CE2283731C0001D190 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF2E03C52283731B0001D190 /* ViewController.swift in Sources */,
 				FF2E03C32283731B0001D190 /* AppDelegate.swift in Sources */,
+				FF2E03DF228374150001D190 /* MessageThreadsTableViewController.swift in Sources */,
+				FF2E03DB228373E10001D190 /* MessageThread.swift in Sources */,
+				FF2E03E1228374280001D190 /* MessageThreadDetailTableViewController.swift in Sources */,
+				FF2E03DD228373F70001D190 /* MessageThreadController.swift in Sources */,
+				FF2E03E32283743A0001D190 /* MessageDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
