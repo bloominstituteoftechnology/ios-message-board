@@ -18,10 +18,14 @@ class MessageThreadsTableViewController: UITableViewController {
     
     // MARK: - View Loading Methods
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        messageThreadController.fetchMessageThreads { (success) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     // MARK: - IBActions
