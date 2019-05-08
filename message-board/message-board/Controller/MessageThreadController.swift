@@ -60,6 +60,8 @@ class MessageThreadController {
 			url.appendPathComponent(id)
 		}
 		
+		url.appendPathComponent("messages")
+		
 		
 		
 		
