@@ -120,6 +120,7 @@
 				33FA5CA622836CC90023E134 /* Sources */,
 				33FA5CA722836CC90023E134 /* Frameworks */,
 				33FA5CA822836CC90023E134 /* Resources */,
+				33FA5CD2228374EC0023E134 /* Run Script - swiftlint */,
 			);
 			buildRules = (
 			);
@@ -205,6 +206,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33FA5CD2228374EC0023E134 /* Run Script - swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - swiftlint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		33FA5CA622836CC90023E134 /* Sources */ = {

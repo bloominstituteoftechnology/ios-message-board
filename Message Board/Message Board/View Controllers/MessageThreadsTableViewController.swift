@@ -12,7 +12,6 @@ class MessageThreadsTableViewController: UITableViewController {
 
 	@IBOutlet var topTextField: UITextField!
 
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
@@ -20,6 +19,5 @@ class MessageThreadsTableViewController: UITableViewController {
 
 	@IBAction func topTextFieldEndedEditing(_ sender: UITextField) {
 	}
-	
-}
 
+}

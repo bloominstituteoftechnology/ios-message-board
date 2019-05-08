@@ -13,11 +13,9 @@ class MessageDetailViewController: UIViewController {
 	@IBOutlet var nameTextField: UITextField!
 	@IBOutlet var messageTextView: UITextView!
 
-
 	override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 
 	@IBAction func sendButtonPressed(_ sender: UIBarButtonItem) {
 	}

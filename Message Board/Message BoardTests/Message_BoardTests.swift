@@ -5,6 +5,7 @@
 //  Created by Michael Redig on 5/8/19.
 //  Copyright © 2019 Michael Redig. All rights reserved.
 //
+//swiftlint:disable type_name
 
 import XCTest
 @testable import Message_Board
