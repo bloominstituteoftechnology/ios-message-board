@@ -17,6 +17,22 @@ class MessageThreadsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        messageThreadController.fetchMessageThreads { error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         
