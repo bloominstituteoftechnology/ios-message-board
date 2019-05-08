@@ -13,7 +13,7 @@
         <!--λ Message Board-->
         <scene sceneID="biV-PE-cTN">
             <objects>
-                <tableViewController id="Tq7-lb-ChP" sceneMemberID="viewController">
+                <tableViewController id="Tq7-lb-ChP" customClass="MessageThreadsTableViewController" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EB2-oJ-lIW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,6 +27,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="textFieldEditingDidEnd:" destination="Tq7-lb-ChP" eventType="editingDidEnd" id="bES-GV-nwF"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,6 +67,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="λ Message Board" id="Hds-Ei-te9"/>
+                    <connections>
+                        <outlet property="textField" destination="fYZ-Eh-9Cc" id="iNZ-Pt-gkG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwH-Ob-13h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +78,7 @@
         <!--Thread Title-->
         <scene sceneID="nu1-Q0-ey3">
             <objects>
-                <tableViewController id="2o5-bv-yta" sceneMemberID="viewController">
+                <tableViewController id="2o5-bv-yta" customClass="MessageThreadDetailTableViewController" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DWG-4w-HaL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,7 +129,7 @@
         <!--Message Detail-->
         <scene sceneID="FzX-qZ-kPA">
             <objects>
-                <viewController id="C0h-vX-k2n" sceneMemberID="viewController">
+                <viewController id="C0h-vX-k2n" customClass="MessageDetailViewController" customModule="MessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YR0-KH-eJn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,8 +162,16 @@
                         <viewLayoutGuide key="safeArea" id="EF3-gt-CYS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Message Detail" id="ctp-5E-Pwk">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="J2j-HF-mKU"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="J2j-HF-mKU">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="C0h-vX-k2n" id="ntG-XQ-auG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="HWY-Pv-mMR" id="xH3-2z-vpR"/>
+                        <outlet property="textView" destination="dOo-nw-HhR" id="C3d-DH-qnh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlw-Mp-SsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
