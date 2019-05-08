@@ -49,6 +49,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Nhq-P4-4Gw" kind="show" identifier="MessageThreadDetailSegue" id="Lla-7M-5Zl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -61,6 +64,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdM-So-A4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086.9565217391305" y="177.45535714285714"/>
+        </scene>
+        <!--REST APIs-->
+        <scene sceneID="iPz-E5-4b2">
+            <objects>
+                <tableViewController id="Nhq-P4-4Gw" customClass="MessageThreadDetailTableViewController" customModule="message_board" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2id-7y-XXa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" textLabel="bH7-x4-ycB" detailTextLabel="XtA-or-wko" style="IBUITableViewCellStyleSubtitle" id="ymk-81-GwD">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ymk-81-GwD" id="7w1-vT-1ob">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bH7-x4-ycB">
+                                            <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XtA-or-wko">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nhq-P4-4Gw" id="h58-0N-BFI"/>
+                            <outlet property="delegate" destination="Nhq-P4-4Gw" id="qzq-Lw-g5e"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="REST APIs" id="7yo-Pa-8h4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ft8-9G-xKG"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S6C-0W-ply" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957" y="177"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SsH-e2-tJ3">
