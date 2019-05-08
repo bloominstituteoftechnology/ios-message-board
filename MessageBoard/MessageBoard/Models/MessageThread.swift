@@ -9,15 +9,12 @@
 import Foundation
 
 class MessageThread: Codable, Equatable {
-    static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.identifier == rhs.identifier && lhs.title == rhs.title && lhs.messages == rhs.messages
-    }
-    
+    // MARK: - Properties
     let title: String
     let identifier: String
     var messages: [MessageThread.Message]
     
-    
+    // MARK: - JSON Struct
     struct Message: Codable, Equatable {
         let text: String
         let sender: String
@@ -31,9 +28,14 @@ class MessageThread: Codable, Equatable {
         
     }
     
+    // MARK: - Init and Functions
     init(title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
         self.title = title
         self.identifier = identifier
         self.messages = messages
+    }
+    
+    static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
+        return lhs.identifier == rhs.identifier && lhs.title == rhs.title && lhs.messages == rhs.messages
     }
 }

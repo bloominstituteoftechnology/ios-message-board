@@ -15,6 +15,7 @@
 		ECF91BA52283628B0079C175 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF91BA42283628B0079C175 /* MessageThreadDetailTableViewController.swift */; };
 		ECF91BA72283643C0079C175 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF91BA62283643C0079C175 /* MessageDetailViewController.swift */; };
 		ECF91BA9228365B30079C175 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF91BA8228365B30079C175 /* MessageThread.swift */; };
+		ECF91BAB22836BD00079C175 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF91BAA22836BD00079C175 /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		ECF91BA42283628B0079C175 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		ECF91BA62283643C0079C175 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageDetailViewController.swift; path = "MessageBoard/View Controllers/MessageDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		ECF91BA8228365B30079C175 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		ECF91BAA22836BD00079C175 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		ECF91BA022835EBE0079C175 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ECF91BAA22836BD00079C175 /* MessageThreadController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				ECF91BA72283643C0079C175 /* MessageDetailViewController.swift in Sources */,
 				ECF91BA52283628B0079C175 /* MessageThreadDetailTableViewController.swift in Sources */,
 				ECF91BA3228360B50079C175 /* MessageThreadsTableViewController.swift in Sources */,
+				ECF91BAB22836BD00079C175 /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
