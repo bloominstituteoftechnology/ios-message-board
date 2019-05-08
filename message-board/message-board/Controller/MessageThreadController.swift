@@ -11,6 +11,6 @@ import Foundation
 class MessageThreadController {
 	
 	
-	
-	
+	static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
+	var messageThreads: [MessageThread] = []
 }
