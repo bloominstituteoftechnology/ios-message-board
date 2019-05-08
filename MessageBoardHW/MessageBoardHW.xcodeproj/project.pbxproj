@@ -64,9 +64,8 @@
 			children = (
 				1B45D58C22836A7200516161 /* AppDelegate.swift */,
 				1B45D59022836A7200516161 /* Main.storyboard */,
-				1B45D59E22836B9A00516161 /* MessageThreadTableViewController.swift */,
-				1BF895F322837D5500841213 /* MessageThreadDetailTableViewController.swift */,
-				1BF895F522837E0300841213 /* MessageDetailViewController.swift */,
+				1BF895FB2283869100841213 /* Table View Controllers */,
+				1BF895FC2283869D00841213 /* View Controllers */,
 				1BF895F722837EAE00841213 /* MessageThread.swift */,
 				1BF895F92283809B00841213 /* MessageThreadController.swift */,
 				1B45D59322836A7300516161 /* Assets.xcassets */,
@@ -74,6 +73,23 @@
 				1B45D59822836A7300516161 /* Info.plist */,
 			);
 			path = MessageBoardHW;
+			sourceTree = "<group>";
+		};
+		1BF895FB2283869100841213 /* Table View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B45D59E22836B9A00516161 /* MessageThreadTableViewController.swift */,
+				1BF895F322837D5500841213 /* MessageThreadDetailTableViewController.swift */,
+			);
+			path = "Table View Controllers";
+			sourceTree = "<group>";
+		};
+		1BF895FC2283869D00841213 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1BF895F522837E0300841213 /* MessageDetailViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
