@@ -35,22 +35,26 @@ class MessageThreadController {
 			request.httpBody = try encoder.encode(messageThread)
 		} catch {
 			completion(error)
+			print(error)
 		}
 		
 		URLSession.shared.dataTask(with: request) { ( _, _, error) in
+			
 			if let error = error {
 				completion(error)
 				print(error)
 				return
+			} else {
+				self.messageThreads.append(messageThread)
+				completion(nil)
 			}
 			
-			//append new thread to threads
-			self.messageThreads.append(messageThread)
-			completion(nil)
 		}.resume()
 	}
 	
-	
+	func createMessage(messageThread: MessageThread, text: String, sender: String, completion: (Error?) -> Void ) {
+		
+	}
 	
 	static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
 	var messageThreads: [MessageThread] = []
