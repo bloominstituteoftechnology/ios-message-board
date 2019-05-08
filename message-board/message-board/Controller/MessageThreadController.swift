@@ -39,20 +39,14 @@ class MessageThreadController {
 		
 		URLSession.shared.dataTask(with: request) { ( _, _, error) in
 			if let error = error {
-				//create message
-				let message = MessageThread.Message(text: error as! String, sender: "Sender is error")
-				//append meesage
-				thread.message.append(message)
-				//append new thread to threads
-				self.messageThreads.append(thread)
 				completion(error)
-				
 				print(error)
 				return
 			}
 			
-			
-			
+			//append new thread to threads
+			self.messageThreads.append(thread)
+			completion(nil)
 		}.resume()
 		
 		
