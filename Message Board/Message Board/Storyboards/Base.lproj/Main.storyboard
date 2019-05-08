@@ -58,7 +58,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="8yx-PM-lZ2" kind="show" identifier="MessageDetailSegue" id="VrP-29-mfT"/>
+                                    <segue destination="8yx-PM-lZ2" kind="show" identifier="MessageThreadDetailSegue" id="VrP-29-mfT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -118,7 +118,7 @@
                     <navigationItem key="navigationItem" title="Title" id="a0c-S6-jDs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="quO-Ja-AR3">
                             <connections>
-                                <segue destination="7Wa-Yi-ZZ9" kind="show" id="sUm-wr-4I3"/>
+                                <segue destination="7Wa-Yi-ZZ9" kind="show" identifier="MessageDetailSegue" id="sUm-wr-4I3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
