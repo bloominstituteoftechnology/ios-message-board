@@ -42,7 +42,7 @@ class MessageThreadController {
 			
 			if let error = error {
 				completion(error)
-				print(error)
+				print("Error:createMessageThread dataTask ", error)
 				return
 			} else {
 				self.messageThreads.append(messageThread)
@@ -70,11 +70,15 @@ class MessageThreadController {
 		do {
 			let encoder = JSONEncoder()
 			request.httpBody = try encoder.encode(messageThread)
-			
-			completion(nil)
 		} catch {
 			print(error)
 			completion(error)
+		}
+		
+		URLSession.shared.dataTask(with: request) { ( _, _, error) in
+			if let error = error {
+				print("Error:createMessage dataTask ", error)
+			}
 		}
 		
 	}
