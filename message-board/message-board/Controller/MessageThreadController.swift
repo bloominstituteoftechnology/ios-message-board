@@ -26,7 +26,7 @@ class MessageThreadController {
 		url.appendPathExtension("json")
 		
 		var  request = URLRequest(url: url)
-		request.httpMethod = PushMethod.post.rawValue
+		request.httpMethod = PushMethod.put.rawValue
 		
 		print(request)
 		
