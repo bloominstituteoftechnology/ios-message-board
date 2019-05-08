@@ -20,12 +20,10 @@ class MessageDetailViewController: UIViewController {
     // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("MessageDetailiewController viewDidLoad()")
     }
 
     // MARK: - IBActions
     @IBAction func sendButtonTapped(_ sender: Any) {
-        print("MessageDetailiewController sendButtonTapped()")
         guard let sender = nameTextFiled.text,
         let text = messageBodyTextView.text,
         let message = messageThread

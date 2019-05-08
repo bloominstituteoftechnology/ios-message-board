@@ -19,12 +19,10 @@ class MessageThreadsTableViewController: UITableViewController {
     // MARK: - View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("MessageThreadsTableViewController viewDidLoad()")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("MessageThreadsTableViewController viewWillAppear()")
         messageThreadControler.fetchMessageThreads { (error) in
             if let error = error {
                 print(error)
@@ -39,13 +37,11 @@ class MessageThreadsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("MessageThreadsTableViewController numberOfRows")
         // #warning Incomplete implementation, return the number of rows
         return messageThreadControler.messageThread.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("MessageThreadsTableViewController cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ThreadCell", for: indexPath)
 
         let message = messageThreadControler.messageThread[indexPath.row]

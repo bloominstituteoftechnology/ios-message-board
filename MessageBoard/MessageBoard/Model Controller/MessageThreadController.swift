@@ -14,7 +14,6 @@ class MessageThreadController {
     
     // MARK: - createMessageThread()
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
-        print("creatMessageThread()")
         let message = MessageThread(title: title)
         let url = MessageThreadController.baseURL
         
@@ -48,7 +47,6 @@ class MessageThreadController {
     
     // MARK: - CreateMessage()
     func createMessage(parentThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
-        print("creatMessage()")
         let newMessage = MessageThread.Message(text: text, sender: sender)
         var url = MessageThreadController.baseURL
         
@@ -83,10 +81,9 @@ class MessageThreadController {
     
     //MARK: - fetchMessageThreads()
     func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
-        print("fetchMessageThreads()")
         var url = MessageThreadController.baseURL
         
-        url.appendPathExtension(".json")
+        url.appendPathExtension("json")
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
