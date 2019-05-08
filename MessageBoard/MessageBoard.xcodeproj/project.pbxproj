@@ -86,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				ECF91B8E22835E5E0079C175 /* Main.storyboard */,
-				ECF91BA62283643C0079C175 /* MessageDetailViewController.swift */,
 				ECF91B9322835E630079C175 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -104,6 +103,7 @@
 			children = (
 				ECF91BA2228360B50079C175 /* MessageThreadsTableViewController.swift */,
 				ECF91BA42283628B0079C175 /* MessageThreadDetailTableViewController.swift */,
+				ECF91BA62283643C0079C175 /* MessageDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

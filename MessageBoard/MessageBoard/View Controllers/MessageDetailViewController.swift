@@ -9,6 +9,9 @@
 import UIKit
 
 class MessageDetailViewController: UIViewController {
+    // MARK: - Properties
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 
     // MARK: - IBOutlets
     @IBOutlet weak var nameTextFiled: UITextField!

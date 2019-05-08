@@ -9,38 +9,41 @@
 import UIKit
 
 class MessageThreadDetailTableViewController: UITableViewController {
+    // MARK: - Properties
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 
+    // MARK: - View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        if let title = messageThread?.title {
+            self.title = title
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let returnNumber = messageThread?.messages.count else { return 0 }
+        return returnNumber
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
 
-        // Configure the cell...
+        guard let message = messageThread?.messages[indexPath.row] else { return cell }
+        cell.textLabel?.text = message.text
+        cell.detailTextLabel?.text = message.sender
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

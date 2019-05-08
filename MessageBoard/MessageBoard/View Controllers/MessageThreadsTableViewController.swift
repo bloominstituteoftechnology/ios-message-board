@@ -9,6 +9,8 @@
 import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
+    // MARK: - Properties
+    var messageThreadControler = MessageThreadController()
     
     // MARK: - IBOutlet
     @IBOutlet weak var messagesThreadTextField: UITextField!
@@ -17,35 +19,23 @@ class MessageThreadsTableViewController: UITableViewController {
     // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return messageThreadControler.messageThread.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ThreadCell", for: indexPath)
 
-        // Configure the cell...
+        let message = messageThreadControler.messageThread[indexPath.row]
+        cell.textLabel?.text = message.title
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,18 +72,31 @@ class MessageThreadsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    // MARK: - prepare(for segue )
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowMessageThreadDetail" {
+            let detinationVC: MessageThreadDetailTableViewController = segue.destination as! MessageThreadDetailTableViewController
+            guard let index = tableView.indexPathForSelectedRow?.row else { return }
+            detinationVC.messageThread = messageThreadControler.messageThread[index]
+            detinationVC.messageThreadController = messageThreadControler
+        }
     }
-    */
+ 
     
     // MARK: - IBActions
-
     @IBAction func exitMessageThreadTextField(_ sender: Any) {
+        guard let text = messagesThreadTextField.text else { return }
+        
+        messageThreadControler.createMessageThread(title: text) { (error) in
+            if let error = error {
+                print(error)
+                return
+            } else {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 }
