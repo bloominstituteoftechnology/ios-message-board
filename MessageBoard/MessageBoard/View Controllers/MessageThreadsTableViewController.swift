@@ -35,12 +35,12 @@ class MessageThreadsTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: - numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return messageThreadControler.messageThread.count
     }
 
+    // MARK: - cellForRowAt indexPath
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ThreadCell", for: indexPath)
 

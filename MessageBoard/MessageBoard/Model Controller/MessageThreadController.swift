@@ -9,6 +9,7 @@
 import Foundation
 
 class MessageThreadController {
+    // MARK: - Properties
     var messageThread: [MessageThread] = []
     static let baseURL = URL(string: "https://put-and-post-9d7da.firebaseio.com/")!
     

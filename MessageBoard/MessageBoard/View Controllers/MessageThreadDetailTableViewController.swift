@@ -26,12 +26,13 @@ class MessageThreadDetailTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    // MARK: - Table view data source
+    // MARK: - numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let returnNumber = messageThread?.messages.count else { return 0 }
         return returnNumber
     }
 
+    // MARK: - cellForRowAt indexPath
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
 
