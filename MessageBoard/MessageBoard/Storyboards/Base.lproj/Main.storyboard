@@ -165,7 +165,7 @@
                     <navigationItem key="navigationItem" title="Title" id="zpe-DB-yRX">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="gIM-a0-iNw">
                             <connections>
-                                <action selector="sendButtonTapped:" destination="vHw-51-vCY" id="FMg-le-rhe"/>
+                                <action selector="sendButtonTapped:" destination="vHw-51-vCY" id="Z9S-A5-9EI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
