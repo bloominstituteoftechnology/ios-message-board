@@ -14,5 +14,12 @@ class MessageThreadsTableViewController: UITableViewController {
         super.viewDidLoad()
 
 	}
-
+	@IBAction func messageBoardTextFieldDidEndOnExit(_ sender: UITextField) {
+		guard let text = sender.text else {
+			return
+		}
+		
+		print(text)
+	}
+	
 }
