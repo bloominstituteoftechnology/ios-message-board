@@ -16,6 +16,8 @@
 		33FA5CCE228372A80023E134 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CCD228372A80023E134 /* MessageThreadDetailTableViewController.swift */; };
 		33FA5CD02283745D0023E134 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CCF2283745D0023E134 /* MessageDetailViewController.swift */; };
 		33FA5CD4228376520023E134 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CD3228376520023E134 /* MessageThread.swift */; };
+		33FA5CD8228383D20023E134 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CD7228383D20023E134 /* MessageThreadController.swift */; };
+		33FA5CDA228388FF0023E134 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CD9228388FF0023E134 /* HTTPMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		33FA5CCD228372A80023E134 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		33FA5CCF2283745D0023E134 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		33FA5CD3228376520023E134 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		33FA5CD7228383D20023E134 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
+		33FA5CD9228388FF0023E134 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				33FA5CD3228376520023E134 /* MessageThread.swift */,
+				33FA5CD9228388FF0023E134 /* HTTPMethods.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 		33FA5CD6228383BA0023E134 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				33FA5CD7228383D20023E134 /* MessageThreadController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -257,6 +263,8 @@
 				33FA5CCE228372A80023E134 /* MessageThreadDetailTableViewController.swift in Sources */,
 				33FA5CD4228376520023E134 /* MessageThread.swift in Sources */,
 				33FA5CAE22836CC90023E134 /* AppDelegate.swift in Sources */,
+				33FA5CD8228383D20023E134 /* MessageThreadController.swift in Sources */,
+				33FA5CDA228388FF0023E134 /* HTTPMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
