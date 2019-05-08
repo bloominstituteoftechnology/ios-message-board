@@ -10,7 +10,7 @@ import Foundation
 
 class MessageThread: Codable, Equatable {
 	static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-		return lhs.title == rhs.title && lhs.idnetifier == rhs.idnetifier && lhs.message == rhs.message
+		return  lhs.idnetifier == rhs.idnetifier 
 	}
 	
 	let title: String?
