@@ -12,11 +12,14 @@ class MessageThreadsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		controller.CreateMessageThread(title:  "one") { (error) in
-			if let error = error {
-				print(error)
-			}
-		}
+//		controller.CreateMessageThread(title:  "one") { (error) in
+//			if let error = error {
+//				print(error)
+//			}
+//		}
+		
+		
+		
 	}
 	
 	
