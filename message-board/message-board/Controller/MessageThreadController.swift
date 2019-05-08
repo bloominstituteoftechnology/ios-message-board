@@ -69,7 +69,7 @@ class MessageThreadController {
 		
 		do {
 			let encoder = JSONEncoder()
-			request.httpBody = try encoder.encode(messageThread)
+			request.httpBody = try encoder.encode(message)
 		} catch {
 			print(error)
 			completion(error)
