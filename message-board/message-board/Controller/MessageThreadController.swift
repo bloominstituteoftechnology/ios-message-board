@@ -53,6 +53,15 @@ class MessageThreadController {
 	}
 	
 	func createMessage(messageThread: MessageThread, text: String, sender: String, completion: (Error?) -> Void ) {
+		let message = MessageThread.Message(text: text, sender: sender)
+		var url = MessageThreadController.baseURL
+		
+		if let id = messageThread.idnetifier {
+			url.appendPathComponent(id)
+		}
+		
+		
+		
 		
 	}
 	
