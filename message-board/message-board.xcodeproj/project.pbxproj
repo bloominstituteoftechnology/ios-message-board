@@ -58,12 +58,12 @@
 		E84A349A22836B29004622AB /* message-board */ = {
 			isa = PBXGroup;
 			children = (
-				E84A349B22836B29004622AB /* AppDelegate.swift */,
 				E84A34AF22836F57004622AB /* View Controllers */,
 				E84A349F22836B29004622AB /* Main.storyboard */,
 				E84A34A222836B2A004622AB /* Assets.xcassets */,
 				E84A34A422836B2A004622AB /* LaunchScreen.storyboard */,
 				E84A34A722836B2A004622AB /* Info.plist */,
+				E84A349B22836B29004622AB /* AppDelegate.swift */,
 			);
 			path = "message-board";
 			sourceTree = "<group>";

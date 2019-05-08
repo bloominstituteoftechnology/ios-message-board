@@ -117,20 +117,54 @@
             </objects>
             <point key="canvasLocation" x="1957" y="177"/>
         </scene>
-        <!--Message Detail View Controller-->
+        <!--New Message-->
         <scene sceneID="V7m-Uv-SK7">
             <objects>
                 <viewController id="3OM-pv-jdT" customClass="MessageDetailViewController" customModule="message_board" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GuN-b3-2XG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qib-dV-kuJ">
+                                <rect key="frame" x="16" y="156" width="382" height="400"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXz-hU-Az0">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lnp-z5-Ngh">
+                                        <rect key="frame" x="0.0" y="38" width="382" height="362"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="1G4-hx-Env"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qib-dV-kuJ" firstAttribute="top" secondItem="SG7-qr-Kg6" secondAttribute="top" constant="16" id="6Pq-i3-yd4"/>
+                            <constraint firstItem="Qib-dV-kuJ" firstAttribute="leading" secondItem="SG7-qr-Kg6" secondAttribute="leading" constant="16" id="ZC7-7u-Sn8"/>
+                            <constraint firstItem="Qib-dV-kuJ" firstAttribute="trailing" secondItem="SG7-qr-Kg6" secondAttribute="trailing" constant="-16" id="ZZs-PC-0mh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SG7-qr-Kg6"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Message" id="0w6-bn-Y0I">
+                        <barButtonItem key="rightBarButtonItem" title="Send" style="plain" id="0QA-qp-9O3"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageTextView" destination="lnp-z5-Ngh" id="I71-bS-sW8"/>
+                        <outlet property="nameTextField" destination="SXz-hU-Az0" id="R2D-dT-xmx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8mj-R9-oo5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2867" y="177"/>
+            <point key="canvasLocation" x="2866.666666666667" y="176.78571428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SsH-e2-tJ3">
