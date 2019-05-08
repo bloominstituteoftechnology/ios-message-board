@@ -52,7 +52,7 @@ class MessageThreadController {
 		}.resume()
 	}
 	
-	func createMessage(messageThread: MessageThread, text: String, sender: String, completion: (Error?) -> Void ) {
+	func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void ) {
 		let message = MessageThread.Message(text: text, sender: sender)
 		var url = MessageThreadController.baseURL
 		
@@ -78,7 +78,12 @@ class MessageThreadController {
 		URLSession.shared.dataTask(with: request) { ( _, _, error) in
 			if let error = error {
 				print("Error:createMessage dataTask ", error)
+				completion(error)
+			}else {
+				completion(nil)
 			}
+			
+			
 		}
 		
 	}
