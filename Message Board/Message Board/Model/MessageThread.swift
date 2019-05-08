@@ -20,9 +20,13 @@ class MessageThread: Equatable, Codable {
         self.messages = messages
     }
 
+    // MARK: - Equatable
+    
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
         return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.messages == rhs.messages
     }
+    
+    // MARK: - Decodable
     
     required init(from decoder: Decoder) throws {
         

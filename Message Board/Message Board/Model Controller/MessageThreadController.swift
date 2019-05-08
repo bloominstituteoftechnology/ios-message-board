@@ -71,4 +71,34 @@ class MessageThreadController {
     
     // MARK: - Network Fetch
     
+    func fetchMessageThreads(completion: @escaping RequestCompletion) {
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                NSLog("Error: \(error)")
+                completion(false)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Data was not recieved.")
+                completion(false)
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let messageThreadDictionaries = try jsonDecoder.decode([String: MessageThread].self, from: data)
+                let messageThreads = messageThreadDictionaries.map({ $0.value })
+                self.messageThreads = messageThreads
+                completion(true)
+                
+            } catch {
+                NSLog("Error decoding data: \(error)")
+                completion(false)
+                return
+            }
+            }.resume()
+    }
 }
