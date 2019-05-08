@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		33FA5CAE22836CC90023E134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CAD22836CC90023E134 /* AppDelegate.swift */; };
-		33FA5CB022836CC90023E134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CAF22836CC90023E134 /* ViewController.swift */; };
+		33FA5CB022836CC90023E134 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CAF22836CC90023E134 /* MessageThreadsTableViewController.swift */; };
 		33FA5CB322836CC90023E134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FA5CB122836CC90023E134 /* Main.storyboard */; };
 		33FA5CB522836CCD0023E134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33FA5CB422836CCD0023E134 /* Assets.xcassets */; };
 		33FA5CB822836CCD0023E134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FA5CB622836CCD0023E134 /* LaunchScreen.storyboard */; };
 		33FA5CC322836CCD0023E134 /* Message_BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CC222836CCD0023E134 /* Message_BoardTests.swift */; };
+		33FA5CCE228372A80023E134 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CCD228372A80023E134 /* MessageThreadDetailTableViewController.swift */; };
+		33FA5CD02283745D0023E134 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CCF2283745D0023E134 /* MessageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,7 @@
 /* Begin PBXFileReference section */
 		33FA5CAA22836CC90023E134 /* Message Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Message Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FA5CAD22836CC90023E134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		33FA5CAF22836CC90023E134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33FA5CAF22836CC90023E134 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		33FA5CB222836CC90023E134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33FA5CB422836CCD0023E134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33FA5CB722836CCD0023E134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		33FA5CBE22836CCD0023E134 /* Message BoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Message BoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FA5CC222836CCD0023E134 /* Message_BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message_BoardTests.swift; sourceTree = "<group>"; };
 		33FA5CC422836CCD0023E134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33FA5CCD228372A80023E134 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		33FA5CCF2283745D0023E134 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				33FA5CAD22836CC90023E134 /* AppDelegate.swift */,
-				33FA5CAF22836CC90023E134 /* ViewController.swift */,
+				33FA5CD1228374640023E134 /* View Controllers */,
 				33FA5CB122836CC90023E134 /* Main.storyboard */,
 				33FA5CB422836CCD0023E134 /* Assets.xcassets */,
 				33FA5CB622836CCD0023E134 /* LaunchScreen.storyboard */,
@@ -94,6 +98,16 @@
 				33FA5CC422836CCD0023E134 /* Info.plist */,
 			);
 			path = "Message BoardTests";
+			sourceTree = "<group>";
+		};
+		33FA5CD1228374640023E134 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33FA5CAF22836CC90023E134 /* MessageThreadsTableViewController.swift */,
+				33FA5CCD228372A80023E134 /* MessageThreadDetailTableViewController.swift */,
+				33FA5CCF2283745D0023E134 /* MessageDetailViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33FA5CB022836CC90023E134 /* ViewController.swift in Sources */,
+				33FA5CB022836CC90023E134 /* MessageThreadsTableViewController.swift in Sources */,
+				33FA5CD02283745D0023E134 /* MessageDetailViewController.swift in Sources */,
+				33FA5CCE228372A80023E134 /* MessageThreadDetailTableViewController.swift in Sources */,
 				33FA5CAE22836CC90023E134 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

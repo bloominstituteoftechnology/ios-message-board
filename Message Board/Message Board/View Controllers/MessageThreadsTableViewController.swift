@@ -8,13 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MessageThreadsTableViewController: UITableViewController {
 
+	@IBOutlet var topTextField: UITextField!
+
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 	}
 
-
+	@IBAction func topTextFieldEndedEditing(_ sender: UITextField) {
+	}
+	
 }
 
