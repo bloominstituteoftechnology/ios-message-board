@@ -82,7 +82,7 @@ class MessageThreadController {
                 let messageThreadDictionaries = try jsonDecoder.decode([String: MessageThread].self, from: data)
                 let messageThreads = messageThreadDictionaries.map({ $0.value })
                 self.messageThreads = messageThreads
-                completion(true)
+                 completion(true)
                 
             } catch {
                 NSLog("Error decoding data: \(error)")
@@ -93,7 +93,7 @@ class MessageThreadController {
     }
     
     var messageThreads: [MessageThread] = []
-    static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
+    static let baseURL = URL(string: "https://moses-lambda-message-board.firebaseio.com/")!
     typealias RequestCompletion = (_ success: Bool) -> Void
     
 }
