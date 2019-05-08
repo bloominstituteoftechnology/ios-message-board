@@ -67,8 +67,15 @@ class MessageThreadController {
 		request.httpMethod = PushMethod.post.rawValue
 		print(request)
 		
-		
-		
+		do {
+			let encoder = JSONEncoder()
+			request.httpBody = try encoder.encode(messageThread)
+			
+			completion(nil)
+		} catch {
+			print(error)
+			completion(error)
+		}
 		
 	}
 	

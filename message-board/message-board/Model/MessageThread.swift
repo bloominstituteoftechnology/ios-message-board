@@ -20,7 +20,7 @@ class MessageThread: Codable, Equatable {
 	init(title: String, identifier: String = (UUID().uuidString) , message: [MessageThread.Message] = []) {
 		self.title = title
 		self.idnetifier = identifier
-		self.message =  message
+		self.messages =  message
 	}
 	
 	struct Message: Codable, Equatable {
