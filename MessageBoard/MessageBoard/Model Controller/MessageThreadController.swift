@@ -48,13 +48,13 @@ class MessageThreadController {
     // MARK: - CreateMessage()
     func createMessage(parentThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
         let newMessage = MessageThread.Message(text: text, sender: sender)
-        var url = MessageThreadController.baseURL
+        let url = MessageThreadController.baseURL
         
-        url.appendPathExtension(parentThread.identifier)
-        url.appendPathExtension("messages")
-        url.appendPathExtension(".json")
+        let urlWithIdentifier = url.appendingPathComponent(parentThread.identifier)
+        var urlWithMessages = urlWithIdentifier.appendingPathComponent("messages")
+        urlWithMessages.appendPathExtension("json")
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: urlWithMessages)
         request.httpMethod = "POST"
         
         do {
