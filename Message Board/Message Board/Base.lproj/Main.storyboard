@@ -22,9 +22,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0k1-em-1ry">
-                                    <rect key="frame" x="121" y="7" width="97" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0k1-em-1ry">
+                                    <rect key="frame" x="16" y="7" width="382" height="30"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -34,6 +33,11 @@
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="0k1-em-1ry" secondAttribute="trailing" constant="16" id="GJj-tL-Ew6"/>
+                                <constraint firstItem="0k1-em-1ry" firstAttribute="centerY" secondItem="h6B-k5-8Oo" secondAttribute="centerY" id="YBI-I9-HtP"/>
+                                <constraint firstItem="0k1-em-1ry" firstAttribute="leading" secondItem="h6B-k5-8Oo" secondAttribute="leading" constant="16" id="teT-po-xUs"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnIdentifier" textLabel="QQo-at-gIF" style="IBUITableViewCellStyleDefault" id="AfG-5L-Xon">
@@ -113,7 +117,7 @@
                     <navigationItem key="navigationItem" title="Title" id="29o-FQ-YFQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8w2-4W-bXn">
                             <connections>
-                                <segue destination="5lX-u4-Oo4" kind="show" identifier="ShowMessageCreation" id="ENJ-QV-1Ll"/>
+                                <segue destination="5lX-u4-Oo4" kind="show" identifier="ShowMessageDetail" id="ENJ-QV-1Ll"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

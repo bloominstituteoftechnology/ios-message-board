@@ -30,7 +30,7 @@ class MessageThread: Equatable, Codable {
 		return rhs.identifier == lhs.identifier
 	}
 
-	static func createMessage(on thread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+	func createMessage(on thread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
 		let message = Message(text: text, sender: sender)
 
 		var url = MessageThreadController.baseURL.appendingPathComponent(thread.identifier)
