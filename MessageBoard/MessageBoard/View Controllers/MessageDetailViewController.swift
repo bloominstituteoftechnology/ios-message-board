@@ -9,6 +9,9 @@
 import UIKit
 
 class MessageDetailViewController: UIViewController {
+    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
@@ -18,16 +21,24 @@ class MessageDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        
+        resignFirstResponder()
+        
+        guard let sender = textField.text,
+        let messageText = textView.text,
+        let messageThread = messageThread
+        else { return }
+        
+        messageThreadController?.createMessage(messageThread: messageThread, text: messageText, sender: sender) { error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -21,9 +21,7 @@ class MessageThread: Codable, Equatable {
     }
     
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.identifier == rhs.identifier &&
-        lhs.title == rhs.title &&
-        lhs.messages == rhs.messages
+        return lhs.identifier == rhs.identifier
     }
     
     struct Message: Equatable, Codable {

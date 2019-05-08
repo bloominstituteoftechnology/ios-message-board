@@ -9,6 +9,8 @@
 import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
+    
+    let messageThreadController = MessageThreadController()
 
     @IBOutlet weak var textField: UITextField!
     
@@ -16,28 +18,55 @@ class MessageThreadsTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func textFieldEditingDidEnd(_ sender: UITextField) {
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        
+        print("saveButtonTapped")
+        self.view.endEditing(true)
+        
+        guard let text = textField.text else { return }
+        
+        messageThreadController.createMessageThread(title: text) { error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return messageThreadController.messageThreads.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ThreadCell", for: indexPath)
+        let messageThread = messageThreadController.messageThreads[indexPath.row]
+        cell.textLabel?.text = messageThread.title
 
         return cell
     }
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowThreadDetail" {
+            
+            guard let destinationVC = segue.destination as? MessageThreadDetailTableViewController,
+            let indexPath = tableView.indexPathForSelectedRow
+            else { return }
+            
+            let messageThread = messageThreadController.messageThreads[indexPath.row]
+            destinationVC.messageThread = messageThread
+            
+            destinationVC.messageThreadController = messageThreadController
+        }
     }
 }
