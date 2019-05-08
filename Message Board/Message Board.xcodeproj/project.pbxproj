@@ -15,6 +15,7 @@
 		33FA5CC322836CCD0023E134 /* Message_BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CC222836CCD0023E134 /* Message_BoardTests.swift */; };
 		33FA5CCE228372A80023E134 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CCD228372A80023E134 /* MessageThreadDetailTableViewController.swift */; };
 		33FA5CD02283745D0023E134 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CCF2283745D0023E134 /* MessageDetailViewController.swift */; };
+		33FA5CD4228376520023E134 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA5CD3228376520023E134 /* MessageThread.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		33FA5CC422836CCD0023E134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33FA5CCD228372A80023E134 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		33FA5CCF2283745D0023E134 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		33FA5CD3228376520023E134 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,8 @@
 		33FA5CAC22836CC90023E134 /* Message Board */ = {
 			isa = PBXGroup;
 			children = (
+				33FA5CD6228383BA0023E134 /* Model Controllers */,
+				33FA5CD5228383B50023E134 /* Models */,
 				33FA5CAD22836CC90023E134 /* AppDelegate.swift */,
 				33FA5CD1228374640023E134 /* View Controllers */,
 				33FA5CB122836CC90023E134 /* Main.storyboard */,
@@ -108,6 +112,21 @@
 				33FA5CCF2283745D0023E134 /* MessageDetailViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		33FA5CD5228383B50023E134 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				33FA5CD3228376520023E134 /* MessageThread.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		33FA5CD6228383BA0023E134 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +255,7 @@
 				33FA5CB022836CC90023E134 /* MessageThreadsTableViewController.swift in Sources */,
 				33FA5CD02283745D0023E134 /* MessageDetailViewController.swift in Sources */,
 				33FA5CCE228372A80023E134 /* MessageThreadDetailTableViewController.swift in Sources */,
+				33FA5CD4228376520023E134 /* MessageThread.swift in Sources */,
 				33FA5CAE22836CC90023E134 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
