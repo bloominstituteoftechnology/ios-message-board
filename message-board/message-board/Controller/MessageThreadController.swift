@@ -16,10 +16,10 @@ enum PushMethod: String {
 class MessageThreadController {
 	
 	func CreateMessageThread (title: String, completion: @escaping (Error?) -> Void) {
-		var thread = MessageThread(title: title)
+		let messageThread = MessageThread(title: title)
 		
 		var url = MessageThreadController.baseURL
-		if let id = thread.idnetifier {
+		if let id = messageThread.idnetifier {
 			url.appendPathComponent(id)
 		}
 		
@@ -32,7 +32,7 @@ class MessageThreadController {
 		
 		do {
 			let encoder = JSONEncoder()
-			request.httpBody = try encoder.encode(thread)
+			request.httpBody = try encoder.encode(messageThread)
 		} catch {
 			completion(error)
 		}
@@ -45,12 +45,9 @@ class MessageThreadController {
 			}
 			
 			//append new thread to threads
-			self.messageThreads.append(thread)
+			self.messageThreads.append(messageThread)
 			completion(nil)
 		}.resume()
-		
-		
-		
 	}
 	
 	
