@@ -20,25 +20,28 @@ class MessageDetailViewController: UIViewController {
     // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("MessageDetailiewController viewDidLoad()")
     }
 
     // MARK: - IBActions
     @IBAction func sendButtonTapped(_ sender: Any) {
+        print("MessageDetailiewController sendButtonTapped()")
         guard let sender = nameTextFiled.text,
         let text = messageBodyTextView.text,
         let message = messageThread
-        else { return }
-        print("Test")
+        else { print("something didn't work"); return }
+        
         messageThreadController?.createMessage(parentThread: message, text: text, sender: sender, completion: { (error) in
             
             if let error = error {
                 print(error)
                 return
-            } else {
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
             }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+            
         })
     }
 

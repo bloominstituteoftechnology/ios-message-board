@@ -14,15 +14,16 @@ class MessageThreadController {
     
     // MARK: - createMessageThread()
     func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
+        print("creatMessageThread()")
         let message = MessageThread(title: title)
-        var url = MessageThreadController.baseURL
+        let url = MessageThreadController.baseURL
         
-        url.appendPathExtension(message.identifier)
-        url.appendPathExtension(".json")
+        var urlWithIdentifier = url.appendingPathComponent(message.identifier)
+        urlWithIdentifier.appendPathExtension("json")
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: urlWithIdentifier)
         request.httpMethod = "PUT"
-        
+        print(request)
         do {
             let encoder = JSONEncoder()
             request.httpBody = try encoder.encode(message)
@@ -47,6 +48,7 @@ class MessageThreadController {
     
     // MARK: - CreateMessage()
     func createMessage(parentThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+        print("creatMessage()")
         let newMessage = MessageThread.Message(text: text, sender: sender)
         var url = MessageThreadController.baseURL
         
@@ -81,6 +83,7 @@ class MessageThreadController {
     
     //MARK: - fetchMessageThreads()
     func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        print("fetchMessageThreads()")
         var url = MessageThreadController.baseURL
         
         url.appendPathExtension(".json")

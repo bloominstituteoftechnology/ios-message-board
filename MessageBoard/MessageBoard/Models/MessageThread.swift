@@ -21,6 +21,7 @@ class MessageThread: Codable, Equatable {
         let timeStamp: Date
         
         init(text: String, sender: String, timeStamp: Date = Date()) {
+            print("struct init")
             self.text = text
             self.sender = sender
             self.timeStamp = timeStamp
@@ -30,12 +31,14 @@ class MessageThread: Codable, Equatable {
     
     // MARK: - Init and Functions
     init(title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
+        print("MessageThread INIT")
         self.title = title
         self.identifier = identifier
         self.messages = messages
     }
     
     required init(from decoder: Decoder) throws {
+        print("Codable INIT")
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let title = try container.decode(String.self, forKey: .title)
