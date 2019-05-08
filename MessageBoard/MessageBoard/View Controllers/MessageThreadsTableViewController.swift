@@ -67,7 +67,6 @@ class MessageThreadsTableViewController: UITableViewController {
     
     // MARK: - IBActions
     @IBAction func exitMessageThreadTextField(_ sender: Any) {
-        print("MessageThreadsTableViewController exitThreadTextField()")
         guard let text = messagesThreadTextField.text else { return }
         
         messageThreadControler.createMessageThread(title: text) { (error) in
@@ -80,6 +79,8 @@ class MessageThreadsTableViewController: UITableViewController {
                 }
             }
         }
+        
+        messagesThreadTextField.text = ""
     }
     
     

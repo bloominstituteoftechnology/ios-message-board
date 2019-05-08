@@ -16,7 +16,6 @@ class MessageThreadDetailTableViewController: UITableViewController {
     // MARK: - View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(messageThread)
         if let title = messageThread?.title {
             self.title = title
         }
@@ -24,24 +23,21 @@ class MessageThreadDetailTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("MessageThreadsDetailTableViewController viewWillAppear()")
         tableView.reloadData()
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("MessageThreadsDetailTableViewController numberOfRows")
         guard let returnNumber = messageThread?.messages.count else { return 0 }
         return returnNumber
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("MessageThreadsDetailTableViewController cellForRow")
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
 
         guard let message = messageThread?.messages[indexPath.row] else { return cell }
-        cell.textLabel?.text = message.text
-        cell.detailTextLabel?.text = message.sender
+        cell.textLabel?.text = message.sender
+        cell.detailTextLabel?.text = message.text
 
         return cell
     }
@@ -49,11 +45,9 @@ class MessageThreadDetailTableViewController: UITableViewController {
     // MARK: - prepare(for segue)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowMessageDetail" {
-            let destinationVC: MessageDetailViewController = segue.destination as! MessageDetailViewController
-            guard let index = tableView.indexPathForSelectedRow?.row else { return }
-            guard let currentMessageThread = messageThreadController?.messageThread[index] else { return }
-            destinationVC.messageThread = currentMessageThread
-            destinationVC.messageThreadController = messageThreadController
+                let destinatoinVC = segue.destination as! MessageDetailViewController
+                destinatoinVC.messageThreadController = messageThreadController
+                destinatoinVC.messageThread = messageThread
         }
     }
 
