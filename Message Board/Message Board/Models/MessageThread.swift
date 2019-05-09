@@ -20,6 +20,17 @@ class MessageThread: Equatable, Codable {
 		self.title = title
 	}
 
+	required init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+
+		self.title = try container.decode(String.self, forKey: .title)
+		self.identifier = try container.decode(String.self, forKey: .identifier)
+		//FIXME: uncomment - want to see the json before just having it work
+//		let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+
+//		self.messages = (messagesDictionaries?.compactMap { $0.value }) ?? []
+	}
+
 	struct Message: Equatable, Codable {
 		let text: String
 		let sender: String
