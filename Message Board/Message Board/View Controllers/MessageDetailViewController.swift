@@ -21,14 +21,21 @@ class MessageDetailViewController: UIViewController {
     }
 
 	@IBAction func sendButtonPressed(_ sender: UIBarButtonItem) {
-		guard let name = nameTextField.text, let message = messageTextView.text else { return }
-		guard let messageThread = messageThread else { return }
+		guard let name = nameTextField.text,
+			let message = messageTextView.text,
+			!name.isEmpty, !message.isEmpty
+			else { return }
+		guard let messageThread = messageThread else {
+			print("no message thread")
+			return }
 		messageThread.createMessage(on: messageThread, text: message, sender: name, completion: { [weak self] (error) in
 			if let error = error {
 				print("error: \(error)")
 				return
 			}
-			self?.navigationController?.popViewController(animated: true)
+			DispatchQueue.main.async {
+				self?.navigationController?.popViewController(animated: true)
+			}
 		})
 	}
 }

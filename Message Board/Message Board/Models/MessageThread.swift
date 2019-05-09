@@ -25,10 +25,9 @@ class MessageThread: Equatable, Codable {
 
 		self.title = try container.decode(String.self, forKey: .title)
 		self.identifier = try container.decode(String.self, forKey: .identifier)
-		//FIXME: uncomment - want to see the json before just having it work
-//		let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+		let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
 
-//		self.messages = (messagesDictionaries?.compactMap { $0.value }) ?? []
+		self.messages = (messagesDictionaries?.compactMap { $0.value }) ?? []
 	}
 
 	struct Message: Equatable, Codable {

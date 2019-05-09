@@ -29,16 +29,22 @@ class MessageThreadsTableViewController: UITableViewController {
 	}
 
 	@IBAction func topTextFieldEndedEditing(_ sender: UITextField) {
-		guard let text = sender.text else { return }
+		guard let messageTitle = sender.text, !messageTitle.isEmpty else { return }
 
-		messageThreadController.createMessageThread(title: text) { [weak self] (error) in
+		messageThreadController.createMessageThread(title: messageTitle) { [weak self] (error) in
 			if let error = error {
 				print("error: \(error)")
 				return
 			}
-			DispatchQueue.main.async {
-				self?.tableView.reloadData()
-			}
+			self?.messageThreadController.fetchMessageThreads(completion: { (error) in
+				if let error = error {
+					print("error \(error)")
+				}
+				DispatchQueue.main.async {
+					self?.topTextField.text = error == nil ? "" : self?.topTextField.text
+					self?.tableView.reloadData()
+				}
+			})
 		}
 	}
 
