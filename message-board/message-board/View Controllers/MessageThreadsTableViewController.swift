@@ -17,11 +17,20 @@ class MessageThreadsTableViewController: UITableViewController {
 	
 	@IBAction func messageBoardTextFieldDidEndOnExit(_ sender: UITextField) {
 		
-		guard let text = sender.text else {
+		guard let title = sender.text else {
 			return
 		}
+		messageThreadController.CreateMessageThread(title: title) { (error) in
+			if let error = error {
+				print("error: \(error)")
+				return
+			}
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+			}
+		}
 		
-		print(text)
+		print(title)
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
