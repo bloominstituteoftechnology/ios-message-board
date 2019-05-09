@@ -29,7 +29,7 @@ class MessageThread: Codable, Equatable {
         
         self.title = title
         self.identifier = identifier
-        self.messages = messages.sorted
+        self.messages = messages
     }
     
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
