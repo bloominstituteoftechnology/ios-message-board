@@ -14,5 +14,9 @@ class MessageThreadDetailTableViewController: UITableViewController {
         super.viewDidLoad()
 
 	}
+	
+	
+	var messageThread: MessageThread?
+	var meseageThreadController: MessageThreadController?
 
 }

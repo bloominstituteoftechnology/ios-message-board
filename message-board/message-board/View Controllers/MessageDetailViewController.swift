@@ -16,6 +16,5 @@ class MessageDetailViewController: UIViewController {
 	
 	
 	@IBOutlet var nameTextField: UITextField!
-	
 	@IBOutlet var messageTextView: UITextView!
 }
