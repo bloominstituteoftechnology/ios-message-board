@@ -10,7 +10,7 @@ import Foundation
 
 class MessageThreadController {
     var messageThreads: [MessageThread] = []
-    static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")! //yes we do need the "/" after the .com
+    static let baseURL = URL(string: "https://mrf-message-board.firebaseio.com/")! //yes we do need the "/" after the .com
     
     //you wll now make the method to create and send a MessageThread to the API.
     
@@ -82,8 +82,41 @@ class MessageThreadController {
             }
             
             //if there was no error, then append the MessageThread.Message Object to the MessageThread.Message variable. Since the MessageThread is a class, you can directly append it to its array of messages here.
+            
             messageThread.messages.append(mtm)
             completion(nil)
-        }
+        }.resume()
+    }
+    
+    func fetchMessageThreads(completion: @escaping (Error?)-> Void){
+        let url = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        //because we are "getting" we dont need to create a urlRequest
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print("Error inside the fetchMessageTrheadFuncton data task: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error with the data: \(NSError())")
+                completion(NSError())
+                return
+            }
+            print("this s the data: \(data)")
+            let jd = JSONDecoder()
+            do {
+                let messageThreadsDictionary = try jd.decode([ String : MessageThread ].self, from: data)
+                let array = Array(messageThreadsDictionary.values)
+//                let messageThreadsValues = messageThreadsDictionary.map { $0.value }
+                self.messageThreads = array
+                completion(nil)
+            } catch {
+                print("Error in the do catch block trying to decode the data: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+        }.resume()
     }
 }

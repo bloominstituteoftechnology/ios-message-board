@@ -22,6 +22,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -44,7 +45,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddSegue" {
             guard let destinationVC = segue.destination as? MessageDetailViewController, let messageThread = mt, let messagethreadcontroller = mtc  else { return }
-            print("this is messageThread: \(messageThread)")
+//            print("this is messageThread: \(messageThread)")
             destinationVC.mt = messageThread
             destinationVC.mtc = messagethreadcontroller
         }
