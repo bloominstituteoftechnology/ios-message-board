@@ -46,7 +46,6 @@ class MessageThread: Equatable, Codable {
 		}
 	}
 
-
 	static func == (rhs: MessageThread, lhs: MessageThread) -> Bool {
 		return rhs.identifier == lhs.identifier
 	}
