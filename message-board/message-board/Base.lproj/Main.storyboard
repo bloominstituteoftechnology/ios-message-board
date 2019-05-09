@@ -154,9 +154,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SG7-qr-Kg6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Message" id="0w6-bn-Y0I">
-                        <barButtonItem key="rightBarButtonItem" title="Send" style="plain" id="0QA-qp-9O3"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="New Message" id="0w6-bn-Y0I"/>
                     <connections>
                         <outlet property="messageTextView" destination="lnp-z5-Ngh" id="I71-bS-sW8"/>
                         <outlet property="nameTextField" destination="SXz-hU-Az0" id="R2D-dT-xmx"/>
