@@ -85,7 +85,9 @@ class MessageThreadController {
 				completion(nil)
 			}
 		}.resume()
-		
+	}
+	
+	func fetchMessageThreads(completion: @escaping (Error?) -> (Void)) {
 		
 	}
 	
