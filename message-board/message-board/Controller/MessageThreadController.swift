@@ -90,11 +90,11 @@ class MessageThreadController {
 	
 	func fetchMessageThreads(completion: @escaping (Error?) -> (Void)) {
 		var url = MessageThreadController.baseURL
+		url.appendPathExtension("json")
 		
 		var urlrequest = URLRequest(url: url)
 		urlrequest.httpMethod = PushMethod.get.rawValue
 		
-		url.appendPathExtension("json")
 		print(url)
 		
 		URLSession.shared.dataTask(with: urlrequest) { (data, _, error) in
@@ -107,6 +107,7 @@ class MessageThreadController {
 			do{
 				let decode = JSONDecoder()
 				let decodedDictionary = try decode.decode([String: MessageThread].self, from: data)
+				print(data)
 				let messageThreads = Array(decodedDictionary.values)
 				self.messageThreads = messageThreads
 				completion(nil)

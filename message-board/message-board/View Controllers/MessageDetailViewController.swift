@@ -32,7 +32,7 @@ class MessageDetailViewController: UIViewController {
 			}
 		})
 		
-		self.navigationController?.popViewController(animated: true)
+		self.navigationController?.popToRootViewController(animated: true)
 		nameTextField?.text = nil
 		messageTextView?.text = nil
 	}

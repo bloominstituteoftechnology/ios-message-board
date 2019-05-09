@@ -10,6 +10,19 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		messageThreadController.fetchMessageThreads { (error) -> (Void) in
+			if let error = error {
+				print("error: viewDidAppear",error)
+			}
+			
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+			}
+		}
+	}
     override func viewDidLoad() {
         super.viewDidLoad()
 	}
