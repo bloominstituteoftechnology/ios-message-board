@@ -28,7 +28,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
 		guard let message = messageThread?.messages[indexPath.row] else { return cell }
 		
 		cell.textLabel?.text = message.text
@@ -38,7 +38,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "" {
+		if segue.identifier == "MessageDetailSegue" {
 			guard let vc = segue.destination as? MessageDetailViewController,
 			let messageThread = messageThread else { return }
 			
