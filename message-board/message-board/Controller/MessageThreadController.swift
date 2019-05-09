@@ -20,10 +20,7 @@ class MessageThreadController {
 		let messageThread = MessageThread(title: title)
 		
 		var url = MessageThreadController.baseURL
-		if let id = messageThread.identifier {
-			url.appendPathComponent(id)
-		}
-		
+		url.appendPathComponent(messageThread.identifier)
 		url.appendPathExtension("json")
 		
 		var  request = URLRequest(url: url)
@@ -55,12 +52,9 @@ class MessageThreadController {
 	
 	func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void ) {
 		let message = MessageThread.Message(text: text, sender: sender)
+		
 		var url = MessageThreadController.baseURL
-		
-		if let id = messageThread.identifier {
-			url.appendPathComponent(id)
-		}
-		
+		url.appendPathComponent(messageThread.identifier)
 		url.appendPathComponent("messages")
 		url.appendPathExtension("json")
 		
@@ -91,11 +85,11 @@ class MessageThreadController {
 	func fetchMessageThreads(completion: @escaping (Error?) -> (Void)) {
 		var url = MessageThreadController.baseURL
 		url.appendPathExtension("json")
-		
+
 		var urlrequest = URLRequest(url: url)
 		urlrequest.httpMethod = PushMethod.get.rawValue
 		
-		print(url)
+		print(urlrequest)
 		
 		URLSession.shared.dataTask(with: urlrequest) { (data, _, error) in
 			if let error = error {
@@ -103,13 +97,13 @@ class MessageThreadController {
 			}
 			
 			guard let data = data else { return }
+			let decode = JSONDecoder()
 			
 			do{
-				let decode = JSONDecoder()
-				let decodedDictionary = try decode.decode([String: MessageThread].self, from: data)
-				print(data)
-				let messageThreads = Array(decodedDictionary.values)
-				self.messageThreads = messageThreads
+				let messageThreadDictionaries = try decode.decode([String: MessageThread].self, from: data)
+				print(messageThreadDictionaries.count)
+//				let messageThreads = Array(messageThreadDictionaries)
+//				self.messageThreads = messageThreads
 				completion(nil)
 			} catch {
 				print("error: fetchMessageThreads:DataTask: \(error)")

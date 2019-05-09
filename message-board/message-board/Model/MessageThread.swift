@@ -27,16 +27,16 @@ class MessageThread: Codable, Equatable {
 		self.messages = messages
 	}
 	
-	init(title: String, identifier: String = (UUID().uuidString) , message: [MessageThread.Message] = []) {
+	init(title: String, identifier: String = (UUID().uuidString) , message: [Message] = []) {
 		self.title = title
 		self.identifier = identifier
 		self.messages =  message
 	}
 	
 	struct Message: Codable, Equatable {
-		let text: String?
-		let sender: String?
-		let timestamp: Date?
+		let text: String
+		let sender: String
+		let timestamp: Date
 		
 		init(text: String, sender: String, timestamp: Date = (Date())) {
 			self.text = text
@@ -46,10 +46,10 @@ class MessageThread: Codable, Equatable {
 	}
 	
 	static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-		return  lhs.identifier == rhs.identifier
+		return  lhs.identifier == rhs.identifier && lhs.title == rhs.title
 	}
 	
-	let title: String?
-	let identifier: String?
+	let title: String
+	let identifier: String
 	var messages: [MessageThread.Message]
 }
