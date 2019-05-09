@@ -87,7 +87,7 @@ class MessageThreadController {
 		url.appendPathExtension("json")
 
 		var urlrequest = URLRequest(url: url)
-		urlrequest.httpMethod = PushMethod.get.rawValue
+		urlrequest.httpMethod = "GET"
 		
 		print(urlrequest)
 		
@@ -102,8 +102,9 @@ class MessageThreadController {
 			do{
 				let messageThreadDictionaries = try decode.decode([String: MessageThread].self, from: data)
 				print(messageThreadDictionaries.count)
-//				let messageThreads = Array(messageThreadDictionaries)
-//				self.messageThreads = messageThreads
+				let messageThreads = Array(messageThreadDictionaries.values)
+				print(messageThreads)
+				self.messageThreads = messageThreads
 				completion(nil)
 			} catch {
 				print("error: fetchMessageThreads:DataTask: \(error)")
