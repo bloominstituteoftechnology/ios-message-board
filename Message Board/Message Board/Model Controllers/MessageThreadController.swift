@@ -69,6 +69,7 @@ class MessageThreadController {
 			do {
 				let messageThreadDictionaries = try decoder.decode([String: MessageThread].self, from: data)
 				self?.messageThreads = messageThreadDictionaries.map { $0.value }
+				self?.messageThreads.sort { $0.timestamp < $1.timestamp }
 				completion(nil)
 			} catch {
 				print("Error decoding \(error)")

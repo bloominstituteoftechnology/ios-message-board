@@ -16,9 +16,11 @@ class MessageDetailViewController: UIViewController {
 	@IBOutlet var nameTextField: UITextField!
 	@IBOutlet var messageTextView: UITextView!
 
-	override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		navigationItem.title = messageThread?.messages.last?.text
+	}
 
 	@IBAction func sendButtonPressed(_ sender: UIBarButtonItem) {
 		guard let name = nameTextField.text,

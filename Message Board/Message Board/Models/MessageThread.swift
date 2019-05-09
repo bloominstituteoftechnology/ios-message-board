@@ -11,6 +11,7 @@ import Foundation
 class MessageThread: Equatable, Codable {
 	let title: String
 	let identifier: String
+	let timestamp: Date
 
 	var messages = [Message]()
 
@@ -18,6 +19,7 @@ class MessageThread: Equatable, Codable {
 		self.messages = []
 		self.identifier = identifier
 		self.title = title
+		self.timestamp = Date()
 	}
 
 	required init(from decoder: Decoder) throws {
@@ -25,16 +27,25 @@ class MessageThread: Equatable, Codable {
 
 		self.title = try container.decode(String.self, forKey: .title)
 		self.identifier = try container.decode(String.self, forKey: .identifier)
+		self.timestamp = try container.decode(Date.self, forKey: .timestamp)
 		let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
 
 		self.messages = (messagesDictionaries?.compactMap { $0.value }) ?? []
+		self.messages.sort { $0.timestamp < $1.timestamp }
 	}
 
 	struct Message: Equatable, Codable {
 		let text: String
 		let sender: String
-		let timestamp = Date()
+		let timestamp: Date
+
+		init(text: String, sender: String, timestamp: Date = Date()) {
+			self.text = text
+			self.sender = sender
+			self.timestamp = timestamp
+		}
 	}
+
 
 	static func == (rhs: MessageThread, lhs: MessageThread) -> Bool {
 		return rhs.identifier == lhs.identifier
