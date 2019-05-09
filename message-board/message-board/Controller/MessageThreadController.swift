@@ -11,6 +11,7 @@ import Foundation
 enum PushMethod: String {
 	case post = "POST"
 	case put = "PUT"
+	case get = "GET"
 }
 
 class MessageThreadController {
@@ -89,10 +90,14 @@ class MessageThreadController {
 	
 	func fetchMessageThreads(completion: @escaping (Error?) -> (Void)) {
 		var url = MessageThreadController.baseURL
+		
+		var urlrequest = URLRequest(url: url)
+		urlrequest.httpMethod = PushMethod.get.rawValue
+		
 		url.appendPathExtension("json")
 		print(url)
 		
-		URLSession.shared.dataTask(with: url) { (data, _, error) in
+		URLSession.shared.dataTask(with: urlrequest) { (data, _, error) in
 			if let error = error {
 				print("error: fetchMessageThreads \(error)")
 			}
