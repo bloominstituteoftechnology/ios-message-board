@@ -85,13 +85,11 @@ class MessageThreadController {
 	func fetchMessageThreads(completion: @escaping (Error?) -> (Void)) {
 		var url = MessageThreadController.baseURL
 		url.appendPathExtension("json")
-
-		var urlrequest = URLRequest(url: url)
-		urlrequest.httpMethod = "GET"
 		
-		print(urlrequest)
 		
-		URLSession.shared.dataTask(with: urlrequest) { (data, _, error) in
+		print(url)
+		
+		URLSession.shared.dataTask(with: url) { (data, _, error) in
 			if let error = error {
 				print("error: fetchMessageThreads \(error)")
 			}
