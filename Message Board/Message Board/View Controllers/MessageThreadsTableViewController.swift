@@ -14,9 +14,18 @@ class MessageThreadsTableViewController: UITableViewController {
 
 	@IBOutlet var topTextField: UITextField!
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		messageThreadController.fetchMessageThreads { [weak self] (error) in
+			if let error = error {
+				print("error loading data: \(error)")
+				return
+			}
+			DispatchQueue.main.async {
+				self?.tableView.reloadData()
+			}
+		}
 	}
 
 	@IBAction func topTextFieldEndedEditing(_ sender: UITextField) {

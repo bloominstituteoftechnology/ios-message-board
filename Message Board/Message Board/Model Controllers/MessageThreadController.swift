@@ -68,13 +68,13 @@ class MessageThreadController {
 			let decoder = JSONDecoder()
 			do {
 				let messageThreadDictionaries = try decoder.decode([String: MessageThread].self, from: data)
-				self.messageThreads = messageThreadDictionaries.map { $0.value }
+				self?.messageThreads = messageThreadDictionaries.map { $0.value }
 				completion(nil)
 			} catch {
 				print("Error decoding \(error)")
 				completion(error)
 			}
-		}
+		}.resume()
 	}
 
 }
