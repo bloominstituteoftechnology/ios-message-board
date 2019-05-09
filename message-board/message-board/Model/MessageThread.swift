@@ -10,16 +10,37 @@ import Foundation
 
 class MessageThread: Codable, Equatable {
 	static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-		return  lhs.idnetifier == rhs.idnetifier 
+		return  lhs.identifier == rhs.identifier
 	}
 	
 	let title: String?
-	let idnetifier: String?
+	let identifier: String?
 	var messages: [MessageThread.Message]
+	
+	required init(from decoder: Decoder) throws {
+		
+		// 1
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		
+		// 2
+		let title = try container.decode(String.self, forKey: .title)
+		let identifier = try container.decode(String.self, forKey: .identifier)
+		let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+		
+		// 3
+		let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
+		
+		// 4
+		self.title = title
+		self.identifier = identifier
+		self.messages = messages
+	}
+	
+	
 	
 	init(title: String, identifier: String = (UUID().uuidString) , message: [MessageThread.Message] = []) {
 		self.title = title
-		self.idnetifier = identifier
+		self.identifier = identifier
 		self.messages =  message
 	}
 	

@@ -19,7 +19,7 @@ class MessageThreadController {
 		let messageThread = MessageThread(title: title)
 		
 		var url = MessageThreadController.baseURL
-		if let id = messageThread.idnetifier {
+		if let id = messageThread.identifier {
 			url.appendPathComponent(id)
 		}
 		
@@ -56,7 +56,7 @@ class MessageThreadController {
 		let message = MessageThread.Message(text: text, sender: sender)
 		var url = MessageThreadController.baseURL
 		
-		if let id = messageThread.idnetifier {
+		if let id = messageThread.identifier {
 			url.appendPathComponent(id)
 		}
 		
