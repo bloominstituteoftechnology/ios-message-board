@@ -16,16 +16,13 @@ class MessageThreadsTableViewController: UITableViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		configureRefresh()
+		fetchData()
+	}
 
-		messageThreadController.fetchMessageThreads { [weak self] (error) in
-			if let error = error {
-				print("error loading data: \(error)")
-				return
-			}
-			DispatchQueue.main.async {
-				self?.tableView.reloadData()
-			}
-		}
+	func configureRefresh() {
+		tableView.refreshControl = UIRefreshControl()
+		tableView.refreshControl?.addTarget(self, action: #selector(fetchData), for: .valueChanged)
 	}
 
 	@IBAction func topTextFieldEndedEditing(_ sender: UITextField) {
@@ -45,6 +42,22 @@ class MessageThreadsTableViewController: UITableViewController {
 					self?.tableView.reloadData()
 				}
 			})
+		}
+	}
+
+	@objc func fetchData() {
+		tableView.refreshControl?.beginRefreshing()
+		messageThreadController.fetchMessageThreads { [weak self] (error) in
+			if let error = error {
+				print("error loading data: \(error)")
+				return
+			}
+			DispatchQueue.main.async {
+				self?.tableView.reloadData()
+				if self?.tableView.refreshControl?.isRefreshing ?? false {
+					self?.tableView.refreshControl?.endRefreshing()
+				}
+			}
 		}
 	}
 
