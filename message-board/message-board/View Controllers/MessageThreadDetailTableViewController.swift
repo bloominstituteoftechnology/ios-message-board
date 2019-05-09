@@ -14,6 +14,21 @@ class MessageThreadDetailTableViewController: UITableViewController {
         super.viewDidLoad()
 
 	}
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return messageThread?.messages.count ?? 0
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+		guard let message = messageThread?.messages[indexPath.row] else { return cell }
+		
+		
+		
+		cell.textLabel?.text = message.text
+		cell.detailTextLabel?.text = message.sender
+		
+		return cell
+	}
 	
 	
 	var messageThread: MessageThread?
