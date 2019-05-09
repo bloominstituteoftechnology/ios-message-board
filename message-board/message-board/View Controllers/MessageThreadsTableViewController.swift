@@ -30,7 +30,6 @@ class MessageThreadsTableViewController: UITableViewController {
 			}
 		}
 		
-		print(title)
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

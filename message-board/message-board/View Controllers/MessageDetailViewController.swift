@@ -29,10 +29,10 @@ class MessageDetailViewController: UIViewController {
 			}
 			
 			DispatchQueue.main.async {
-				self.navigationController?.popToRootViewController(animated: true)
 			}
 		})
 		
+		self.navigationController?.popViewController(animated: true)
 		nameTextField?.text = nil
 		messageTextView?.text = nil
 	}

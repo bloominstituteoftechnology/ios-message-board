@@ -20,6 +20,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
 		
 		if let title = messageThread?.title {
 			self.title = title
+			print(messageThread!.messages.count)
 		}
 	}
 	
@@ -29,10 +30,11 @@ class MessageThreadDetailTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
-		guard let message = messageThread?.messages[indexPath.row] else { return cell }
 		
-		cell.textLabel?.text = message.text
-		cell.detailTextLabel?.text = message.sender
+		if let message = messageThread?.messages[indexPath.row] {
+			cell.textLabel?.text = message.text
+			cell.detailTextLabel?.text = message.sender
+		}
 		
 		return cell
 	}

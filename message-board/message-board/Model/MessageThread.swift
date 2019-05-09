@@ -9,16 +9,7 @@
 import Foundation
 
 class MessageThread: Codable, Equatable {
-	static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-		return  lhs.identifier == rhs.identifier
-	}
-	
-	let title: String?
-	let identifier: String?
-	var messages: [MessageThread.Message]
-	
 	required init(from decoder: Decoder) throws {
-		
 		// 1
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
@@ -35,8 +26,6 @@ class MessageThread: Codable, Equatable {
 		self.identifier = identifier
 		self.messages = messages
 	}
-	
-	
 	
 	init(title: String, identifier: String = (UUID().uuidString) , message: [MessageThread.Message] = []) {
 		self.title = title
@@ -55,4 +44,12 @@ class MessageThread: Codable, Equatable {
 			self.timestamp = timestamp
 		}
 	}
+	
+	static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
+		return  lhs.identifier == rhs.identifier
+	}
+	
+	let title: String?
+	let identifier: String?
+	var messages: [MessageThread.Message]
 }
