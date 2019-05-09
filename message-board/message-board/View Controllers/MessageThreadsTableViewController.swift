@@ -12,18 +12,11 @@ class MessageThreadsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//		controller.CreateMessageThread(title:  "one") { (error) in
-//			if let error = error {
-//				print(error)
-//			}
-//		}
-		
-		
-		
 	}
 	
 	
 	@IBAction func messageBoardTextFieldDidEndOnExit(_ sender: UITextField) {
+		
 		guard let text = sender.text else {
 			return
 		}
