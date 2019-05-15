@@ -22,16 +22,19 @@ class MessageDetailViewController: UIViewController {
     }
     
     @IBAction func send(_ sender: Any) {
+        guard let sender = nameTextField.text,
+         let messageText = postTextView.text,
+            let messageThread = messageThread else { return }
+        
+        messageThreadController?.createMessage(in: messageThread, withText: messageText, andSender: sender, completion: { (error) in
+            if let error = error {
+                NSLog("Error creating message: \(error)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

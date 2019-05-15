@@ -32,6 +32,7 @@ class MessageThreadsTableViewController: UITableViewController {
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.messageTextField.text = nil
             }
         }
     }
@@ -62,7 +63,7 @@ class MessageThreadsTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        if segue.identifier == "showMessageThreadDetailVC" {
+        if segue.identifier == "ShowMessageThreadDetailVC" {
             guard let destinationVC = segue.destination as? MessageThreadDetailTableViewController else { return }
             
             destinationVC.messageThreadController = messageThreadController

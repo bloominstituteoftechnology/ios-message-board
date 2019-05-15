@@ -14,6 +14,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard isViewLoaded else { return }
         title = messageThread?.title
         
     }
