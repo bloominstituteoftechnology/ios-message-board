@@ -16,6 +16,14 @@ class MessageThreadsTableViewController: UITableViewController {
         
     } // end of view did load
     
+    override func viewWillAppear(_ animated: Bool) {
+        messageThreadController.fetchMessageThreads { (error) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    } // end of view will appear
+    
     @IBOutlet weak var messageTextField: UITextField!
     @IBAction func messageTextFieldEdited(_ sender: Any) {
         guard let text = messageTextField.text, text != "" else { return }

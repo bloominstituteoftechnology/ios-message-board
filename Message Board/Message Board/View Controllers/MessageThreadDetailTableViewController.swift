@@ -14,7 +14,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     } // end of view did load
 
 
