@@ -17,7 +17,7 @@ class MessageDetailViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -25,9 +25,21 @@ class MessageDetailViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+ 
     @IBAction func sendButtonPressed(_ sender: Any) {
+        guard let name = nameTextField.text,
+            let message = messageTextView.text,
+        let messageThread = messageThread else { return }
         
+        messageThreadController?.createMessage(messageThread: messageThread, text: message, sender: name, completion: { (error) in
+            if let error = error {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+        })
     }
     
     @IBOutlet weak var nameTextField: UITextField!

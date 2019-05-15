@@ -36,7 +36,7 @@ class MessageThreadController {
                 completion(error)
                 return
             }
-            
+            self.messageThreads.append(newThread)
             completion(nil)
             
             }.resume()
