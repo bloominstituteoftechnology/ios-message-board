@@ -11,7 +11,8 @@ import UIKit
 class MessageDetailViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
-    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
     
     override func viewDidLoad() {
         super.viewDidLoad()

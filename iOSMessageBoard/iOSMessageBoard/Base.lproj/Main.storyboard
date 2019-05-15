@@ -118,7 +118,7 @@
                     <navigationItem key="navigationItem" title="Title" id="3du-j8-EIS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yxs-SY-4vu">
                             <connections>
-                                <segue destination="nH0-LK-A1I" kind="show" id="p93-Ry-dl2"/>
+                                <segue destination="nH0-LK-A1I" kind="show" identifier="ShowMessage" id="p93-Ry-dl2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
