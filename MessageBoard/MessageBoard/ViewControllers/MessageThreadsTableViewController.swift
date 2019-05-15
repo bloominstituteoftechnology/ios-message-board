@@ -14,6 +14,7 @@ class MessageThreadsTableViewController: UITableViewController {
     
     @IBOutlet weak var messageTextField: UITextField!
     
+    
     @IBAction func messageTextFieldAction(_ sender: Any) {
         
         guard let title = messageTextField.text else { return }
@@ -67,9 +68,4 @@ class MessageThreadsTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    
-
-
 }

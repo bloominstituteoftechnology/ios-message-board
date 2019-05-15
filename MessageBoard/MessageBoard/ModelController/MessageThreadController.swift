@@ -84,8 +84,7 @@ class MessageThreadController {
             messageThread.messages.append(newMessage)
             completion(nil)
         }.resume()
-        
-        
+ 
     }
     
     
@@ -118,10 +117,7 @@ class MessageThreadController {
                 completion(error)
             }
         }.resume()
-        
-        
-        
-        
+
     }
     
     

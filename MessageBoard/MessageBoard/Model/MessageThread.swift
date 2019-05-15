@@ -10,16 +10,18 @@ import Foundation
 
 class MessageThread: Equatable, Codable {
     
-    
-    
+
     required init(from decoder: Decoder) throws {
         //container is a KeyedDecodingContainer
+        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         //using container, pull the values for these keys
+        
         let title = try container.decode(String.self, forKey: .title)
         let identifier = try container.decode(String.self, forKey: .identifier)
         let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
         //returns only the messages, not the identifiers or everything would break
+        
         let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
         
         self.title = title
