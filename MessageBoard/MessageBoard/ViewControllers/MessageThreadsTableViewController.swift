@@ -18,6 +18,7 @@ class MessageThreadsTableViewController: UITableViewController {
         
         guard let title = messageTextField.text else { return }
         print("creating new message thread")
+        messageTextField.text = ""
         messageThreadController.createMessageThread(title: title) { (error) in
             if let error = error {
                 NSLog("Error creating new message thread: \(error)")

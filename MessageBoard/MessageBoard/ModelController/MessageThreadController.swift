@@ -46,6 +46,7 @@ class MessageThreadController {
                 NSLog("Error pushing thread to Firebase: \(error)")
                 completion(error)
             }
+            self.messageThreads.append(newThread)
             completion(nil)
         }.resume()
         

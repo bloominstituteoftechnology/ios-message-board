@@ -27,8 +27,9 @@ class MessageDetailViewController: UIViewController {
             if let error = error {
                 NSLog("Error creating new message: \(error)")
             }
-            self.navigationController?.popViewController(animated: true)
-            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
         })
         
         
