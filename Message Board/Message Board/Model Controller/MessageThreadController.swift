@@ -49,7 +49,6 @@ class MessageThreadController {
         let newMessage = MessageThread.Message(text: text, sender: sender)
         
         var url = MessageThreadController.baseURL
-        
         url.appendPathComponent(newThread.identifier)
         url.appendPathComponent("messages")
         url.appendPathExtension("json")
@@ -61,14 +60,12 @@ class MessageThreadController {
             let encoder = JSONEncoder()
             urlRequest.httpBody = try encoder.encode(newMessage)
         } catch {
-            print(error)
             completion(error)
             return
         }
         
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {
-                print(error)
                 completion(error)
                 return
             }
