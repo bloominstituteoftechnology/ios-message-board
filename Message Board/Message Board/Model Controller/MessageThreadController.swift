@@ -13,14 +13,12 @@ class MessageThreadController {
     func createMessageThread(with title: String, completion: @escaping (Error?) -> Void) {
         let newThread = MessageThread(title: title)
         
-        let requestURL = MessageThreadController.baseURL
+        let threadURL = MessageThreadController.baseURL.appendingPathComponent(newThread.identifier)
+        let formattedURL = threadURL.appendingPathExtension("json")
         
-        requestURL.appendingPathComponent(newThread.identifier)
-        requestURL.appendingPathExtension("json")
+        var request = URLRequest(url: formattedURL)
         
-        var request = URLRequest(url: requestURL)
-        
-        let method = PushMethod.put
+        let method = HTTPMethod.put
         request.httpMethod = method.rawValue
         
         do {
@@ -67,8 +65,8 @@ class MessageThreadController {
             if let error = error {
                 NSLog("Error pushing message to Firebase: \(error)")
                 completion(error)
-                return
             }
+            
             messageThread.messages.append(newMessage)
             completion(nil)
             }.resume()
@@ -108,16 +106,18 @@ class MessageThreadController {
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
     
     var messageThreads: [MessageThread] = []
+    
+    enum HTTPMethod: String {
+        case get = "GET"
+        case put = "PUT"
+        case post = "POST"
+        case delete = "DELETE"
+    }
+    
+    enum PushMethod: String {
+        case post = "POST"
+        case put = "PUT"
+    }
 }
 
-enum HTTPMethod: String {
-    case get = "GET"
-    case put = "PUT"
-    case post = "POST"
-    case delete = "DELETE"
-}
 
-enum PushMethod: String {
-    case post = "POST"
-    case put = "PUT"
-}

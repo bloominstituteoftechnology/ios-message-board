@@ -12,9 +12,9 @@ class MessageThread: Equatable ,Codable {
     
     let title: String
     let identifier: String
-    var messages: [MessageThread.Message]
+    var messages: [Message]
     
-    init(title: String, identifier: String = UUID().uuidString, messages: [MessageThread.Message] = []) {
+    init(title: String, identifier: String = UUID().uuidString, messages: [Message] = []) {
         self.title = title
         self.identifier = identifier
         self.messages = messages
@@ -40,7 +40,9 @@ class MessageThread: Equatable ,Codable {
     }
     
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        return lhs.messages == rhs.messages && rhs.title == lhs.title && lhs.identifier == rhs.identifier
+        return lhs.messages == rhs.messages &&
+            rhs.title == lhs.title &&
+            lhs.identifier == rhs.identifier
     }
     
     struct Message: Equatable, Codable {

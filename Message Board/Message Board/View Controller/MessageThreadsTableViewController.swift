@@ -51,7 +51,7 @@ class MessageThreadsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToMessageBoard" {
-            guard let messageTVC = segue.destination as? MessageDetailViewController,
+            guard let messageTVC = segue.destination as? MessageThreadDetailTableViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             
             messageTVC.messageThread = messageThreadController.messageThreads[indexPath.row]
@@ -61,6 +61,7 @@ class MessageThreadsTableViewController: UITableViewController {
     
     @IBAction func messageAction(_ sender: Any) {
         guard let text = messageTextField.text else { return }
+        messageTextField.text = ""
         messageThreadController.createMessageThread(with: text) { (error) in
             
             if let error = error {
