@@ -9,7 +9,9 @@
 import UIKit
 
 class MessageDetailViewController: UIViewController {
-
+    var messageThreadController: MessageThreadController?
+    var messageThread: MessageThread?
+    
     @IBOutlet weak var addTextView: UITextView!
     @IBOutlet weak var addNameTextField: UITextField!
     override func viewDidLoad() {
