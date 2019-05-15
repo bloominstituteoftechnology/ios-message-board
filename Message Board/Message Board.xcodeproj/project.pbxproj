@@ -13,6 +13,7 @@
 		3D2A48A6228C9D8B00AB37DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D2A48A4228C9D8B00AB37DA /* LaunchScreen.storyboard */; };
 		3D2A48AE228CA02400AB37DA /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A48AD228CA02400AB37DA /* MessageThreadsTableViewController.swift */; };
 		3D2A48B0228CA31000AB37DA /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A48AF228CA31000AB37DA /* MessageThreadDetailTableViewController.swift */; };
+		3D2A48B2228CA5A800AB37DA /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A48B1228CA5A800AB37DA /* MessageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3D2A48A7228C9D8B00AB37DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D2A48AD228CA02400AB37DA /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		3D2A48AF228CA31000AB37DA /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		3D2A48B1228CA5A800AB37DA /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				3D2A489B228C9D8A00AB37DA /* AppDelegate.swift */,
 				3D2A489F228C9D8A00AB37DA /* Main.storyboard */,
 				3D2A48AD228CA02400AB37DA /* MessageThreadsTableViewController.swift */,
+				3D2A48B1228CA5A800AB37DA /* MessageDetailViewController.swift */,
 				3D2A48AF228CA31000AB37DA /* MessageThreadDetailTableViewController.swift */,
 				3D2A48A2228C9D8B00AB37DA /* Assets.xcassets */,
 				3D2A48A4228C9D8B00AB37DA /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D2A489C228C9D8A00AB37DA /* AppDelegate.swift in Sources */,
+				3D2A48B2228CA5A800AB37DA /* MessageDetailViewController.swift in Sources */,
 				3D2A48B0228CA31000AB37DA /* MessageThreadDetailTableViewController.swift in Sources */,
 				3D2A48AE228CA02400AB37DA /* MessageThreadsTableViewController.swift in Sources */,
 			);
