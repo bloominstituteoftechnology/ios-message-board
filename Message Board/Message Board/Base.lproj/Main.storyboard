@@ -108,9 +108,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Dcp-8b-cgQ" kind="show" identifier="DetailShowSegue" id="XMP-DF-hRa"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -119,7 +116,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="VGa-cA-fAc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="L2e-Yb-zoM"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="L2e-Yb-zoM">
+                            <connections>
+                                <segue destination="Dcp-8b-cgQ" kind="show" identifier="DetailShowSegue" id="Dfj-2u-hts"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1S-SC-mZx" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -77,6 +77,10 @@ class MessageThreadController {
             completion(nil)
             }.resume()
     }
+    
+    func fetchMessageThreads(parameters) {
+        <#function body#>
+    }
 
 }
 
