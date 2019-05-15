@@ -26,6 +26,8 @@ class MessageThreadController {
             request.httpBody = try jsonEncoder.encode(message)
         } catch {
             NSLog("Errors encoding messages to FireBase\(error)")
+            completion()
+            return
         }
 
         URLSession.shared.dataTask(with: request) { (data, _, error) in
@@ -47,6 +49,7 @@ class MessageThreadController {
         let identifierURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
         let requestURL = identifierURL.appendingPathExtension("json")
         var request = URLRequest(url: requestURL)
+
         request.httpMethod = HTTPMethod.put.rawValue
 
         do {
@@ -54,6 +57,8 @@ class MessageThreadController {
             request.httpBody = try jsonEncoder.encode(messageThread)
         } catch {
             NSLog("Error encoding messageThread: \(error)")
+            completion()
+            return
         }
         URLSession.shared.dataTask(with: request) { (data, _, error) in
 
