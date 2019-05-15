@@ -22,8 +22,16 @@ class MessageDetailViewController: UIViewController {
 
 
     @IBAction func sendButtonTapped(_ sender: Any) {
-    
-        
+        guard let sender = messageDetailVCTextField.text, !sender.isEmpty,
+            let text = messageDetailVCTextView.text, !text.isEmpty,
+            let messageThread = messageThread else { return }
+        messageThreadController?.createMessage(messageThread: messageThread, text: text, sender: sender, completion: { error in
+            if let error = error {
+                print(error)
+                return
+            }
+           //pop VC on the main queue ??
+        })
     }
     
     
