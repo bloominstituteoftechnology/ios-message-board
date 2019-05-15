@@ -46,7 +46,7 @@ class MessageThreadController {
         let newMessage = MessageThread.Message(text: text, sender: sender)
         
         let messageURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
-        let formattedURL = MessageThreadController.baseURL.appendingPathComponent("messages")
+        let formattedURL = messageURL.appendingPathComponent("messages")
         let finishedURL = formattedURL.appendingPathExtension("json")
         
         var request = URLRequest(url: finishedURL)
@@ -71,7 +71,38 @@ class MessageThreadController {
             }
             messageThread.messages.append(newMessage)
             completion(nil)
-        }.resume()
+            }.resume()
+    }
+    
+    func fetchMessageThreads(completion: @escaping (Error?) -> Void) {
+        
+        let requestURL = MessageThreadController.baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+            if let error = error {
+                NSLog("Error fetching threads: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data returned from data task")
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let messageThreadDictionaries = try decoder.decode([String: MessageThread].self, from: data)
+                let messageThreads = messageThreadDictionaries.map({ $0.value })
+                self.messageThreads = messageThreads
+                completion(nil)
+            } catch {
+                NSLog("Error decoding threads: \(error)")
+                completion(error)
+            }
+            }.resume()
+        
     }
     
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!

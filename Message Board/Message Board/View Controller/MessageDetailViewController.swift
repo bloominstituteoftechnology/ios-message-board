@@ -9,27 +9,27 @@
 import UIKit
 
 class MessageDetailViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
- 
+    
     @IBAction func sendButtonPressed(_ sender: Any) {
         guard let name = nameTextField.text,
             let message = messageTextView.text,
-        let messageThread = messageThread else { return }
+            let messageThread = messageThread else { return }
         
         messageThreadController?.createMessage(messageThread: messageThread, text: message, sender: name, completion: { (error) in
             if let error = error {
@@ -38,7 +38,6 @@ class MessageDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
-            
         })
     }
     
