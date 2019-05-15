@@ -45,12 +45,12 @@ class MessageThreadController {
             }.resume()
     } // end of create message thread
     
-    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
+    func createMessage(newThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
         let newMessage = MessageThread.Message(text: text, sender: sender)
         
         var url = MessageThreadController.baseURL
         
-        url.appendPathComponent(messageThread.identifier)
+        url.appendPathComponent(newThread.identifier)
         url.appendPathComponent("messages")
         url.appendPathExtension("json")
         
@@ -73,7 +73,7 @@ class MessageThreadController {
                 return
             }
             
-            messageThread.messages.append(newMessage)
+            newThread.messages.append(newMessage)
             completion(nil)
         }.resume()
     } // end of create message
