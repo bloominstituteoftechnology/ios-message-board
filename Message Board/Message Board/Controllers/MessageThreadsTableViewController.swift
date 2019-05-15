@@ -10,6 +10,8 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
 
+    var messageThreadController: MessageThreadController = MessageThreadController()
+    
     @IBOutlet weak var messageTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,28 +24,38 @@ class MessageThreadsTableViewController: UITableViewController {
     }
 
     @IBAction func messageFieldExit(_ sender: Any) {
+        guard let text = messageTextField.text else {
+            return
+        }
+        messageThreadController.createMessageThread(title: text) { (error) in
+            if let error = error {
+                NSLog("Error getting text from messageTextField \(error)")
+            }
+        }
     }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return messageThreadController.messageThreads.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageThreadCell", for: indexPath)
+        let messageThread = messageThreadController.messageThreads[indexPath.row]
+        
+        cell.textLabel?.text = messageThread.title
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

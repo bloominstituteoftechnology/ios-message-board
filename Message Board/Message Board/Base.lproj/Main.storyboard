@@ -41,7 +41,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" textLabel="Nbz-ri-WgE" style="IBUITableViewCellStyleDefault" id="yAu-Gm-Z44">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageThreadCell" textLabel="Nbz-ri-WgE" style="IBUITableViewCellStyleDefault" id="yAu-Gm-Z44">
                                 <rect key="frame" x="0.0" y="131" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yAu-Gm-Z44" id="0AP-kp-aba">

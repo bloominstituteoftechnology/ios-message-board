@@ -17,7 +17,7 @@ class MessageThread: Codable, Equatable {
         var sender: String
         var timestamp: Date
         
-        init(text: String, sender: String, timestamp: Date) {
+        init(text: String, sender: String) {
             self.text = text
             self.sender = sender
             self.timestamp = Date()
