@@ -28,7 +28,7 @@ class MessageThreadController {
         let newThread = MessageThread(title: title)
         
         let threadURL = MessageThreadController.baseURL.appendingPathComponent(newThread.identifier)
-        let formattedURL = threadURL.appendingPathComponent("json")
+        let formattedURL = threadURL.appendingPathExtension("json")
         
         var request = URLRequest(url: formattedURL)
         let method = HTTPMethod.put

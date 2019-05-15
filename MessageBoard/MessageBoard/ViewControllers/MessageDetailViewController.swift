@@ -10,6 +10,8 @@ import UIKit
 
 class MessageDetailViewController: UIViewController {
 
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
     
     
     @IBOutlet weak var nameTextField: UITextField!

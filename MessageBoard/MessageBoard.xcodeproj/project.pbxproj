@@ -46,7 +46,6 @@
 		C4DD80F4228C9B2000FEFBD5 = {
 			isa = PBXGroup;
 			children = (
-				C4DD811C228CA31500FEFBD5 /* MessageThreadController.swift */,
 				C4DD80FF228C9B2000FEFBD5 /* MessageBoard */,
 				C4DD80FE228C9B2000FEFBD5 /* Products */,
 			);
@@ -63,6 +62,7 @@
 		C4DD80FF228C9B2000FEFBD5 /* MessageBoard */ = {
 			isa = PBXGroup;
 			children = (
+				C4DD811E228CA99D00FEFBD5 /* ModelController */,
 				C4DD811B228CA2D300FEFBD5 /* Model */,
 				C4DD8118228C9EE400FEFBD5 /* ViewControllers */,
 				C4DD8104228C9B2000FEFBD5 /* Main.storyboard */,
@@ -77,9 +77,9 @@
 		C4DD8118228C9EE400FEFBD5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4DD8116228C9E3100FEFBD5 /* MessageDetailViewController.swift */,
-				C4DD8114228C9D3100FEFBD5 /* MessageThreadDetailTableViewController.swift */,
 				C4DD8112228C9C2F00FEFBD5 /* MessageThreadsTableViewController.swift */,
+				C4DD8114228C9D3100FEFBD5 /* MessageThreadDetailTableViewController.swift */,
+				C4DD8116228C9E3100FEFBD5 /* MessageDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -90,6 +90,14 @@
 				C4DD8119228C9F0200FEFBD5 /* MessageThread.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C4DD811E228CA99D00FEFBD5 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				C4DD811C228CA31500FEFBD5 /* MessageThreadController.swift */,
+			);
+			path = ModelController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
