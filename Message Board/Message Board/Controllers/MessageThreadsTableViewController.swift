@@ -18,6 +18,15 @@ class MessageThreadsTableViewController: UITableViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        messageThreadController.fetchMessageThreads { (error) in
+            if let error = error {
+                NSLog("error fetching data: \(error)")
+            }
+        }
+    }
+    
     @IBAction func messageFieldExit(_ sender: Any) {
         guard let text = messageTextField.text else {
             return
@@ -28,6 +37,7 @@ class MessageThreadsTableViewController: UITableViewController {
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.messageTextField.text = ""
             }
         }
     }
