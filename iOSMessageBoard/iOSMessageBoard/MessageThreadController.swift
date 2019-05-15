@@ -13,6 +13,14 @@ class MessageThreadController {
     var messageThreads: [MessageThread] = []
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
 
+
+//    func fetchMessageThread(completion: @escaping () ->) {
+//
+//
+//
+//
+//    }
+
     func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping () -> Void) {
         let message = MessageThread.Message(text: text, sender: sender)
         let identifierURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
