@@ -16,6 +16,7 @@
 		D1A05BCD228C9E6900BAAE61 /* MessageThreadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A05BCC228C9E6900BAAE61 /* MessageThreadTableViewController.swift */; };
 		D1A05BCF228CA1D700BAAE61 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A05BCE228CA1D700BAAE61 /* MessageDetailViewController.swift */; };
 		D1A05BD1228CA37600BAAE61 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A05BD0228CA37600BAAE61 /* MessageThread.swift */; };
+		D1A05BD3228CA98200BAAE61 /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A05BD2228CA98200BAAE61 /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D1A05BCC228C9E6900BAAE61 /* MessageThreadTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadTableViewController.swift; sourceTree = "<group>"; };
 		D1A05BCE228CA1D700BAAE61 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		D1A05BD0228CA37600BAAE61 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		D1A05BD2228CA98200BAAE61 /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				D1A05BBC228C9A5500BAAE61 /* Main.storyboard */,
 				D1A05BCA228C9C1500BAAE61 /* MessageThreadsTableViewController.swift */,
 				D1A05BD0228CA37600BAAE61 /* MessageThread.swift */,
+				D1A05BD2228CA98200BAAE61 /* MessageThreadController.swift */,
 				D1A05BCC228C9E6900BAAE61 /* MessageThreadTableViewController.swift */,
 				D1A05BCE228CA1D700BAAE61 /* MessageDetailViewController.swift */,
 				D1A05BBF228C9A5700BAAE61 /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 				D1A05BCF228CA1D700BAAE61 /* MessageDetailViewController.swift in Sources */,
 				D1A05BCB228C9C1500BAAE61 /* MessageThreadsTableViewController.swift in Sources */,
 				D1A05BB9228C9A5500BAAE61 /* AppDelegate.swift in Sources */,
+				D1A05BD3228CA98200BAAE61 /* MessageThreadController.swift in Sources */,
 				D1A05BD1228CA37600BAAE61 /* MessageThread.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MessageThread: Codable {
+class MessageThread: Codable, Equatable {
 
     let title: String
     let identifier: String
@@ -33,6 +33,10 @@ class MessageThread: Codable {
         self.title = title
         self.identifier = identifier
         self.messages = messages
+    }
+
+    static func ==(lhs: MessageThread, rhs: MessageThread) -> Bool {
+        return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.messages == rhs.messages
     }
 
 
