@@ -15,6 +15,7 @@
 		44B43CDD228C9BDD00D360DB /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B43CDC228C9BDD00D360DB /* MessageThreadDetailTableViewController.swift */; };
 		44B43CDF228C9D7E00D360DB /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B43CDE228C9D7E00D360DB /* MessageDetailViewController.swift */; };
 		44B43CE2228C9E6B00D360DB /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B43CE1228C9E6B00D360DB /* MessageThread.swift */; };
+		44B43CE4228CA45B00D360DB /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B43CE3228CA45B00D360DB /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		44B43CDC228C9BDD00D360DB /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		44B43CDE228C9D7E00D360DB /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		44B43CE1228C9E6B00D360DB /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
+		44B43CE3228CA45B00D360DB /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				44B43CC8228C98A300D360DB /* AppDelegate.swift */,
 				44B43CE1228C9E6B00D360DB /* MessageThread.swift */,
+				44B43CE3228CA45B00D360DB /* MessageThreadController.swift */,
 				44B43CE0228C9D8700D360DB /* Controllers */,
 				44B43CCC228C98A300D360DB /* Main.storyboard */,
 				44B43CCF228C98A400D360DB /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 				44B43CDD228C9BDD00D360DB /* MessageThreadDetailTableViewController.swift in Sources */,
 				44B43CE2228C9E6B00D360DB /* MessageThread.swift in Sources */,
 				44B43CDB228C9A7100D360DB /* MessageThreadsTableViewController.swift in Sources */,
+				44B43CE4228CA45B00D360DB /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
