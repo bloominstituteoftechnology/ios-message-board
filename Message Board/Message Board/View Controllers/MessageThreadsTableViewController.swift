@@ -13,7 +13,6 @@ class MessageThreadsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     } // end of view did load
     
     override func viewWillAppear(_ animated: Bool) {

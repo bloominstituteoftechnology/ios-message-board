@@ -16,6 +16,10 @@ class MessageThreadDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
     } // end of view did load
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

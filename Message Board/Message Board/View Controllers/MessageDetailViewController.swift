@@ -14,9 +14,9 @@ class MessageDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+        title = messageThread?.title
+    } // end of view did load
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
     @IBAction func saveButtonPressed(_ sender: Any) {
@@ -32,18 +32,5 @@ class MessageDetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
             }
         }
-    )}
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    )} // end of save button
 }
