@@ -13,14 +13,17 @@ class MessageThreadsTableViewController: UITableViewController {
     
     let messageThreadController: MessageThreadController = MessageThreadController()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        messageThreadController.fetchMessageThreads { (error) in
+            if let error = error {
+                NSLog("Error fetching message threads: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     @IBAction func messageEntered(_ sender: Any) {

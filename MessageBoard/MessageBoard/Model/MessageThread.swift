@@ -26,12 +26,30 @@ class MessageThread: Codable, Equatable {
     struct Message: Codable, Equatable {
         let text: String
         let sender: String
-        let timestamp: Date
+        let timestamp: Date?
         
         init(text: String, sender: String, timestamp: Date = Date()) {
             self.text = text
             self.sender = sender
             self.timestamp = timestamp
         }
+    }
+    
+    required init(from decoder: Decoder) throws {
+        
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        
+        let title = try container.decode(String.self, forKey: .title)
+        let identifier = try container.decode(String.self, forKey: .identifier)
+        let messagesDictionaries = try container.decodeIfPresent([String: Message].self, forKey: .messages)
+        
+        
+        let messages = messagesDictionaries?.compactMap({ $0.value }) ?? []
+        
+        self.title = title
+        self.identifier = identifier
+        self.messages = messages
     }
 }
