@@ -22,9 +22,9 @@ class MessageThreadsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MessageDetail" {
             guard let index = tableView.indexPathForSelectedRow else { return }
-            let messageDetailVC = segue.destination as? MessageThreadDetailTableViewController
+            let messageThreadDetailVC = segue.destination as? MessageThreadDetailTableViewController
             let messageThread = messageThreadController.messageThreads[index.row]
-            messageDetailVC?.messageThread = messageThread
+            messageThreadDetailVC?.messageThread = messageThread
         }
     }
  

@@ -10,6 +10,9 @@ import UIKit
 
 class MessageDetailViewController: UIViewController {
 
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +22,8 @@ class MessageDetailViewController: UIViewController {
 
 
     @IBAction func sendButtonTapped(_ sender: Any) {
+    
+        
     }
     
     
