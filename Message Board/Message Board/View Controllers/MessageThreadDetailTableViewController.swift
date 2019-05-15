@@ -23,7 +23,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
     } // end of rows in section
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
         let message = messageThread?.messages[indexPath.row]
         cell.textLabel?.text = message?.sender
         cell.detailTextLabel?.text = message?.text
@@ -32,10 +32,9 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addSegue" {
-            let destinationVC = segue.destination as! MessageDetailViewController
-            destinationVC.messageThreadController = messageThreadController
-            destinationVC.messageThread = messageThread
-            
+            let messageDVC = segue.destination as! MessageDetailViewController
+            messageDVC.messageThreadController = messageThreadController
+            messageDVC.messageThread = messageThread
         }
     } // end of segue
 }
