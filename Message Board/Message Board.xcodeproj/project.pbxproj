@@ -14,6 +14,7 @@
 		EFB4F79C228C9B2600681046 /* MessageThreadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB4F79B228C9B2600681046 /* MessageThreadsTableViewController.swift */; };
 		EFB4F79E228C9C6D00681046 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB4F79D228C9C6D00681046 /* MessageThreadDetailTableViewController.swift */; };
 		EFB4F7A0228C9D7500681046 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB4F79F228C9D7500681046 /* MessageDetailViewController.swift */; };
+		EFB4F7A2228C9F1400681046 /* MessageThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB4F7A1228C9F1400681046 /* MessageThread.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EFB4F79B228C9B2600681046 /* MessageThreadsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadsTableViewController.swift; sourceTree = "<group>"; };
 		EFB4F79D228C9C6D00681046 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		EFB4F79F228C9D7500681046 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		EFB4F7A1228C9F1400681046 /* MessageThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		EFB4F798228C9A4000681046 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EFB4F7A1228C9F1400681046 /* MessageThread.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				EFB4F786228C99AC00681046 /* AppDelegate.swift in Sources */,
 				EFB4F7A0228C9D7500681046 /* MessageDetailViewController.swift in Sources */,
 				EFB4F79E228C9C6D00681046 /* MessageThreadDetailTableViewController.swift in Sources */,
+				EFB4F7A2228C9F1400681046 /* MessageThread.swift in Sources */,
 				EFB4F79C228C9B2600681046 /* MessageThreadsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
