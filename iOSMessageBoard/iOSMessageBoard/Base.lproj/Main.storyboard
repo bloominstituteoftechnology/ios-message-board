@@ -28,7 +28,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <action selector="searchBarAction:" destination="Sbb-jo-82L" eventType="editingDidEnd" id="ffY-ao-bdG"/>
+                                        <action selector="textFieldAction:" destination="Sbb-jo-82L" eventType="editingDidEnd" id="ffY-ao-bdG"/>
                                     </connections>
                                 </textField>
                             </subviews>
@@ -69,7 +69,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="λ Message Board" id="hzo-1D-kCa"/>
                     <connections>
-                        <outlet property="searchBar" destination="p7f-Rk-GHZ" id="wdc-Vr-Sbe"/>
+                        <outlet property="textField" destination="p7f-Rk-GHZ" id="wdc-Vr-Sbe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIs-0h-hJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,7 +79,7 @@
         <!--Title-->
         <scene sceneID="8C7-QB-o4x">
             <objects>
-                <tableViewController id="6Pw-mw-IUd" customClass="MessageThreadTableViewController" customModule="iOSMessageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="6Pw-mw-IUd" customClass="MessageThreadDetailTableViewController" customModule="iOSMessageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XLa-ug-ELU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

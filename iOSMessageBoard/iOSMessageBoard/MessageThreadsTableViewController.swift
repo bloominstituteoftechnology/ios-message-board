@@ -10,35 +10,50 @@ import UIKit
 
 class MessageThreadsTableViewController: UITableViewController {
 
-    @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var textField: UITextField!
+    var messageThreadController: MessageThreadController = MessageThreadController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowMessageBoard" {
+            guard let destinationVC = segue.destination as? MessageThreadDetailTableViewController else { return }
+            destinationVC.messageThreadcontroller = messageThreadController
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            destinationVC.messageThread = messageThreadController.messageThreads[indexPath.row]
+        }
+    }
+
+
+
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return messageThreadController.messageThreads.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageBoardCell", for: indexPath)
+        let messageThread = messageThreadController.messageThreads[indexPath.row]
+        cell.textLabel?.text = messageThread.title
 
         return cell
     }
 
 
-    @IBAction func searchBarAction(_ sender: Any) {
+    @IBAction func textFieldAction(_ sender: Any) {
+        guard let titleText = textField.text else { return }
+        messageThreadController.createMessagethread(title: titleText) {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
     }
     
 

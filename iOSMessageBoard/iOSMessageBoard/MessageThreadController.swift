@@ -14,12 +14,29 @@ class MessageThreadController {
     static let baseURL = URL(string: "https://lambda-message-board.firebaseio.com/")!
 
     func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping () -> Void) {
+        let message = MessageThread.Message(text: text, sender: sender)
+        let identifierURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
+        var requestURL = identifierURL.appendingPathComponent("messages")
+        requestURL.appendPathComponent("json")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.post.rawValue
 
+        do {
+            let jsonEncoder = JSONEncoder()
+            request.httpBody = try jsonEncoder.encode(message)
+        } catch {
+            NSLog("Errors encoding messages to FireBase\(error)")
+        }
 
-
-
-
-
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error pushing message to Firebase: \(error)")
+                completion()
+                return
+            }
+            messageThread.messages.append(message)
+            completion()
+        }.resume()
 
     }
 

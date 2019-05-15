@@ -12,6 +12,7 @@ class MessageDetailViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
