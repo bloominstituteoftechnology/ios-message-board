@@ -15,9 +15,10 @@ class MessageThreadsTableViewController: UITableViewController {
     @IBOutlet weak var messageTextField: UITextField!
     
     @IBAction func messageTextFieldAction(_ sender: Any) {
-        guard let thread = messageTextField.text else { return }
         
-        messageThreadController.createMessageThread(title: thread) { (error) in
+        guard let title = messageTextField.text else { return }
+        print("creating new message thread")
+        messageThreadController.createMessageThread(title: title) { (error) in
             if let error = error {
                 NSLog("Error creating new message thread: \(error)")
             }
@@ -29,8 +30,16 @@ class MessageThreadsTableViewController: UITableViewController {
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        messageThreadController.fetchMessageThreads { (error) in
+            if let error = error {
+                NSLog("Error fetching message threads: \(error)")
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

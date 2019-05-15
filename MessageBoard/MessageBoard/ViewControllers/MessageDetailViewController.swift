@@ -15,31 +15,29 @@ class MessageDetailViewController: UIViewController {
     
     
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var messageTextView: UITextView!
-    
+
     
     @IBAction func sendButtonPressed(_ sender: Any) {
+        guard let name = nameTextField.text,
+            let message = messageTextView.text,
+            let messageThread = messageThread else { return }
         
+        messageThreadController?.createMessage(messageThread: messageThread, text: message, sender: name, completion: { (error) in
+            if let error = error {
+                NSLog("Error creating new message: \(error)")
+            }
+            self.navigationController?.popViewController(animated: true)
+            
+        })
         
         
     }
      
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationItem.title = "New Message"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
