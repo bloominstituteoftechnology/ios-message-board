@@ -169,7 +169,7 @@
                     <navigationItem key="navigationItem" title="Title" id="TJS-Ei-60H">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="MUT-JD-qBZ">
                             <connections>
-                                <action selector="sendButtonPressed:" destination="nH0-LK-A1I" id="phN-v8-gQk"/>
+                                <action selector="sendButtonPressed:" destination="nH0-LK-A1I" id="ROA-Wp-ayY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
