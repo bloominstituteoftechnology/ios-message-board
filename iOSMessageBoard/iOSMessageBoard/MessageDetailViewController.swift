@@ -17,6 +17,8 @@ class MessageDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "New Message"
+
         // Do any additional setup after loading the view.
     }
     

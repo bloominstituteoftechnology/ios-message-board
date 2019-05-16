@@ -18,6 +18,20 @@ class MessageThreadsTableViewController: UITableViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        messageThreadController.fetchMessageThread { (error) in
+            if let error = error {
+                NSLog("error fetching the data: \(error)")
+                return
+            } else {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowMessageBoard" {
             guard let destinationVC = segue.destination as? MessageThreadDetailTableViewController else { return }
