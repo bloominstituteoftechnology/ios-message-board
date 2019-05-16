@@ -37,18 +37,19 @@ class MessageThreadController {
 
                 let messageThreads = messageThreadDictionaries.map( { $0.value })
                 self.messageThreads = messageThreads
+                completion(nil)
             } catch {
                 NSLog("Error decoding messageThreads: \(error)")
                 completion(error)
 
             }
-        }
+        }.resume()
 
 
 
     }
 
-    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping () -> Void) {
+    func createMessage(messageThread: MessageThread, text: String, sender: String, completion: @escaping (Error?) -> Void) {
         let message = MessageThread.Message(text: text, sender: sender)
         let identifierURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
         var requestURL = identifierURL.appendingPathComponent("messages")
@@ -59,27 +60,25 @@ class MessageThreadController {
         do {
             let jsonEncoder = JSONEncoder()
             request.httpBody = try jsonEncoder.encode(message)
-            completion()
+
         } catch {
             NSLog("Errors encoding messages to FireBase\(error)")
-            completion()
-            return
         }
 
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error pushing message to Firebase: \(error)")
-                completion()
+                completion(error)
                 return
             }
             messageThread.messages.append(message)
-            completion()
+            completion(error)
         }.resume()
 
     }
 
 
-    func createMessagethread(title: String, completion: @escaping () -> Void) {
+    func createMessagethread(title: String, completion: @escaping (Error?) -> Void) {
 
         let messageThread = MessageThread(title: title)
         let identifierURL = MessageThreadController.baseURL.appendingPathComponent(messageThread.identifier)
@@ -93,18 +92,16 @@ class MessageThreadController {
             request.httpBody = try jsonEncoder.encode(messageThread)
         } catch {
             NSLog("Error encoding messageThread: \(error)")
-            completion()
-            return
         }
         URLSession.shared.dataTask(with: request) { (data, _, error) in
 
             if let error = error {
                 NSLog("Error pushing messageThread to Firebase: \(error)")
-                completion()
+                completion(error)
                 return
             }
             self.messageThreads.append(messageThread)
-            completion()
+            completion(nil)
         }.resume()
     }
 

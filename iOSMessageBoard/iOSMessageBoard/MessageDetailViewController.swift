@@ -36,7 +36,7 @@ class MessageDetailViewController: UIViewController {
         guard let nameText = nameTextField.text, !nameText.isEmpty,
             let messageText = messageTextView.text, !messageText.isEmpty,
             let messageThread = messageThread else { return }
-        messageThreadController?.createMessage(messageThread: messageThread, text: messageText, sender: nameText, completion: {
+        messageThreadController?.createMessage(messageThread: messageThread, text: messageText, sender: nameText, completion: { (error) in 
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }

@@ -63,7 +63,10 @@ class MessageThreadsTableViewController: UITableViewController {
     @IBAction func textFieldAction(_ sender: Any) {
         
         guard let title = textField.text else { return }
-        messageThreadController.createMessagethread(title: title) {
+        messageThreadController.createMessagethread(title: title) { (error) in
+            if let error = error {
+                print(error)
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
