@@ -27,4 +27,7 @@ class MessageDetailViewController: UIViewController {
     @IBOutlet weak var detailTextField: UITextField!
     
     @IBOutlet weak var detailTextView: UITextView!
+    
+    var messageThread: MessageThread?
+    var messageThreadController: MessageThreadController?
 }
