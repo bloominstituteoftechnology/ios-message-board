@@ -15,6 +15,7 @@
 		42D2E8082295D9650097F6EF /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2E8072295D9650097F6EF /* MessageThreadDetailTableViewController.swift */; };
 		42D2E80A2295DAA70097F6EF /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2E8092295DAA70097F6EF /* MessageDetailViewController.swift */; };
 		42D2E80C2295DBF40097F6EF /* MessageThread.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2E80B2295DBF40097F6EF /* MessageThread.swift.swift */; };
+		42D2E80E2295E0140097F6EF /* MessageThreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2E80D2295E0140097F6EF /* MessageThreadController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		42D2E8072295D9650097F6EF /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
 		42D2E8092295DAA70097F6EF /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		42D2E80B2295DBF40097F6EF /* MessageThread.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThread.swift.swift; sourceTree = "<group>"; };
+		42D2E80D2295E0140097F6EF /* MessageThreadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		42C4924F228CA578007231CD /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				42D2E80D2295E0140097F6EF /* MessageThreadController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				42D2E8082295D9650097F6EF /* MessageThreadDetailTableViewController.swift in Sources */,
 				42D2E8062295D84A0097F6EF /* MessageThreadsTableViewController.swift in Sources */,
 				42D2E80C2295DBF40097F6EF /* MessageThread.swift.swift in Sources */,
+				42D2E80E2295E0140097F6EF /* MessageThreadController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
