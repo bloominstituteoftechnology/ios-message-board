@@ -18,7 +18,19 @@ class MessageDetailViewController: UIViewController {
     
 
     @IBAction func sendButtonTapped(_ sender: Any) {
+        guard let text = detailTextField.text, !text.isEmpty else { return }
+        guard let messageThread = messageThread else { return }
+        guard let viewText = detailTextView.text , !viewText.isEmpty else { return }
         
+        messageThreadController?.createMessage(messageThread: messageThread, text: viewText, sender: text, completion: { (error) in
+            if let error = error {
+                NSLog("Error: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
         
         
     }
