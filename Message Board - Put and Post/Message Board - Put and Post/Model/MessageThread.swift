@@ -10,9 +10,11 @@ import Foundation
 
 class MessageThread: Equatable, Codable {
     
-    //Stub needed to conform to Equatable
+    //Stub needed to conform to Equatable. (Why does the class need the stub but the Message struc doesnt?)
     static func == (lhs: MessageThread, rhs: MessageThread) -> Bool {
-        <#code#>
+        return lhs.title == rhs.title &&
+        lhs.identifier == rhs.identifier &&
+        lhs.messages == rhs.messages
     }
     
 
