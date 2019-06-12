@@ -40,6 +40,17 @@ class MessageThreadController {
             completion(error)
         }
         
+        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            guard let data = data else {
+                completion(error)
+                return
+            }
+        }.resume()
+        
     
     }
 }
