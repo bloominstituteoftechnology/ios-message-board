@@ -12,7 +12,7 @@ class MessageThreadController {
 
 	var messageThreads: [MessageThread] = []
 
-	static let baseURL = URL(string: "https://lambda-school-mredig.firebaseio.com/")!
+	static let baseURL = URL(string: "https://lambda-school-mredig.firebaseio.com/messageBoard")!
 
 	func createMessageThread(title: String, completion: @escaping (Error?) -> Void) {
 		let messageThread = MessageThread(title: title)
